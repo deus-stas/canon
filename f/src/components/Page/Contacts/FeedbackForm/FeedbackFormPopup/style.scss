@@ -1,0 +1,116 @@
+@import 'src/assets/styles/variables';
+
+.feedback-form-popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s 0s, visibility 0s 0.6s;
+  overflow-y: auto;
+
+  .feedback-form-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: $overlay;
+  }
+
+  .feedback-form-popup {
+    flex-direction: column;
+    padding: 20px 20px 15px;
+    background-color: $white;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.6s;
+    transform: translateY(-100px);
+    height: 210px;
+    width: 400px;
+
+    .feedback-form-popup-title {
+      font-size: 22px;
+      font-weight: bold;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 2;
+      width: 100%;
+
+      svg {
+        margin-right: 8px;
+      }
+    }
+    
+    .feedback-form-popup-buttons {
+      padding-top: 15px;
+      flex-wrap: wrap;
+
+      button {
+        display: inline-block;
+        line-height: 24px;
+        text-align: center;
+        padding: 10px 30px;
+        font-size: 18px;
+        margin: 5px;
+        color: $red;
+        border: 1px solid;
+        transition: color 0.3s;
+
+        &:hover {
+          color: $darkred;
+        }
+      }
+
+      a {
+        display: inline-block;
+        line-height: 24px;
+        text-align: center;
+        padding: 10px 30px;
+        font-size: 18px;
+        margin: 5px;
+        background-color: $red;
+        border: 1px solid $red;
+        color: $white;
+        transition: background-color 0.3s, border-color 0.3s;
+
+        &:hover {
+          background-color: $darkred;
+          border-color: $darkred;
+        }
+      }
+    }
+  }
+}
+
+body.feedback-form-popup-is-open {
+  overflow: hidden;
+
+  .feedback-form-popup-container {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.6s 0s, visibility 0s 0s;
+  }
+
+  .feedback-form-popup {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .feedback-form-popup-container {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: stretch;
+
+    .feedback-form-popup {
+      max-width: 100%;
+      width: 100%;
+      transform: translateY(100%);
+    }
+  }
+}

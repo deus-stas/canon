@@ -1,0 +1,333 @@
+@import '../../../assets/styles/variables';
+
+.nav {
+  background-color: $light-black;
+  position: relative;
+  z-index: 3;
+
+  &__logo {
+    border-bottom: 1px solid $grey2;
+    display: none;
+    justify-content: flex-start;
+    min-height: 50px;
+    position: relative;
+    padding: 0 16px;
+
+    .close-button {
+      position: absolute;
+      height: 100%;
+      right: 0;
+      top: 0;
+    }
+
+    @media (max-width: 768px) {
+      display: flex;
+    }
+  }
+}
+
+.top-menu {
+  align-items: stretch;
+  justify-content: space-between;
+  list-style: none;
+  margin-left: -20px;
+}
+
+.top-menu > li {
+  position: relative;
+}
+
+.top-menu a,
+.parent-header {
+  color: $white;
+  user-select: none;
+}
+
+.top-menu-child a {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px 20px;
+  transition: color 0.3s, background-color 0.3s;
+
+  &.current-child {
+    pointer-events: none;
+  }
+}
+
+.top-menu > li > a,
+.parent-header {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 20px;
+  transition: color 0.3s, background-color 0.3s;
+  height: 100%;
+
+  &.active {
+    background-color: $darkgrey;
+  }
+
+  &.current {
+    pointer-events: none;
+  }
+}
+
+.top-menu-child a:hover {
+  color: $grey;
+}
+
+.top-menu > li > a:hover {
+  color: $grey;
+}
+
+.top-menu > li.parent:hover > .parent-header {
+  background-color: $dark;
+  color: $white;
+}
+
+.top-menu-child-container {
+  background-color: $dark;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  font-size: 14px;
+  width: $submenu-width;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0s 0.3s;
+}
+
+.top-menu > li.parent:hover .top-menu-child-container {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s, visibility 0s 0s;
+}
+
+.top-menu-child {
+  list-style: none;
+}
+
+.hamburger {
+  color: $grey2;
+  font-size: 18px;
+  transition: color 0.3s;
+  display: none;
+
+  .ham {
+    background-color: $grey2;
+    height: 2px;
+    width: 15px;
+    position: relative;
+    transition: background-color 0.3s;
+    margin-right: 4px;
+
+    &::before,
+    &::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: $grey2;
+      position: absolute;
+      left: 0;
+      top: calc(100% + 2px);
+      bottom: auto;
+      transition: background-color 0.3s;
+    }
+
+    &::before {
+      bottom: calc(100% + 2px);
+      top: auto;
+    }
+  }
+
+  &:hover {
+    color: $dark;
+
+    .ham {
+      background-color: $dark;
+
+      &::before,
+      &::after {
+        background-color: $dark;
+      }
+    }
+  }
+}
+
+.toggle-child-menu-button {
+  display: none;
+}
+
+@media (min-width: 950px) and (max-width: 1000px) {
+  .top-menu {
+    font-size: 80%;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 950px) {
+  .top-menu {
+    font-size: 70%;
+  }
+}
+
+@media (min-width: 769px) {
+  .top-menu-child-container {
+    height: auto !important;
+  }
+
+  body.top-menu-is-open {
+    padding-right: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  body.top-menu-is-open {
+    overflow: hidden;
+  }
+
+  .nav {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    justify-content: flex-end;
+    padding-left: 0;
+    padding-right: 0;
+    visibility: hidden;
+    transition: visibility 0s 0.6s;
+
+    .top-menu-is-open & {
+      visibility: visible;
+      transition: visibility 0s 0s;
+    }
+
+    .wrapper {
+      background-color: $white;
+      max-width: $submenu-width-mobile;
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      max-height: 100%;
+      overflow-y: auto;
+      margin: 0;
+      transition: transform 0.6s;
+      transform: translateX(100%);
+
+      .top-menu-is-open & {
+        transform: translateX(0);
+      }
+    }
+
+    .nav-overlay {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: $overlay;
+      opacity: 0;
+      transition: opacity 0.6s;
+
+      .top-menu-is-open & {
+        opacity: 1;
+      }
+    }
+  }
+
+  .hamburger,
+  .nav .logo-container {
+    display: flex;
+  }
+
+  .top-menu {
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  .top-menu > li {
+    border-bottom: 1px solid $grey2;
+  }
+
+  .top-menu > li > a,
+  .parent-header {
+    color: $black;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 20px 16px;
+    justify-content: flex-start;
+    background-color: $white !important;
+
+    &.active {
+      color: $red;
+
+      &:hover {
+        color: $red !important;
+      }
+    }
+
+    &.current {
+      pointer-events: all;
+    }
+  }
+
+  .top-menu > li > a:hover {
+    color: $font-color;
+    background-color: $white;
+  }
+
+  .top-menu > li.parent:hover > .parent-header {
+    background-color: $white;
+    color: $font-color;
+  }
+
+  .top-menu-child-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 1;
+    visibility: visible;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.6s;
+    background-color: $white;
+
+    a {
+      color: $font-color;
+      font-size: 18px;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-bottom: 15px;
+
+      &:last-child {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .top-menu-child a:hover {
+    color: $font-color;
+  }
+
+  .toggle-child-menu-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 3px;
+    right: 20px;
+    height: 68px;
+    transition: transform 0.3s;
+    transform-origin: center;
+
+    .child-menu-is-open & {
+      transform: rotate(-180deg);
+    }
+  }
+}

@@ -1,0 +1,73 @@
+@import 'src/assets/styles/variables';
+
+.social-links-container {
+  background-color: $red;
+  margin-top: auto;
+
+  .page-not-found & {
+    display: none;
+  }
+
+  :is(.not-in-final-state, .not-found-state) & {
+    display: none;
+  }
+}
+
+.social-link {
+  padding: 5px 10px;
+  text-align: center;
+  min-height: 40px;
+  transition: background-color 0.3s;
+  color: $white;
+  flex-grow: 2;
+  font-size: 18px;
+  line-height: 24px;
+  position: relative;
+  cursor: pointer;
+
+  svg,
+  img {
+    margin-right: 6px;
+
+    .is-mac & {
+      margin-bottom: 3px;
+    }
+  }
+
+  &:hover {
+    background-color: $darkred;
+  }
+}
+
+@media (max-width: 1024px) {
+  .social-links-container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .social-links-container .wrapper {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    width: 25%;
+    text-align: left;
+    justify-content: flex-start;
+    flex-grow: 0;
+    padding-left: 0;
+    padding-right: 0;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .social-link {
+    width: 50%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+  }
+}

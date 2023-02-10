@@ -1,0 +1,64 @@
+.select {
+  width: 100%;
+  margin-bottom: 20px;
+
+  label {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    padding-bottom: 9px;
+    display: block;
+  }
+
+  .pseudoSelect {
+    border: 1px solid #c00;
+    height: 34px;
+    position: relative;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 7px 8px;
+
+    &.open {
+      background: linear-gradient(0deg, #e9f0fd, #e9f0fd), #fff;
+      box-shadow: 0 0 7px rgba(204, 0, 0, 0.4);
+    }
+
+    &::after {
+      content: '';
+      background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDExIDYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik0xIDFMNiA1TDEwLjUgMSIgc3Ryb2tlPSJibGFjayI+PC9wYXRoPgo8L3N2Zz4=');
+      width: 12px;
+      height: 6px;
+      display: block;
+      position: absolute;
+      top: 40%;
+      right: 10px;
+    }
+  }
+
+  .list {
+    cursor: pointer;
+    display: none;
+    font-size: 14px;
+    line-height: 18px;
+    background: #fff;
+    box-shadow: 0 0 10px rgb(0 0 0 / 30%);
+    border-radius: 4px;
+    padding: 9px 0;
+    position: absolute;
+    min-width: 200px;
+
+    & > div {
+      padding: 9px 15px;
+
+      &:hover {
+        background: #f1f1f1;
+      }
+    }
+
+    &.open {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+import { generateStoreChunkStatesActionTypes } from '../helpers'
+
+export const storeChunkName = 'templateSettings'
+
+export const STORE_CHUNK_STATES_ACTION_TYPES = Object.freeze(generateStoreChunkStatesActionTypes(storeChunkName))
+
+export const SET_LANG = 'SET_LANG'

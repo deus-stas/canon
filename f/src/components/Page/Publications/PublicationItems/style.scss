@@ -1,0 +1,51 @@
+@import 'src/assets/styles/variables';
+
+.publications {
+  margin: 0 auto 40px;
+  width: 100%;
+  max-width: 1140px;
+
+  &-item {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 64px;
+
+    &-image {
+      display: block;
+      min-width: 18%;
+
+      a {
+        text-decoration: none !important;
+        border: none !important;
+      }
+    }
+
+    &-data {
+      &-name {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 23px;
+        margin-bottom: 12px;
+      }
+
+      &-date {
+        margin-bottom: 12px;
+        display: flex;
+        gap: 20px;
+      }
+
+      &-link a {
+        margin-right: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .publications {
+    &-item {
+      flex-direction: column;
+      row-gap: 12px;
+    }
+  }
+}

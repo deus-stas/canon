@@ -1,0 +1,30 @@
+.tabs-sections {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  gap: 10px;
+  margin-bottom: 12px;
+
+  & > div {
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    padding: 6px 12px;
+    white-space: nowrap;
+    cursor: pointer;
+
+    & span {
+      color: gray;
+      pointer-events: none;
+    }
+  }
+
+  & > div:hover,
+  & > div.active {
+    color: #c00;
+    border-color: #c00;
+
+    & span {
+      color: #ff7474;
+    }
+  }
+}

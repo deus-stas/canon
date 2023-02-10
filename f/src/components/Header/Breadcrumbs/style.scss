@@ -1,0 +1,54 @@
+@import 'src/assets/styles/variables';
+
+.breadcrumbs {
+  list-style: none;
+}
+
+.breadcrumb {
+  margin-right: 8px;
+  line-height: 18px;
+  font-size: 14px;
+  display: inline-block;
+
+  &:first-child {
+    a {
+      margin-bottom: 2px;
+
+      path {
+        fill: $grey;
+      }
+
+      &:hover {
+        path {
+          fill: $red;
+        }
+      }
+    }
+  }
+
+  &:not(:first-child) {
+    a {
+      color: $grey;
+      transition: color 0.3s;
+
+      &:hover {
+        color: $red;
+      }
+    }
+
+    svg {
+      margin-right: 8px;
+      margin-bottom: 1px;
+
+      path {
+        stroke: $grey;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .breadcrumbs {
+    display: none;
+  }
+}

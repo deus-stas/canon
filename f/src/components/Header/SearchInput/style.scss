@@ -1,0 +1,57 @@
+@import 'src/assets/styles/variables';
+
+.SearchInput {
+  border: 0.01rem solid #c8c8c8;
+  border-radius: 0.3rem;
+  display: flex;
+  margin-left: 1rem;
+
+  input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0.3rem 0.5rem;
+    background: none;
+    font-size: 1rem;
+  }
+
+  .magnifier {
+    border-left: 0.01rem solid #c8c8c8;
+    border-radius: 0 0.3rem 0.3rem 0;
+    width: 2rem;
+    height: 2rem;
+    background-color: #fafafa;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAxNSAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik05LjUgNS41QzkuNSA3LjcwOTE0IDcuNzA5MTQgOS41IDUuNSA5LjVDMy4yOTA4NiA5LjUgMS41IDcuNzA5MTQgMS41IDUuNUMxLjUgMy4yOTA4NiAzLjI5MDg2IDEuNSA1LjUgMS41QzcuNzA5MTQgMS41IDkuNSAzLjI5MDg2IDkuNSA1LjVaTTguNTY0OTggMTAuMDY3NUM3LjY4OTE3IDEwLjY1NjQgNi42MzQ3MSAxMSA1LjUgMTFDMi40NjI0MyAxMSAwIDguNTM3NTcgMCA1LjVDMCAyLjQ2MjQzIDIuNDYyNDMgMCA1LjUgMEM4LjUzNzU3IDAgMTEgMi40NjI0MyAxMSA1LjVDMTEgNi44NTg5MSAxMC41MDcyIDguMTAyNzEgOS42OTA1IDkuMDYyNDNMMTQuMDAxNyAxMi45NDI1TDEyLjk5ODMgMTQuMDU3NUw4LjU2NDk4IDEwLjA2NzVaIiBmaWxsPSJibGFjayI+PC9wYXRoPgo8L3N2Zz4=');
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+}
+
+.SearchInput-xs {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .SearchInput {
+    display: none;
+  }
+
+  .SearchInput-xs {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAxNSAxNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik05LjUgNS41QzkuNSA3LjcwOTE0IDcuNzA5MTQgOS41IDUuNSA5LjVDMy4yOTA4NiA5LjUgMS41IDcuNzA5MTQgMS41IDUuNUMxLjUgMy4yOTA4NiAzLjI5MDg2IDEuNSA1LjUgMS41QzcuNzA5MTQgMS41IDkuNSAzLjI5MDg2IDkuNSA1LjVaTTguNTY0OTggMTAuMDY3NUM3LjY4OTE3IDEwLjY1NjQgNi42MzQ3MSAxMSA1LjUgMTFDMi40NjI0MyAxMSAwIDguNTM3NTcgMCA1LjVDMCAyLjQ2MjQzIDIuNDYyNDMgMCA1LjUgMEM4LjUzNzU3IDAgMTEgMi40NjI0MyAxMSA1LjVDMTEgNi44NTg5MSAxMC41MDcyIDguMTAyNzEgOS42OTA1IDkuMDYyNDNMMTQuMDAxNyAxMi45NDI1TDEyLjk5ODMgMTQuMDU3NUw4LjU2NDk4IDEwLjA2NzVaIiBmaWxsPSJibGFjayI+PC9wYXRoPgo8L3N2Zz4=');
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+
+  .SearchInput.open {
+    display: flex;
+  }
+
+  .SearchInput.open + .SearchInput-xs {
+    display: none;
+  }
+}

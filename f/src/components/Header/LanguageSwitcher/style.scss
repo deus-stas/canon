@@ -1,0 +1,33 @@
+@import 'src/assets/styles/variables';
+
+.language-switcher,
+.language-switcher button {
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.language-switcher {
+  button {
+    transition: color 0.3s;
+    line-height: 1.3;
+    font-size: 14px;
+    margin-left: 12px;
+
+    &:hover {
+      color: $red;
+    }
+
+    &.active {
+      font-weight: bold;
+      pointer-events: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .language-switcher {
+    margin-left: auto;
+  }
+}
