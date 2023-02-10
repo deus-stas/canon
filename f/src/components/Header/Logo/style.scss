@@ -1,0 +1,44 @@
+@import 'src/assets/styles/variables';
+
+.logo {
+  &__image {
+    display: none;
+    width: 85px;
+
+    @media (min-width: 768px) {
+      display: block;
+      margin-right: 16px;
+      width: auto;
+    }
+  }
+
+  &__mobile-image {
+    display: block;
+    max-width: 75%;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__text {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+      padding-top: 10px;
+    }
+  }
+
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+
+  @media (max-width: 768px) {
+    &__container {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+}

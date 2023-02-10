@@ -1,0 +1,45 @@
+@import 'src/assets/styles/variables';
+
+.header {
+  position: relative;
+  z-index: 1;
+}
+
+.header .wrapper {
+  justify-content: space-between;
+  min-height: 120px;
+}
+
+.top-container {
+  border-bottom: 1px solid $grey2;
+  position: relative;
+  z-index: 2;
+
+  .page-not-found & {
+    display: none;
+  }
+
+  :is(.not-in-final-state, .not-found-state) & {
+    display: none;
+  }
+
+  .wrapper {
+    min-height: 40px;
+    padding: 5px 0;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    border-bottom: 1px solid $grey2;
+
+    .wrapper {
+      min-height: 50px;
+    }
+  }
+
+  .top-container {
+    border-bottom: none;
+  }
+}

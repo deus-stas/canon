@@ -1,0 +1,32 @@
+@import 'src/assets/styles/variables';
+
+.contacts-page {
+  padding-top: 40px;
+  padding-bottom: 70px;
+
+  h2 {
+    margin-bottom: 13px;
+  }
+
+  p.contacts-address {
+    margin-bottom: 10px;
+  }
+
+  p.contacts-phone {
+    a {
+      margin-left: 5px;
+      transition: color 0.3s;
+
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .contacts-page {
+    padding-top: 0;
+    padding-bottom: 10px;
+  }
+}

@@ -1,0 +1,13 @@
+@import '../../../assets/styles/variables';
+
+.catalog-page {
+  padding-top: 40px;
+  padding-bottom: 100px;
+}
+
+@media (max-width: 768px) {
+  .catalog-page {
+    padding-top: 0;
+    padding-bottom: 40px;
+  }
+}

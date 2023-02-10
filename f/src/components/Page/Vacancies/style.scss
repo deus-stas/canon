@@ -1,0 +1,40 @@
+.vacancies-content {
+  .filter {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .list {
+    a {
+      color: inherit;
+      margin-bottom: 40px;
+      display: block;
+      text-decoration: none !important;
+      border: none !important;
+
+      h3 {
+        color: #c00;
+
+        &::after {
+          content: '';
+          display: inline-block;
+          vertical-align: middle;
+          margin-left: 5px;
+          width: 11px;
+          height: 10px;
+          background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEiIGhlaWdodD0iMTEiIHZpZXdCb3g9IjAgMCAxMSAxMSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEgOS41TDkuNSAxTTkuNSAxVjhNOS41IDFIMyIgc3Ryb2tlPSIjQ0MwMDAwIiBzdHJva2Utd2lkdGg9IjEuNSI+PC9wYXRoPgo8L3N2Zz4=');
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+        }
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 24px;
+      }
+    }
+  }
+}
