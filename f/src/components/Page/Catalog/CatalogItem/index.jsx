@@ -54,6 +54,8 @@ const CatalogItemPage = props => {
 
     console.log(catalogItem);
 
+    const flagTabs = catalogItem.disable_tabs;
+
     return (
       <div className={`flex-column ${catalogClassName}`}>
         <div className="container">
@@ -85,7 +87,7 @@ const CatalogItemPage = props => {
 
 
         </div>
-        {catalogItem.medialibrary && <ClinicalGallery items={catalogItem.medialibrary} />}
+        {catalogItem.medialibrary && <ClinicalGallery flagTabs={flagTabs} items={catalogItem.medialibrary} />}
 
         <div className="container catalog-detail__extra">
           {catalogItem.detailText && <div className="wrapper" dangerouslySetInnerHTML={{ __html: catalogItem.detailText }} />}
