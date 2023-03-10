@@ -4,8 +4,17 @@
   padding-top: 3rem;
   padding-bottom: 3rem;
 
+  &.--no-pb {
+    padding-bottom: 0;
+  }
+
   &__extra {
     margin-top: 3rem;
+
+    &.--top {
+      margin-top: 1rem;
+      padding-bottom: 1rem;
+    }
 
     a {
       color: #c00;
