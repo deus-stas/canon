@@ -15,7 +15,7 @@ import { updatePageMeta } from '../../../../hooks/usePageMeta'
 const catalogClassName = 'catalog-detail'
 
 const CatalogItemPage = props => {
-  const lang = useTemplateContext().lang
+  const lang = useTemplateContext().lang;
   let catalogItemCode = props.match.params.path1
   if (props.match.params.path2) {
     catalogItemCode += '/' + props.match.params.path2
@@ -54,8 +54,11 @@ const CatalogItemPage = props => {
 
     console.log(catalogItem);
 
+    const flagTabs = catalogItem.disable_tabs;
+    const twoBanner = catalogItem.two_banner;
+
     return (
-      <div className={`flex-column ${catalogClassName}`}>
+      <div className={`flex-column ${catalogClassName} ${twoBanner ? '--no-pb' : ' '}`}>
         <div className="container">
           <h1 dangerouslySetInnerHTML={{ __html: catalogItem.name }} />
 
@@ -83,13 +86,24 @@ const CatalogItemPage = props => {
             </div> :
             ''}
 
+          {twoBanner ?
+            <div className="container catalog-detail__extra --top">
+              {catalogItem.detailText && <div className="wrapper" dangerouslySetInnerHTML={{ __html: catalogItem.detailText }} />}
+            </div>
+            : null
+          }
+
 
         </div>
-        {catalogItem.medialibrary && <ClinicalGallery items={catalogItem.medialibrary} />}
+        {catalogItem.medialibrary && <ClinicalGallery flagTabs={flagTabs} items={catalogItem.medialibrary} />}
 
-        <div className="container catalog-detail__extra">
-          {catalogItem.detailText && <div className="wrapper" dangerouslySetInnerHTML={{ __html: catalogItem.detailText }} />}
-        </div>
+        {!twoBanner ?
+          <div className="container catalog-detail__extra">
+            {catalogItem.detailText && <div className="wrapper" dangerouslySetInnerHTML={{ __html: catalogItem.detailText }} />}
+          </div>
+          : null
+        }
+
 
       </div>
     )
