@@ -47,7 +47,7 @@ const Contacts = () => {
             />
           </p>
 
-          <FeedbackForm title={'Обратная связь'} />
+          <FeedbackForm title={'Обратная связь'} related={true} />
         </div>
       </div>
     </div>
