@@ -9,7 +9,7 @@ const PublicationItems = props => {
 
   const items = props.items
   return items?.length ?
-    <div className={`flex-column ${ItemsClassName}`}>
+  <div className={`flex-column ${ItemsClassName}`}>
       <div className={'wrapper-inner'}>
         {
           items.map((item, index) =>
