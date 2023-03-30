@@ -32,7 +32,7 @@ const Breadcrumbs = () => {
       <li className="breadcrumb">
         <Link to={`${langPrefix}/`} className="breadcrumb-link">
           <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 10H4.66667V6H7.33333V10H10V5.33333H12L6 0L0 5.33333H2V10Z"/>
+            <path d="M2 10H4.66667V6H7.33333V10H10V5.33333H12L6 0L0 5.33333H2V10Z" />
           </svg>
         </Link>
       </li>
@@ -47,7 +47,6 @@ const Breadcrumbs = () => {
             return link.replace(/\//g, '') === breadcrumb
           }
           )[0]
-
           if (!menuItem) {
             if (inFinalState(catalogItemsStoreChunk) && pathname) {
               let key = pathname.replace('/en/products/', '')
@@ -59,10 +58,15 @@ const Breadcrumbs = () => {
                 if (itm.code === breadcrumb) {
                   menuItem = itm
                 } else if (itm.parentSectionName) {
-                  menuItem = { name: itm.parentSectionName }
+                   if(itm.depth > 4 && index == 2) {
+                    menuItem = { name: pathNames[2] }
+                  } else {
+                    menuItem = { name: itm.parentSectionName }
+                  }
                 }
               }
             }
+
             if (inFinalState(specialtiesItemsStoreChunk)) {
               let key = pathname.replace('/en/specialties/', '')
               key = key.replace('/specialties/', '')
@@ -82,11 +86,19 @@ const Breadcrumbs = () => {
             (
               <li className="breadcrumb" key={index}>
                 <svg width="5" height="7" viewBox="0 0 5 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M1 1L3.5 3.5L1 6" stroke="#808080"/>
+                  <path d="M1 1L3.5 3.5L1 6" stroke="#808080" />
                 </svg>
                 <Link to={routTo} dangerouslySetInnerHTML={{ __html: menuItem?.name }} />
               </li>
-            ) : null
+            ) :
+            (
+              <li className="breadcrumb" key={index}>
+                <svg width="5" height="7" viewBox="0 0 5 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L3.5 3.5L1 6" stroke="#808080" />
+                </svg>
+                <span dangerouslySetInnerHTML={{ __html: menuItem?.name }} />
+              </li>
+            )
         })
       }
     </ul>

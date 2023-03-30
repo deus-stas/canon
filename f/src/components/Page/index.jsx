@@ -76,7 +76,6 @@ const Page = () => {
         <Route exact path={`${langPrefix}/search/`} component={SearchPage} />
         <Route exact path={`${langPrefix}/service-support/feedback/`} component={FeedbackPage} />
         <Route exact path={`${langPrefix}/landing-0-1`} component={Landing} />
-        <Route exact path={`${langPrefix}/landing-0-2`} component={Landing} />
         <Route component={NotFoundPage} />
       </Switch>
       <Footer />

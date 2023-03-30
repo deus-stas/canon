@@ -61,7 +61,7 @@ const PublicationsPage = () => {
         setSections(Object.entries(sections))
       }
 
-      setItemsToRender(items)
+      setItemsToRender(items.sort((a, b) => b.timestamp - a.timestamp))
       return
     }
     if (selectedSection !== 'All') {
@@ -110,7 +110,7 @@ const PublicationsPage = () => {
   }
 
   const { data: pageData } = pageStoreChunk
-  return pageData    ? (
+  return pageData ? (
     <div className={classNames(`${pageClassName} ${pageCode}-${pageClassName} container`)}>
 
       {pageData.previewImage?.src ?

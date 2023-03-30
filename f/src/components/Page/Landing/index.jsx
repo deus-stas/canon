@@ -33,11 +33,33 @@ const Landing = () => {
 
     return pageData ? (
         <div>
-            <div className="container">
-                <h1>Имя: {pageData.code}</h1>
-                <h2>Дата: {pageData.date}</h2>
-                <h3>Id: {pageData.id}</h3>
+
+            <div className="d-none d-md-block" id="banner-area">
+                <div className="b-container">
+                    <div className="row">
+                        <div className="col-sm-12">
+                            <span property="s:largeImage">
+                                <img className="img-fluid" alt="" src="https://canonmedical.widen.net/content/gn2486n88f/original/Overview_Banner.png?u=cglmil&amp;" />
+                            </span>
+                            <div className="banner-caption">
+                                <div className="row">
+                                    <div className="col-lg-6 col-md-6 col-sm-7">
+
+                                        <h1>
+                                            <div className="text-red">
+                                                <div className="text-white hidden-xs"><span>Online Oncology Days</span><br /><br /><br /><span ><em>Starting April 12</em></span></div><span className="visible-xs">Online Oncology Days
+                                                    <br /><em>Starting April 12</em></span>
+                                            </div><br />
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
     ) : <NotFoundPage />
 }
