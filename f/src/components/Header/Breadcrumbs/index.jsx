@@ -15,6 +15,8 @@ const Breadcrumbs = () => {
   const langPrefix = (lang === 'ru') ? '' : '/' + lang
   const catalogItemsStoreChunk = useSelector(store => store['catalogItem'])
   const specialtiesItemsStoreChunk = useSelector(store => store['specialties'])
+  const landingsItemsStoreChunk = useSelector(store => store['landingsItems'])
+  const landingsDaysStoreChunk = useSelector(store => store['landingsDays'])
   const pageStoreChunk = useSelector(store => store['page'])
 
   if (!inFinalState(topMenuStoreChunk)) {
@@ -47,6 +49,9 @@ const Breadcrumbs = () => {
             return link.replace(/\//g, '') === breadcrumb
           }
           )[0]
+
+
+
           if (!menuItem) {
             if (inFinalState(catalogItemsStoreChunk) && pathname) {
               let key = pathname.replace('/en/products/', '')
@@ -54,11 +59,12 @@ const Breadcrumbs = () => {
               key = key.slice(0, -1)
 
               const itm = catalogItemsStoreChunk[key]?.data
+              
               if (itm) {
                 if (itm.code === breadcrumb) {
                   menuItem = itm
                 } else if (itm.parentSectionName) {
-                   if(itm.depth > 4 && index == 2) {
+                  if (itm.depth > 4 && index == 2) {
                     menuItem = { name: pathNames[2] }
                   } else {
                     menuItem = { name: itm.parentSectionName }
@@ -79,6 +85,25 @@ const Breadcrumbs = () => {
               if (data) {
                 menuItem = { name: data.name }
               }
+            }
+
+            if (inFinalState(landingsItemsStoreChunk)) {
+              let key = pathname.replace('/en/events/', '')
+              key = key.replace('/events/', '');
+              key = key.split('/')
+              let itm;
+              itm = landingsItemsStoreChunk[key[0]]?.data
+              if (itm) {
+                if (itm.code === breadcrumb) {
+                  menuItem = itm
+                } else {
+                  if (index == 2) {
+                    let day = landingsDaysStoreChunk[key[0] + '/' + key[1]].data.name
+                    menuItem = { name: day }
+                  }
+                }
+              }
+
             }
 
           }

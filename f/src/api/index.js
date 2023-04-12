@@ -109,6 +109,40 @@ export function fetchSections(region = 'RU', lang = 'ru') {
 }
 
 /**
+ * Получаем разделы лэндингов
+ *
+ * @returns {Promise<Response>}
+ */
+export function fetchLandings(region = 'RU', lang = 'ru') {
+  const url = `/local/api/?action=landing.getSections&region=${region}&lang=${lang}`
+  return fetch(url, { mode: 'no-cors' })
+    .then(handleApiError)
+    .then(getJsonFromResponse)
+}
+
+/**
+ * Получаем лэндинги
+ *
+ * @returns {Promise<Response>}
+ */
+export function fetchLandingsItems(code, region = 'RU', lang = 'ru') {
+  return fetch(`/local/api/?action=landing.getItem&code=${code}&region=${region}&lang=${lang}`)
+    .then(handleApiError)
+    .then(getJsonFromResponse)
+}
+
+/**
+ * Получаем дни
+ *
+ * @returns {Promise<Response>}
+ */
+export function fetchLandingsDays(code, region = 'RU', lang = 'ru') {
+  return fetch(`/local/api/?action=landing.getDay&code=${code}&region=${region}&lang=${lang}`)
+    .then(handleApiError)
+    .then(getJsonFromResponse)
+}
+
+/**
  * Получаем specialties
  *
  * @returns {Promise<Response>}
