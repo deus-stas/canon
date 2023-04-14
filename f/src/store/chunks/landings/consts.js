@@ -1,5 +1,5 @@
 import { generateStoreChunkStatesActionTypes } from '../helpers'
 
-export const storeChunkName = 'landings'
+export const storeChunkName = 'landingss'
 
 export const STORE_CHUNK_STATES_ACTION_TYPES = Object.freeze(generateStoreChunkStatesActionTypes(storeChunkName))

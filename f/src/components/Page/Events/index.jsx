@@ -11,7 +11,7 @@ import NotFoundPage from '@components/Page/NotFoundPage'
 import { Link } from 'react-router-dom'
 import { fetchEvents } from '../../../store'
 import { getCurrentRegion } from '../../Header/Regions'
-import { fetchLandings } from '@/store'
+// import { fetchLandings } from '@/store'
 
 const pageCode = 'events'
 
@@ -22,7 +22,7 @@ const EventsPage = () => {
   const dispatch = useDispatch()
   const pageStoreChunk = useSelector(store => store['page'][pageCode])
   const eventsChunk = useSelector(store => store['events'])
-  const sectionsStoreChunk = useSelector(store => store['landings'])
+  // const sectionsStoreChunk = useSelector(store => store['landings'])
   const [shows, setShows] = useState([])
   const [showsEmpty, setShowsEmpty] = useState(false)
   const [showsFiltred, setShowsFiltred] = useState([])
@@ -49,11 +49,11 @@ const EventsPage = () => {
     document.documentElement.scrollTop = 0
   }, [dispatch, pageStoreChunk])
 
-  useEffect(() => {
-    if (!sectionsStoreChunk || inInitialState(sectionsStoreChunk)) {
-      dispatch(fetchLandings(region, lang))
-    }
-  }, [dispatch, sectionsStoreChunk])
+  // useEffect(() => {
+  //   if (!sectionsStoreChunk || inInitialState(sectionsStoreChunk)) {
+  //     dispatch(fetchLandings(region, lang))
+  //   }
+  // }, [dispatch, sectionsStoreChunk])
 
   useEffect(() => {
     if (!eventsChunk || inInitialState(eventsChunk)) {
@@ -89,9 +89,9 @@ const EventsPage = () => {
 
   const { data: pageData } = pageStoreChunk;
 
-  const landings = sectionsStoreChunk.data;
+  // const landings = sectionsStoreChunk.data;
 
-  console.log(landings);
+  // console.log(landings);
 
   const fetchOld = () => {
     const url = `/local/api/?action=events.getList&region=${region}&lang=${lang}&old=Y`
@@ -135,7 +135,7 @@ const EventsPage = () => {
                   </div>
                   <div className="row" >
 
-                    {
+                    {/* {
                       landings ? landings.items.map((item) => {
                         return (
                           <div className="col-sm-6 position-relative" key={item.id}>
@@ -158,7 +158,7 @@ const EventsPage = () => {
                           </div>
                         )
                       }) : null
-                    }
+                    } */}
                   </div>
                 </div>
               </div>

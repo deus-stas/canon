@@ -20,9 +20,9 @@ import WebinarPage from './Webinars'
 import VacanciesPage from './Vacancies'
 import CareersPage from './Careers'
 import FeedbackPage from './FeedbackPage'
-import Landing from './Landing'
-import LandingItem from './Landing/LandingItem'
-import LandingDay from './Landing/LandingDay'
+// import Landing from './Landing'
+// import LandingItem from './Landing/LandingItem'
+// import LandingDay from './Landing/LandingDay'
 
 const Page = () => {
   const lang       = useTemplateContext().lang;
@@ -61,8 +61,8 @@ const Page = () => {
         <Route exact path={`${langPrefix}/news/:newsCode/`} component={NewsItemPage} />
         <Route exact path={`${langPrefix}/publications/`} component={PublicationsPage} />
         <Route exact path={`${langPrefix}/events/`} component={EventsPage} />
-        <Route exact path={`${langPrefix}/events/:path1`} component={LandingItem} />
-        <Route exact path={`${langPrefix}/events/:path1/:path2`} component={LandingDay} />
+        {/* <Route exact path={`${langPrefix}/events/:path1`} component={LandingItem} />
+        <Route exact path={`${langPrefix}/events/:path1/:path2`} component={LandingDay} /> */}
         <Route exact path={`${langPrefix}/terms-conditions/`} component={DefaultPage} />
         <Route exact path={`${langPrefix}/cookies-list/`} component={DefaultPage} />
         <Route exact path={`${langPrefix}/service-support/service/`} component={DefaultPage} />
@@ -79,9 +79,9 @@ const Page = () => {
         <Route exact path={`${langPrefix}/products/:path1/:path2/:path3/:path4`} component={CatalogItemPage} />
         <Route exact path={`${langPrefix}/search/`} component={SearchPage} />
         <Route exact path={`${langPrefix}/service-support/feedback/`} component={FeedbackPage} />
-        <Route exact path={`${langPrefix}/landings`} component={Landing} />
+        {/* <Route exact path={`${langPrefix}/landings`} component={Landing} />
         <Route exact path={`${langPrefix}/landings/:path1`} component={LandingItem} />
-        <Route exact path={`${langPrefix}/landings/:path1/:path2`} component={LandingDay} />
+        <Route exact path={`${langPrefix}/landings/:path1/:path2`} component={LandingDay} /> */}
         <Route component={NotFoundPage} />
       </Switch>
       <Footer />
