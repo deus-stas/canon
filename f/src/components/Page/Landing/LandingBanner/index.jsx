@@ -118,7 +118,7 @@ const LandingBanner = (props) => {
                                         return (
                                             <li className={`nav-item text-center ${index === i ? 'act' : ' '}`} key={day.id}>
                                                 <a href={`/events/${data.code}/${day.code}`}>
-                                                    <img src={day.icon.src} className="img-fluid center-block" alt="/" />
+                                                    {day.icon ? <img src={day.icon.src} className="img-fluid center-block" alt="/" /> : null}
                                                     <span dangerouslySetInnerHTML={{ __html: day.name }}></span>
                                                 </a>
                                             </li>

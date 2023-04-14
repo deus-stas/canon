@@ -120,9 +120,8 @@ const LandingItem = (props) => {
                             <div className="b-container" key={day.id}>
                                 <div className="section-20">
                                     <div className="ProductDetailContent ContentArea">
-                                        <div className="row">
+                                        <div className={`row ${i % 2 !== 0 ? '--reverse' : ' '}`}>
                                             <div className="col-sm-12">
-                                                <h2><hr /></h2>
                                                 <h1 dangerouslySetInnerHTML={{__html: day.name}}></h1>
                                             </div>
                                             <div className="col-12-org col-sm-6">
