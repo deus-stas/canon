@@ -1,66 +1,78 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchPage } from '@store'
 import { inFinalState, inInitialState } from '@store/helpers'
 import { useTemplateContext } from '@contexts/TemplateContext'
-import { usePageMeta } from '@hooks'
+import { getCurrentRegion } from '@/components/Header/Regions'
+import { fetchLandings } from '@/store'
 
-import './style.scss'
+// import './style.scss'
 import NotFoundPage from '@components/Page/NotFoundPage'
-
-const pageCode = 'landing'
+import { Link } from 'react-router-dom'
 
 const Landing = () => {
-    usePageMeta({ pageCode })
     const lang = useTemplateContext().lang
+    const region = getCurrentRegion()
     const dispatch = useDispatch()
-    const pageStoreChunk = useSelector(store => store['page'][pageCode]);
+    const sectionsStoreChunk = useSelector(store => store['landings'])
 
     useEffect(() => {
-        if (!pageStoreChunk || inInitialState(pageStoreChunk)) {
-            dispatch(fetchPage(pageCode, lang))
+        if (!sectionsStoreChunk || inInitialState(sectionsStoreChunk)) {
+            dispatch(fetchLandings(region, lang))
         }
-        document.documentElement.scrollTop = 0
-    }, [dispatch, pageStoreChunk])
+    }, [dispatch, sectionsStoreChunk])
 
-    if (!inFinalState(pageStoreChunk)) {
+    if (!inFinalState(sectionsStoreChunk)) {
         return null
     }
 
-    const { data: pageData } = pageStoreChunk
+    const { data } = sectionsStoreChunk;
 
-    console.log(pageData);
+    console.log(data);
 
-    return pageData ? (
-        <div>
+    return data ? (
+        <div id="primary-content">
 
-            <div className="d-none d-md-block" id="banner-area">
-                <div className="b-container">
-                    <div className="row">
-                        <div className="col-sm-12">
-                            <span property="s:largeImage">
-                                <img className="img-fluid" alt="" src="https://canonmedical.widen.net/content/gn2486n88f/original/Overview_Banner.png?u=cglmil&amp;" />
-                            </span>
-                            <div className="banner-caption">
-                                <div className="row">
-                                    <div className="col-lg-6 col-md-6 col-sm-7">
+            <div id="content-area">
 
-                                        <h1>
-                                            <div className="text-red">
-                                                <div className="text-white hidden-xs"><span>Online Oncology Days</span><br /><br /><br /><span ><em>Starting April 12</em></span></div><span className="visible-xs">Online Oncology Days
-                                                    <br /><em>Starting April 12</em></span>
-                                            </div><br />
-                                        </h1>
-                                    </div>
-                                </div>
+                <div className="featured-section featured-section-noBG fsEH">
+                    <div className="b-container">
+                        <div className="row">
+                            <div className="col-sm-12">
+                                <h2 property="s:title">UPCOMING WEBINARS</h2>
                             </div>
-
+                        </div>
+                        <div className="row">
+                            {
+                                data.items.map((item) => {
+                                    return (
+                                        <div className="col-sm-6 position-relative" key={item.id}>
+                                            <div className="well well-link" key={item.id}>
+                                                <Link className='extended-modal-image' to={`/landings/${item.code}`}>
+                                                    <span property="s:largeImage">
+                                                        <img src={item.start_image.src} className="img-fluid center-block" alt="" style={{ maxHeight: '176.719px' }} />
+                                                    </span>
+                                                    <h4>
+                                                        <div style={{ color: 'rgb(0, 0, 0)' }}>
+                                                            <p dangerouslySetInnerHTML={{ __html: item.start_text }}></p>
+                                                            <p className="btn btn-default center-block">
+                                                                <i className="zmdi zmdi-plus-circle-o"></i>
+                                                                More Information
+                                                            </p>
+                                                        </div>
+                                                    </h4>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
                         </div>
                     </div>
                 </div>
             </div>
 
-        </div>
+
+        </div >
     ) : <NotFoundPage />
 }
 

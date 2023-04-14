@@ -11,6 +11,7 @@ import NotFoundPage from '@components/Page/NotFoundPage'
 import { Link } from 'react-router-dom'
 import { fetchEvents } from '../../../store'
 import { getCurrentRegion } from '../../Header/Regions'
+// import { fetchLandings } from '@/store'
 
 const pageCode = 'events'
 
@@ -21,6 +22,7 @@ const EventsPage = () => {
   const dispatch = useDispatch()
   const pageStoreChunk = useSelector(store => store['page'][pageCode])
   const eventsChunk = useSelector(store => store['events'])
+  // const sectionsStoreChunk = useSelector(store => store['landings'])
   const [shows, setShows] = useState([])
   const [showsEmpty, setShowsEmpty] = useState(false)
   const [showsFiltred, setShowsFiltred] = useState([])
@@ -46,6 +48,12 @@ const EventsPage = () => {
     }
     document.documentElement.scrollTop = 0
   }, [dispatch, pageStoreChunk])
+
+  // useEffect(() => {
+  //   if (!sectionsStoreChunk || inInitialState(sectionsStoreChunk)) {
+  //     dispatch(fetchLandings(region, lang))
+  //   }
+  // }, [dispatch, sectionsStoreChunk])
 
   useEffect(() => {
     if (!eventsChunk || inInitialState(eventsChunk)) {
@@ -79,11 +87,15 @@ const EventsPage = () => {
     setCurSection(event.target.getAttribute('data-code'))
   }
 
-  const { data: pageData } = pageStoreChunk
+  const { data: pageData } = pageStoreChunk;
+
+  // const landings = sectionsStoreChunk.data;
+
+  // console.log(landings);
 
   const fetchOld = () => {
     const url = `/local/api/?action=events.getList&region=${region}&lang=${lang}&old=Y`
-    return  fetch(url, { mode: 'no-cors' })
+    return fetch(url, { mode: 'no-cors' })
       .then(response => response.json())
   }
 
@@ -106,21 +118,57 @@ const EventsPage = () => {
     setPrevShowed(false)
   }
 
-  console.log(shows);
-
   return pageData ? (
     <div className={classNames(`${pageClassName} ${pageCode}-${pageClassName}`)}>
       <div className="container events-content">
         <div className="wrapper">
 
           <div>
-            {pageData.previewImage && <img src={pageData.previewImage?.src} width={pageData.previewImage?.w}  height={pageData.previewImage?.h} alt={pageData.name} className="innerImage"/>}
+            {pageData.previewImage && <img src={pageData.previewImage?.src} width={pageData.previewImage?.w} height={pageData.previewImage?.h} alt={pageData.name} className="innerImage" />}
+            <div id="primary-content">
+              <div id="content-area">
+                <div className="featured-section featured-section-noBG fsEH">
+                  <div className="row">
+                    <div className="col-sm-12">
+                      <h2 property="s:title">UPCOMING WEBINARS</h2>
+                    </div>
+                  </div>
+                  <div className="row" >
+
+                    {/* {
+                      landings ? landings.items.map((item) => {
+                        return (
+                          <div className="col-sm-6 position-relative" key={item.id}>
+                            <div className="well well-link" key={item.id}>
+                              <Link className='extended-modal-image' to={`/events/${item.code}`}>
+                                <span property="s:largeImage">
+                                  <img src={item.start_image.src} className="img-fluid center-block" alt="" style={{ maxHeight: '176.719px' }} />
+                                </span>
+                                <h4>
+                                  <div style={{ color: 'rgb(0, 0, 0)' }}>
+                                    <p dangerouslySetInnerHTML={{ __html: item.start_text }}></p>
+                                    <p className="btn btn-default center-block">
+                                      <i className="zmdi zmdi-plus-circle-o"></i>
+                                      More Information
+                                    </p>
+                                  </div>
+                                </h4>
+                              </Link>
+                            </div>
+                          </div>
+                        )
+                      }) : null
+                    } */}
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <div className="wrapper-inner">
 
               {sections.length > 0 &&
                 <div className="tabs-sections">
-                  {   sections.map((item, index) => (
+                  {sections.map((item, index) => (
                     <div key={index} onClick={handleSectionSelect}
                       data-code={item[0]}
                       className={classNames(['tabs-sections-item',
@@ -131,7 +179,7 @@ const EventsPage = () => {
                   ))}
                 </div>
               }
-              {!showsFiltred.length  &&
+              {!showsFiltred.length &&
                 <div>
                   {lang === 'en' ? 'We announce new events soon' : 'Мы обьявим о новых мероприятиях в ближайшее время'}
                 </div>
@@ -141,45 +189,45 @@ const EventsPage = () => {
               {prevShowed && <a onClick={handlePreviousShowsHide}>{lang === 'en' ? 'Hide previous events' : 'Скрыть прошедшие мероприятия'}</a>}
 
               {showsFiltred.length > 0 &&
-                  <div>
-                    <table className="webinar-table">
-                      <tbody>
-                        {   showsFiltred.map((show, index) => (
-                          <tr key={index} className={show.externalLink ? 'hasExternalLInk' : ''} onClick={event => {
-                            if (show.externalLink) {
-                              window.open(show.externalLink, '_blank')
-                            }
-                          }}>
-                            <td dangerouslySetInnerHTML={{ __html: show.name }}/>
-                            <td dangerouslySetInnerHTML={{ __html: show.date }} className="wsn"/>
-                            <td>{show.previewText}</td>
-                            <td>
-                              {show.externalLink && <a className="external" href={show.externalLink} target="_blank" rel="noreferrer"/>}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-
-                    <div className="webinar-table-xs">
-                      {   showsFiltred.map((show, index) => (
-                        <div key={index} className={show.externalLink ? 'hasExternalLInk item' : ' item'} onClick={event => {
+                <div>
+                  <table className="webinar-table">
+                    <tbody>
+                      {showsFiltred.map((show, index) => (
+                        <tr key={index} className={show.externalLink ? 'hasExternalLInk' : ''} onClick={event => {
                           if (show.externalLink) {
                             window.open(show.externalLink, '_blank')
                           }
                         }}>
-                          <div className="line1">
-                            <div className="line1-name">
-                              <b dangerouslySetInnerHTML={{ __html: show.name }}/>
-                              {show.externalLink && <a className="external" href={show.externalLink} target="_blank" rel="noreferrer"/>}
-                            </div>
-                            <div dangerouslySetInnerHTML={{ __html: show.date }}  className="wsn"/>
-                          </div>
-                          <div className="line2">{show.previewText}</div>
-                        </div>
+                          <td dangerouslySetInnerHTML={{ __html: show.name }} />
+                          <td dangerouslySetInnerHTML={{ __html: show.date }} className="wsn" />
+                          <td>{show.previewText}</td>
+                          <td>
+                            {show.externalLink && <a className="external" href={show.externalLink} target="_blank" rel="noreferrer" />}
+                          </td>
+                        </tr>
                       ))}
-                    </div>
+                    </tbody>
+                  </table>
+
+                  <div className="webinar-table-xs">
+                    {showsFiltred.map((show, index) => (
+                      <div key={index} className={show.externalLink ? 'hasExternalLInk item' : ' item'} onClick={event => {
+                        if (show.externalLink) {
+                          window.open(show.externalLink, '_blank')
+                        }
+                      }}>
+                        <div className="line1">
+                          <div className="line1-name">
+                            <b dangerouslySetInnerHTML={{ __html: show.name }} />
+                            {show.externalLink && <a className="external" href={show.externalLink} target="_blank" rel="noreferrer" />}
+                          </div>
+                          <div dangerouslySetInnerHTML={{ __html: show.date }} className="wsn" />
+                        </div>
+                        <div className="line2">{show.previewText}</div>
+                      </div>
+                    ))}
                   </div>
+                </div>
               }
             </div>
 

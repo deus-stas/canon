@@ -23,6 +23,12 @@ const FeedbackForm = (props) => {
     }
   }, [dispatch, feedbackFormStoreChunk])
 
+  useEffect(() => {
+    if (!props.related) {
+      setValues({ form_checkbox_related: ['17'] })
+    }
+  }, [])
+
   if (!inFinalState(feedbackFormStoreChunk)) {
     return null
   }
@@ -90,6 +96,7 @@ const FeedbackForm = (props) => {
   }
 
   const validateForm = e => {
+    console.log(values);
     const emptyInputs = getEmptyInputs(e)
     if (emptyInputs.length) {
       emptyInputs.map(el => {

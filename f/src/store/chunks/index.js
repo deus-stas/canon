@@ -19,6 +19,9 @@ import socialLinks from './social'
 import templateSettings from './templateSettings'
 import topMenu from './topMenu'
 import specialties from './specialties'
+import landings from './landings'
+import landingsItems from './landingsItems'
+import landingsDays from './landingsDays'
 
 export * from './banners'
 export * from './bottomMenu'
@@ -39,6 +42,9 @@ export * from './social'
 export * from './templateSettings'
 export * from './topMenu'
 export * from './specialties'
+export * from './landings'
+export * from './landingsItems'
+export * from './landingsDays'
 
 export default combineReducers({
   banners,
@@ -59,5 +65,8 @@ export default combineReducers({
   socialLinks,
   templateSettings,
   topMenu,
-  specialties
+  specialties,
+  landings,
+  landingsItems,
+  landingsDays
 })
