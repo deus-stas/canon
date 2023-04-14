@@ -82,12 +82,6 @@ const Page = () => {
         <Route exact path={`${langPrefix}/landings`} component={Landing} />
         <Route exact path={`${langPrefix}/landings/:path1`} component={LandingItem} />
         <Route exact path={`${langPrefix}/landings/:path1/:path2`} component={LandingDay} />
-        {/* <Route exact path={`${langPrefix}/landing-0-1`} component={Landing} />
-        <Route exact path={`${langPrefix}/landing-0-1-day1`} component={LandingDay} />
-        <Route exact path={`${langPrefix}/landing-0-1-day2`} component={LandingDay} />
-        <Route exact path={`${langPrefix}/landing-0-1-day3`} component={LandingDay} />
-        <Route exact path={`${langPrefix}/landing-0-1-day4`} component={LandingDay} />
-        <Route exact path={`${langPrefix}/landing-0-1-day5`} component={LandingDay} /> */}
         <Route component={NotFoundPage} />
       </Switch>
       <Footer />

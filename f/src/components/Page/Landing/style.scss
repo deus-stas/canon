@@ -1850,6 +1850,10 @@ svg {
   margin-bottom: 0;
 }
 
+#secondary-nav .navbar ul {
+  margin-bottom: 0;
+}
+
 #secondary-nav .navbar li a:link,
 #secondary-nav .navbar li a:visited {
   color: rgb(150, 150, 150);
@@ -1857,6 +1861,7 @@ svg {
   line-height: 1.42857143;
   border-bottom: 1px solid transparent;
   transition: all ease-in-out 0.15s;
+  padding: 10px 0;
 }
 
 #secondary-nav .navbar li a:hover,

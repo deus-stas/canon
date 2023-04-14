@@ -55,11 +55,13 @@ const Breadcrumbs = () => {
           if (!menuItem) {
             if (inFinalState(catalogItemsStoreChunk) && pathname) {
               let key = pathname.replace('/en/products/', '')
-              key = key.replace('/products/', '')
-              key = key.slice(0, -1)
+              key = key.replace('/products/', '');
+              if (key.endsWith('/')) {
+                key = key.slice(0, -1)
+              }
 
               const itm = catalogItemsStoreChunk[key]?.data
-              
+              console.log(key);
               if (itm) {
                 if (itm.code === breadcrumb) {
                   menuItem = itm
