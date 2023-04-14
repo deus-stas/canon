@@ -5523,6 +5523,10 @@ a.anchor {
   div[class^=col-lg-] {
     float: none;
   }
+
+  #primary-content #secondary-nav .product-navbar li a {
+    padding: 10px 15px;
+  }
 }
 
 @media (min-width: 768px) {
