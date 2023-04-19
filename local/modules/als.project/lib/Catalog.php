@@ -53,6 +53,8 @@ class Catalog
             'PROPERTY_LANGUAGE_LINK>language_link',
             'TAGS>tags',
             'UF_REGIONS:array>regions',
+            'UF_VIEW:string>disable_tabs',
+            'UF_TWO_BANNER:string>two_banner',
         ];
 
         $nav = [
@@ -87,6 +89,20 @@ class Catalog
 
                     if (!$items[$k]['detailImage']) {
                         $items[$k]['detailImage'] = $item['image'];
+                    }
+
+                    // Вывод без табов
+                    if($items[$k]['disable_tabs']){
+                        $items[$k]['disable_tabs'] = true;
+                    }else{
+                        $items[$k]['disable_tabs'] = false;
+                    }
+
+                    // Вывод второго баннера над галереей
+                    if($items[$k]['two_banner']){
+                        $items[$k]['two_banner'] = true;
+                    }else{
+                        $items[$k]['two_banner'] = false;
                     }
 
                     $items[$k]['menu'] = self::getMenu($item['code'], $item['id'], $item['depth'] > 2);
@@ -143,7 +159,6 @@ class Catalog
                 }
             }
         );
-
         return $items[0];
     }
 

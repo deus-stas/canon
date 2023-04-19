@@ -2,37 +2,36 @@
 
 namespace ALS\Project;
 
+
 use ALS\Helper\CacheManager;
 use ALS\Helper\Help;
 use ALS\Helper\Typograph;
 
-class Webinars
+class Events
 {
-    public const IBLOCK_CODE = 'webinars';
+    public const IBLOCK_CODE = 'events';
+    public const SHOWS_SECTION_CODE = 'shows';
+
     private static $baseFilter = [
         'ACTIVE'      => 'Y',
     ];
 
     public static function getList(array $filter): ?array
     {
-
-        return [
-            'new'=>self::getWebinars($filter),
-            'old'=>self::getWebinars($filter+['old'=>true]),
-        ];
+        return self::getShows($filter);
     }
 
-    public static function getWebinars(array $externalFilter): ?array
+    public static function getShows(array $externalFilter): ?array
     {
         $isAdmin = User::isAdmin();
         $filter = [
-            'INCLUDE_SUBSECTIONS' => 'Y',
             'SECTION_ID'          => self::getSection(strtoupper(LANGUAGE_CODE))['id'],
+            'INCLUDE_SUBSECTIONS' => 'Y',
         ];
         if($externalFilter['old']){
-            $filter['<DATE_ACTIVE_FROM']= date('d.m.Y H:i:s');
+            $filter['<DATE_ACTIVE_TO']= date('d.m.Y H:i:s');
         }else{
-            $filter['>=DATE_ACTIVE_FROM']= date('d.m.Y H:i:s');
+            $filter['>=DATE_ACTIVE_TO']= date('d.m.Y H:i:s');
         }
         $params = [
             'IBLOCK_CODE'  => self::IBLOCK_CODE,
@@ -42,12 +41,10 @@ class Webinars
                 'NAME>name',
                 'PREVIEW_TEXT:string>previewText',
                 'IBLOCK_SECTION_ID:int>sectionId',
-                'ACTIVE_FROM>date',
+                'ACTIVE_FROM>dateFrom',
+                'ACTIVE_TO>dateTo',
 
-                'PROPERTY_LANGUAGE>language',
-                'PROPERTY_THEME>theme',
                 'PROPERTY_LINK>externalLink',
-                'PROPERTY_YOUTUBE_CODE>videoCode',
             ],
             'ORDER'        => [
                 'ACTIVE_FROM' => 'DESC'
@@ -59,31 +56,38 @@ class Webinars
         return CacheManager::getIblockItemsFromCache(
             $params,
             static function (&$items) {
-//                \Bitrix\Main\Diag\Debug::dumpToFile($items, 'items', 'LogItems');
                 foreach ($items as $k => &$item) {
                     // Типографим данные
                     Typograph::processItem($item, ['name', 'previewText']);
 
                     // Дата
-                    $dt=new \DateTime($item['date']);
-                    if(LANGUAGE_CODE==='en'){
-                        $item['date'] = FormatDate("d M Y H:i \G\M\T", MakeTimeStamp($item['date']));
-                    }else{
-                        $item['date'] = FormatDate("d M Y H:i", MakeTimeStamp($item['date']));
-                    }
-                    $sectIds=\ALS\Helper\El::getGroups([$item['id']]);
-                    if(count($sectIds) > 1){
-                        if(LANGUAGE_CODE==='en'){
-                            $sect = self::getSection(207);
-                        }else{
-                            $sect = self::getSection(208);
+                    $dateFrom = Help::formatDateHuman($item['dateFrom'], 'DD M YYYY');
+                    $dateTo = Help::formatDateHuman($item['dateTo'], 'DD M YYYY');
+                    if($item['dateFrom'] && $item['dateTo']){
+                        $dateFromArr=explode( '&nbsp;',$dateFrom);
+                        $dateToArr=explode( '&nbsp;',$dateTo);
+                        $dateCurrArr=[date('d'),'',date('Y')];
+                        if($dateFromArr && $dateToArr){
+
+                            if($dateFromArr[1]===$dateToArr[1]){
+                                $item['date']='';
+                                if($dateFromArr[0]===$dateToArr[0]){
+                                    $item['date'].=$dateFromArr[0];
+                                }else{
+                                    $item['date'].=$dateFromArr[0].'–'.$dateToArr[0];
+                                }
+                                $item['date'].=' '.$dateFromArr[1];
+                            }else{
+                                $item['date']=$dateFromArr[0].' '.$dateFromArr[1].'–'.$dateToArr[0].' '.$dateToArr[1];
+                            }
+                            $item['date'].=' '.$dateFromArr[2];
                         }
+                        $item['date']=str_replace(' ', '&nbsp;', $item['date']);
                     }else{
-                        $sect = self::getSection($sectIds[0]);
+                        $item['date']=$dateFrom ?? $dateTo;
                     }
-                    if($sect['img']){
-                        $item['sectionImage'] = \CFile::GetPath($sect['img']);
-                    }
+
+                    $sectIds=\ALS\Helper\El::getGroups([$item['id']]);
                     foreach ($sectIds as $id){
                         $sect = self::getSection($id);
                         $item['sectionName'][] = $sect['name'];
@@ -99,7 +103,7 @@ class Webinars
         $params = [
             'IBLOCK_CODE' => self::IBLOCK_CODE,
             'FILTER'      => [],
-            'SELECT'      => ['ID:int>id', 'NAME>name', 'PICTURE>img'],
+            'SELECT'      => ['ID:int>id', 'NAME>name'],
         ];
 
         if (is_numeric($codeOrId)) {
@@ -111,6 +115,5 @@ class Webinars
         $items = CacheManager::getIblockSectionsFromCache($params);
         return current($items);
     }
-
 
 }
