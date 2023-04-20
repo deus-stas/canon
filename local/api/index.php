@@ -96,6 +96,88 @@ switch ($requestData['action']) {
             ]);
         }
         break;
+    // Лендинги
+    case 'landing.getList':
+        $params = $filter = [];
+
+        if ($requestData['section']) {
+            if (!is_numeric($requestData['section'])) {
+                $requestData['section'] = Project\Landings::getSectionIdByCode($requestData['section']);
+            }
+
+            $filter['SECTION_ID'] = (int)$requestData['section'];
+        }
+
+        $params['navigation'] = [
+            'limit' => $requestData['limit'] ?: 0,
+            'page' => $requestData['page'] ?: 0,
+        ];
+
+        $result = Project\Landings::getList($filter, $params);
+        break;
+
+    case 'landing.getSections':
+        $params['region'] = REGION_ISO;
+        $result = Project\Landings::getSections($params);
+        break;
+    case 'landing.getItem':
+        if (!empty($requestData['code'])) {
+            $result = Project\Landings::getItem($requestData['code']);
+
+            $params = $filter = [];
+
+            if (!is_numeric($requestData['code'])) {
+                $requestData['code'] = Project\Landings::getSectionIdByCode($requestData['code']);
+            }
+
+            $filter['SECTION_ID'] = (int)$requestData['code'];
+
+            $params['navigation'] = [
+                'limit' => $requestData['limit'] ?: 0,
+                'page' => $requestData['page'] ?: 0,
+            ];
+            $result['days'] = Project\Landings::getList($filter, $params)['items'];
+        }
+        break;
+    case 'landing.getDay':
+        if (!empty($requestData['code'])) {
+
+            $advFilter = [
+                'SECTION_ID' => Project\Landings::getSectionIdByCode(strtoupper(LANGUAGE_CODE)),
+            ];
+            $pathArr = explode('/', $requestData['code']);
+            $advFilter['CODE'] = end($pathArr);
+            foreach ($pathArr as $k => $sectionCode) {
+                if (count($pathArr) === $k + 1) {
+                    continue;
+                }
+                $advFilter['SECTION_ID'] = Project\Landings::getSectionIdByCode($sectionCode, $advFilter['SECTION_ID']);
+            }
+            $result = Project\Landings::getDay([
+                'CODE' => $pathArr[1],
+                'SECTION_ID' => ($advFilter['SECTION_ID'])?:'',
+            ]);
+            $params = $filter = [];
+            $filter['ID'] = (REGION_ISO == 'RU')?$result['spikers']:$result['en_spikers'];
+            if($filter['ID']){
+                $params['navigation'] = [
+                    'limit' => $requestData['limit'] ?: 0,
+                    'page' => $requestData['page'] ?: 0,
+                ];
+                $filter['IBLOCK_CODE'] = 'spikers';
+                $spikers = Project\Landings::getList($filter, $params)['items'];
+                $spikers_id = $filter['ID'];
+                // Меняем сортировку спикеров по порядку как их прикрепили в админке
+                usort($spikers, function($a, $b) use ($spikers_id) {
+                    $pos_a = array_search($a['id'], $spikers_id);
+                    $pos_b = array_search($b['id'], $spikers_id);
+                    return $pos_a - $pos_b;
+                });
+                $result['spikers'] = $spikers;
+            }
+
+        }
+        break;
 
     case 'news.getSections':
         $result = Project\News::getSections();
