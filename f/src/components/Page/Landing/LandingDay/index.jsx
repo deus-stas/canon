@@ -5,25 +5,19 @@ import { useTemplateContext } from '@contexts/TemplateContext'
 import { getCurrentRegion } from '@/components/Header/Regions'
 import { fetchLandingsDays } from '@store'
 import { updatePageMeta } from '../../../../hooks/usePageMeta'
+import { useParams } from "react-router-dom";
 
 // import '../style.scss'
 import NotFoundPage from '@components/Page/NotFoundPage'
 import Banner from '../LandingBanner/'
 
 const LandingDay = (props) => {
+    
     const lang = useTemplateContext().lang;
-    let landingsDaysCode = props.match.params.path1
-    if (props.match.params.path2) {
-        landingsDaysCode += '/' + props.match.params.path2
-    }
-    if (props.match.params.path3) {
-        landingsDaysCode += '/' + props.match.params.path3
-    }
-    if (props.match.params.path4) {
-        landingsDaysCode += '/' + props.match.params.path4
-    }
-    let landingsItemsCode = props.match.params.path1
+    let landingsItemsCode = props.match.params.eventType
+    let landingsDaysCode = landingsItemsCode + '/' + props.match.params.path1
 
+    console.log(landingsItemsCode, landingsDaysCode);
     const region = getCurrentRegion()
     const dispatch = useDispatch()
     const landingsDaysStoreChunk = useSelector(store => store['landingsDays'][landingsDaysCode])
@@ -103,6 +97,10 @@ const LandingDay = (props) => {
                                             </div>
                                         )
                                     }) : null
+                                }
+
+                                {
+                                    data.sources.TEXT ? <span dangerouslySetInnerHTML={{__html: data.sources.TEXT}}></span> : null
                                 }
 
                             </div>

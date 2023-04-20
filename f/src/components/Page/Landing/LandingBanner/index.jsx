@@ -12,8 +12,8 @@ const LandingBanner = (props) => {
     const [navbarOffset, setNavbarOffset] = useState(0)
 
     const lang = useTemplateContext().lang;
+    const langPrefix = (lang === 'ru') ? '' : '/' + lang;
     let landingsItemsCode = props.code
-
     const region = getCurrentRegion()
     const dispatch = useDispatch()
     const landingsItemsStoreChunk = useSelector(store => store['landingsItems'][landingsItemsCode])
@@ -36,7 +36,7 @@ const LandingBanner = (props) => {
         return null
     }
     const { data } = landingsItemsStoreChunk;
-
+    console.log(data);
     const isSticky = (e) => {
         const navbar = document.querySelector('#secondary-nav');
         const scrollTop = window.scrollY;
@@ -46,13 +46,14 @@ const LandingBanner = (props) => {
         scrollTop >= navbarOffset && navbarOffset !== 0 ? navbar.classList.add('fixed', 'remove-fixed') : navbar.classList.remove('fixed', 'remove-fixed');
     };
 
-    let index, name, date, image;
+    let index, name, date, image, bannerDescription;
 
     if (props.id) {
         data.days.map((day, i) => {
             if (day.id === props.id) {
                 index = i;
                 name = day.name;
+                bannerDescription = day.banner_description.TEXT;
                 date = day.date;
                 image = day.detailImage.src;
             }
@@ -74,14 +75,10 @@ const LandingBanner = (props) => {
 
                                         <h1>
                                             <div className="banner-caption-text hidden-xs">
-                                                <span style={{ fontSize: '120%', fontWeight: 'bold' }} dangerouslySetInnerHTML={{ __html: props.id ? name : data.name }}></span>
-                                                <br /><br /><br /><span >
-                                                    <em dangerouslySetInnerHTML={{ __html: props.id ? date : data.date }}></em>
-                                                </span>
+                                                <span dangerouslySetInnerHTML={{ __html: props.id ? bannerDescription : data.banner_description }}></span>
                                             </div>
                                             <span className="visible-xs" style={{ fontSize: '70%' }} >
-                                                <span dangerouslySetInnerHTML={{ __html: props.id ? name : data.name }}></span>
-                                                <br /><em dangerouslySetInnerHTML={{ __html: props.id ? date : data.date }}></em>
+                                                <span dangerouslySetInnerHTML={{ __html: props.id ? bannerDescription : data.banner_description }}></span>
                                             </span>
                                             <br />
                                         </h1>
@@ -108,7 +105,7 @@ const LandingBanner = (props) => {
                         <div className="product-navbar" typeof="Region" resource="SecondaryNavML">
                             <ul className="d-md-flex">
                                 <li className={`nav-item text-center ${index !== undefined ? ' ' : 'act'}`}>
-                                    <a href={`/events/${data.code}`}>
+                                    <a href={`${langPrefix}/events/${data.code}`}>
                                         <img src={data.min_image.src} className="img-fluid center-block" alt="/" />
                                         <span dangerouslySetInnerHTML={{ __html: data.name }}></span>
                                     </a>
@@ -117,7 +114,7 @@ const LandingBanner = (props) => {
                                     data.days.map((day, i) => {
                                         return (
                                             <li className={`nav-item text-center ${index === i ? 'act' : ' '}`} key={day.id}>
-                                                <a href={`/events/${data.code}/${day.code}`}>
+                                                <a href={`${langPrefix}/events/${data.code}/${day.code}`}>
                                                     {day.icon ? <img src={day.icon.src} className="img-fluid center-block" alt="/" /> : null}
                                                     <span dangerouslySetInnerHTML={{ __html: day.name }}></span>
                                                 </a>

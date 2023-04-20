@@ -4,6 +4,7 @@ import { inFinalState, inInitialState } from '@store/helpers'
 import { useTemplateContext } from '@contexts/TemplateContext'
 import { getCurrentRegion } from '@/components/Header/Regions'
 import { fetchLandingsItems } from '@store'
+import { useParams } from "react-router-dom";
 
 // import '../style.scss'
 import NotFoundPage from '@components/Page/NotFoundPage'
@@ -12,18 +13,11 @@ import { updatePageMeta } from '../../../../hooks/usePageMeta'
 
 
 const LandingItem = (props) => {
+    const { eventType } = useParams();
     const lang = useTemplateContext().lang;
-    let landingsItemsCode = props.match.params.path1
-    if (props.match.params.path2) {
-        landingsItemsCode += '/' + props.match.params.path2
-    }
-    if (props.match.params.path3) {
-        landingsItemsCode += '/' + props.match.params.path3
-    }
-    if (props.match.params.path4) {
-        landingsItemsCode += '/' + props.match.params.path4
-    }
+    const langPrefix = (lang === 'ru') ? '' : '/' + lang;
 
+    let landingsItemsCode = eventType;
 
     const region = getCurrentRegion()
     const dispatch = useDispatch()
@@ -68,18 +62,18 @@ const LandingItem = (props) => {
                             </div>
                             <div className="col-sm-5 border-left">
                                 <div className="side-navigation">
-                                    <p className="side-navigation-header" dangerouslySetInnerHTML={{__html: data.name_block_days}}></p>
+                                    <p className="side-navigation-header" dangerouslySetInnerHTML={{ __html: data.name_block_days }}></p>
                                     <ul className="nav">
                                         {
                                             data.days.map((day) => {
                                                 return (
                                                     <li key={day.id}>
-                                                        <a href={`/events/${data.code}/${day.code}`}>
+                                                        <a href={`${langPrefix}/events/${data.code}/${day.code}`}>
                                                             <h2>
                                                                 <strong dangerouslySetInnerHTML={{ __html: day.date }}></strong>
                                                             </h2>
                                                             <strong dangerouslySetInnerHTML={{ __html: day.name }}></strong><br />
-                                                            <span dangerouslySetInnerHTML={{__html: day.theme_day}}></span>
+                                                            <span dangerouslySetInnerHTML={{ __html: day.theme_day }}></span>
                                                         </a>
                                                     </li>
                                                 )
@@ -99,7 +93,7 @@ const LandingItem = (props) => {
                                 <div className="col-sm-12">
                                 </div>
                                 <div className="col-sm-12">
-                                    <h1 dangerouslySetInnerHTML={{__html: data.name}}>
+                                    <h1 dangerouslySetInnerHTML={{ __html: data.name }}>
                                     </h1>
                                 </div>
                                 <div className="col-sm-12">
@@ -121,14 +115,11 @@ const LandingItem = (props) => {
                                 <div className="section-20">
                                     <div className="ProductDetailContent ContentArea">
                                         <div className={`row ${i % 2 !== 0 ? '--reverse' : ' '}`}>
-                                            <div className="col-sm-12">
-                                                <h1 dangerouslySetInnerHTML={{__html: day.name}}></h1>
-                                            </div>
                                             <div className="col-12-org col-sm-6">
-                                                <h1></h1>
+                                                <h1 dangerouslySetInnerHTML={{ __html: day.name }}></h1>
                                                 <p dangerouslySetInnerHTML={{ __html: previewText }}></p>
 
-                                                <a href={`/events/${data.code}/${day.code}`} dangerouslySetInnerHTML={{__html: day.name_url}}>
+                                                <a href={`${langPrefix}/events/${data.code}/${day.code}`} dangerouslySetInnerHTML={{ __html: day.name_url }}>
                                                 </a>
                                             </div>
                                             <div className="col-12-org col-sm-6">

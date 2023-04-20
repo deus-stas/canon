@@ -1938,6 +1938,7 @@ svg {
 }
 
 .banner-caption {
+  height: 100%;
   position: absolute;
   top: 50%;
   width: 1140px;
@@ -1994,8 +1995,19 @@ svg {
 }
 
 .banner-caption-text {
-  padding-left: 20px;
+  padding-left: 53px;
+  font-weight: bold;
+  font-size: 110%;
+  line-height: 120%;
   color: white !important;
+  padding-top: 42px;
+
+  span span {
+    display: inline-block;
+    font-size: 73%;
+    line-height: 1;
+    margin-top: 87px;
+  }
 }
 
 #secondary-nav .navbar {
@@ -2016,6 +2028,8 @@ svg {
 
 #secondary-nav .navbar ul {
   margin-bottom: 0;
+  justify-content: space-between;
+  padding: 0 2rem;
 }
 
 #secondary-nav .navbar li a:link,
@@ -5131,6 +5145,7 @@ hr {
 
 #primary-content .featured-section .well a:hover {
   background-color: white;
+  border: none;
 }
 
 #primary-content .featured-section .well a.anchor_calc:hover {
@@ -5228,9 +5243,27 @@ a.anchor {
 }
 
 #primary-content ol {
-  font-size: 18px;
+  font-size: 16px;
   color: rgb(50, 50, 50);
-  font-weight: normal;
+  font-weight: 300;
+}
+
+#primary-content .btn-contact {
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  position: static;
+  display: table;
+  margin: 0 auto 50px;
+  opacity: 1;
+
+  &:hover {
+    background-color: #ab1010;
+  }
+}
+
+#primary-content ol li {
+  margin-bottom: 10px;
 }
 
 #primary-content ol,
@@ -5329,6 +5362,10 @@ a.anchor {
 
   #primary-content #secondary-nav ul > li:not(:last-child) {
     margin-right: 0;
+    margin-left: 0;
+  }
+
+  #primary-content #secondary-nav ul > li {
     margin-left: 0;
   }
 
