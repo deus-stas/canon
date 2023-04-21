@@ -36,7 +36,14 @@ class Menus {
 		
 		//сортировка по полю "сортировка" всего списка
         $items = array_merge($sections, $pages);
-        usort($items, fn($a, $b) => ($a['sort'] === $b['sort']) ? 0 : ($a['sort'] < $b['sort']) ? -1 : 1);
+
+        usort($items, static function ($a, $b)
+        {
+	        if ($a['sort'] == $b['sort']) {
+		        return 0;
+	        }
+	        return ($a['sort'] < $b['sort']) ? -1 : 1;
+        });
 		return $items;
 	}
 	
