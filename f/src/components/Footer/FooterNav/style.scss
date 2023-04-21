@@ -1,7 +1,6 @@
 @import 'src/assets/styles/variables';
 
 .footer-menu {
-  margin-left: -16px;
   margin-right: 15%;
   list-style: none;
   width: 100%;
@@ -13,7 +12,8 @@
     width: 100%;
 
     & > ul {
-      min-width: 50%;
+      min-width: 49%;
+      max-width: 49%;
     }
   }
 
@@ -93,5 +93,9 @@
 
   .footer-menu-items {
     width: 100%;
+  }
+
+  .footer-menu .footer-menu-withChild > ul {
+    max-width: none;
   }
 }

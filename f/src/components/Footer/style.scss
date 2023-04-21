@@ -11,6 +11,14 @@
   :is(.not-in-final-state, .not-found-state) & {
     display: none;
   }
+
+  &__disclaimer {
+    border-top: 1px solid rgb(230, 230, 230);
+    padding-top: 25px;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #212529;
+  }
 }
 
 .footer-info {

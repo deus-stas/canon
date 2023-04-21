@@ -16,6 +16,10 @@
       width: 100%;
       margin-bottom: 30px;
 
+      &.--hidden {
+        display: none;
+      }
+
       .feedback-checkboxes {
         align-items: flex-start;
       }
@@ -68,6 +72,7 @@
     }
 
     select.required + label::after,
+    textarea.required + label::after,
     input.required + label::after {
       content: ' *';
       color: $red;
@@ -106,11 +111,12 @@
     }
 
     select.empty-input,
+    textarea.empty-input,
     input.empty-input {
       box-shadow: 0 0 7px rgba(204, 0, 0, 0.4);
       border-color: $red;
 
-      + .custom-checkbox {
+      +.custom-checkbox {
         box-shadow: 0 0 7px rgba(204, 0, 0, 0.4);
         border-color: $red;
       }
