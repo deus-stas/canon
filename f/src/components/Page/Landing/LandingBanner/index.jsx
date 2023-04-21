@@ -71,7 +71,7 @@ const LandingBanner = (props) => {
                             </span>
                             <div className="banner-caption">
                                 <div className="row">
-                                    <div className="col-lg-6 col-md-6 col-sm-7">
+                                    <div className="col-lg-7 col-md-7 col-sm-7">
 
                                         <h1>
                                             <div className="banner-caption-text hidden-xs">
