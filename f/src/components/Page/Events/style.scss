@@ -5356,7 +5356,8 @@ a.anchor {
 }
 
 @media (max-width: 767px) {
-  #primary-content ul > li {
+  #primary-content ul > li,
+  #primary-content ol > li {
     margin-left: 16px;
   }
 
@@ -5446,6 +5447,10 @@ a.anchor {
     font-size: 14px;
   }
 
+  .primary-contentLikeP .img-thumbnail {
+    margin-bottom: 15px;
+  }
+
   #primary-content ul {
     font-size: 14px;
   }
@@ -5453,6 +5458,10 @@ a.anchor {
   #primary-content ol {
     font-size: 14px;
   }
+}
+
+.ProductDetailContent h1 {
+  margin-bottom: 20px;
 }
 
 @media (max-width: 767px) {
