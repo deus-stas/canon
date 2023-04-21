@@ -53,7 +53,7 @@ module.exports = (env, argv) => {
       filename: filename('js'),
     },
     devServer: {
-      port: 3001,
+      port: 3005,
       open: true,
       historyApiFallback: true,
       watchContentBase: true,
