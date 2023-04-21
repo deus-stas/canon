@@ -130,6 +130,7 @@ class Landings {
             'UF_VIDEO:text>iframe_video',
             'PICTURE:Image>image',
             'DESCRIPTION:text>description',
+            'UF_BANNER_DESCRIPTION:text>banner_description',
         ];
 
         $nav = [
@@ -250,6 +251,8 @@ class Landings {
             'PROPERTY_PREVIEW_PICTURE:Image>previewImage',
             'PROPERTY_DETAIL_THEME:string>detail_theme_day',
             'PROPERTY_FULL_NAME:string>full_name',
+	        'PROPERTY_BANNER_DESCRIPTION:text>banner_description',
+	        'PROPERTY_SOURCES:text>sources',
             'PROPERTY_NAME_BLOCK_SPIKERS:string>name_block_spikers',
             'PROPERTY_LANGUAGE_LINK>language_link',
             'PROPERTY_SPIKERS:array>spikers',
@@ -355,6 +358,8 @@ class Landings {
                 'PROPERTY_FULL_NAME:string>full_name',
 				'PROPERTY_DETAIL_THEME:string>detail_theme_day',
 				'PROPERTY_POSITION:array>position',
+				'PROPERTY_BANNER_DESCRIPTION:text>banner_description',
+				'PROPERTY_SOURCES:text>sources',
 				'PROPERTY_SPIKERS:array>spikers',
                 'PROPERTY_NAME_URL:string>name_url',
 				'PROPERTY_EN_SPIKERS:array>en_spikers',
