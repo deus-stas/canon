@@ -13,7 +13,14 @@
    php_flag session.use_trans_sid off
    #php_flag default_charset UTF-8
    #php_value display_errors 1
+   php_value max_input_vars 10000
  </IfModule>
+ <IfModule mod_php8.c>
+    php_flag session.use_trans_sid off
+    #php_flag default_charset UTF-8
+    #php_value display_errors 1
+    php_value max_input_vars 10000
+  </IfModule>
 
  <IfModule mod_rewrite.c>
    Options +FollowSymLinks
