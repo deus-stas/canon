@@ -114,6 +114,19 @@ class Catalog
                         $items[$k]['menu']=[];
                     }
 
+                    if($item['depth'] == 5){
+                        $section = CacheManager::getIblockSectionsFromCache(
+                            [
+                                'IBLOCK_CODE' => self::IBLOCK_CODE,
+                                'FILTER'      => ['SECTION_ID' => $item['parentSection']],
+                                'SELECT'      => ['NAME>name'],
+                            ]
+                        );
+                        $section = $section ? current($section) : null;
+                        if ($section['name']) {
+                            $items[$k]['currentSectionName'] = $section['name'];
+                        }
+                    }
                     if ($item['parentSection']) {
                         $section = CacheManager::getIblockSectionsFromCache(
                             [
