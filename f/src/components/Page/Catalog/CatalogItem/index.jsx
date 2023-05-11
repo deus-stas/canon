@@ -4,6 +4,7 @@ import { inFinalState, inInitialState } from '@/store/helpers'
 import { useTemplateContext } from '@/contexts/TemplateContext'
 import { getCurrentRegion } from '@/components/Header/Regions'
 import { fetchCatalogItem } from '@store'
+import { Fancybox } from "@fancyapps/ui";
 
 import './style.scss'
 import NotFoundPage from '@components/Page/NotFoundPage'
@@ -36,6 +37,7 @@ const CatalogItemPage = props => {
       dispatch(fetchCatalogItem(catalogItemCode, region, lang))
     }
     document.documentElement.scrollTop = 0
+    Fancybox.bind("[data-fancybox]", {});
   }, [dispatch, catalogItemsStoreChunk])
 
   if (!inFinalState(catalogItemsStoreChunk)) {
