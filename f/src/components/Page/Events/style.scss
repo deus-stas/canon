@@ -4882,6 +4882,53 @@ h1,
   padding-left: 6px;
 }
 
+#primary-content table tbody tr td:first-child {
+  font-weight: normal;
+  min-width: 160px;
+}
+
+#primary-content table tbody tr td:nth-child(2) {
+  padding-right: 30px;
+  width: 35%;
+}
+
+#primary-content table tbody tr td:nth-child(3) {
+  min-width: 170px;
+  padding-right: 20px;
+}
+
+#primary-content table tbody tr:first-child {
+  font-weight: 700 !important;
+  color: #969696;
+
+  td:first-child {
+    font-weight: 700;
+  }
+}
+
+#radio {
+  a {
+    font-weight: 700;
+    color: #c00;
+
+    &:hover {
+      border-bottom: 1px solid;
+    }
+  }
+
+  p {
+    color: #000;
+    font-weight: 400;
+  }
+
+  .ProductDetailContent h2 {
+    background-color: #ab1010;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+  }
+}
+
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
   .side-navigation .nav li:hover {
     // background: url(../img/side-navigation/side-navigation-chevron-right.png) no-repeat left 13px;
@@ -5576,6 +5623,42 @@ a.anchor {
 
   #primary-content #secondary-nav .product-navbar li a {
     padding: 10px 15px;
+  }
+
+  #primary-content table tbody tr:first-child {
+    display: none;
+  }
+
+  #primary-content table tbody tr:nth-child(2) {
+    border-top: none;
+  }
+
+  #primary-content table tbody tr td:not(:last-child) {
+    padding-bottom: 0.8em;
+  }
+
+  #primary-content table tbody tr td:nth-child(2) {
+    padding-right: 0;
+    font-weight: bold;
+    width: 100%;
+  }
+
+  #primary-content table tbody tr td:nth-child(3) {
+    br {
+      display: none;
+    }
+  }
+
+  #primary-content table tbody tr td:nth-child(1) {
+    color: #969696;
+
+    br {
+      display: none;
+    }
+  }
+
+  #primary-content table {
+    margin: 10px 0;
   }
 }
 
