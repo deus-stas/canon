@@ -176,7 +176,7 @@ const LandingItem = (props) => {
                             <div id="content-area">
                                 <div className="b-container section-30-bottom section-40-top border-bottom">
                                     <h1 dangerouslySetInnerHTML={{ __html: data.full_name }}></h1>
-                                    <h2 dangerouslySetInnerHTML={{ __html: data.date_place }}></h2>
+                                    <div dangerouslySetInnerHTML={{ __html: data.date_place }}></div>
                                 </div>
                             </div>
                             <div className="b-container">
