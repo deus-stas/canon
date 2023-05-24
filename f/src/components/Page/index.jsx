@@ -22,9 +22,7 @@ import CareersPage from './Careers'
 import FeedbackPage from './FeedbackPage'
 import Postwarranty from './Postwarranty'
 import Landing from './Landing'
-import LandingAnalog from './LandingAnalog'
 import LandingItem from './Landing/LandingItem'
-import LandingItemAnalog from './LandingAnalog/LandingItemAnalog'
 import LandingDay from './Landing/LandingDay'
 
 const Page = () => {
@@ -86,10 +84,6 @@ const Page = () => {
         <Route exact path={`${langPrefix}/service-support/post-warranty/`} component={Postwarranty} />
         <Route exact path={`${langPrefix}/landings`} component={Landing} />
         <Route exact path={`${langPrefix}/landings/:path1`} component={LandingItem} />
-        <Route exact path={`${langPrefix}/landings/:path1/:path2`} component={LandingDay} />
-
-        <Route exact path={`${langPrefix}/landings-analog`} component={LandingAnalog} />
-        <Route exact path={`${langPrefix}/landings-analog/:path1`} component={LandingItemAnalog} />
         <Route exact path={`${langPrefix}/landings/:path1/:path2`} component={LandingDay} />
         <Route component={NotFoundPage} />
       </Switch>

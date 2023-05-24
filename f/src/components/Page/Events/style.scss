@@ -2451,6 +2451,10 @@ svg {
   padding-bottom: 10px;
 }
 
+.section-5-top {
+  padding-top: 5px;
+}
+
 .section-10-top {
   padding-top: 10px;
 }
@@ -4926,6 +4930,21 @@ h1,
     color: #fff;
     text-align: center;
     padding: 10px 20px;
+  }
+
+  .b1Stand p {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  @media all and (min-width: 1400px) {
+    .b1Stand p {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+    }
   }
 }
 

@@ -17,7 +17,7 @@ const LandingItem = (props) => {
     const lang = useTemplateContext().lang;
     const langPrefix = (lang === 'ru') ? '' : '/' + lang;
 
-    let landingsItemsCode = props.match.params.path1;
+    let landingsItemsCode = eventType;
 
     const region = getCurrentRegion()
     const dispatch = useDispatch()
@@ -174,7 +174,10 @@ const LandingItem = (props) => {
                         :
                         <div id="radio">
                             <div id="content-area">
-                                <div className="b-container section-30-bottom section-40-top border-bottom">
+                                <div className="b-container">
+                                    <h2 dangerouslySetInnerHTML={{ __html: data.theme }}></h2>                                    
+                                </div>
+                                <div className="b-container section-30-bottom section-5-top border-bottom">
                                     <h1 dangerouslySetInnerHTML={{ __html: data.full_name }}></h1>
                                     <h2 dangerouslySetInnerHTML={{ __html: data.date_place }}></h2>
                                 </div>
@@ -197,7 +200,7 @@ const LandingItem = (props) => {
 
                             <div className="b-container">
                                 <div className="section-20">
-                                    <div className="ProductDetailContent ContentArea">
+                                    <div className="ProductDetailContent ContentArea b1Stand">
                                         <div dangerouslySetInnerHTML={{ __html: data.desc_block3 }}></div>
                                     </div>
                                 </div>
@@ -207,6 +210,7 @@ const LandingItem = (props) => {
                                 <div className="section-20">
                                     <div className="ProductDetailContent ContentArea">
                                         <div dangerouslySetInnerHTML={{ __html: data.desc_block4 }}></div>
+                                        
                                     </div>
                                 </div>
                             </div>

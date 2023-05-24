@@ -70,7 +70,7 @@ const LandingBanner = (props) => {
                                 <img className="img-fluid" alt="" src={props.id ? image : data.image.src} />
                             </span>
                             {
-                                data.landing_code !== 'radiologiya' ?
+                                
                                     <div className="banner-caption">
                                         <div className="row">
                                             <div className="col-lg-7 col-md-7 col-sm-7">
@@ -86,7 +86,7 @@ const LandingBanner = (props) => {
                                                 </h1>
                                             </div>
                                         </div>
-                                    </div> : null
+                                    </div>
                             }
 
 
