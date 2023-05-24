@@ -137,6 +137,7 @@ class Landings {
             'UF_DESCRIBE_BLOCK_THREE:text>desc_block3',
             'UF_DESCRIBE_BLOCK_FOUR:text>desc_block4',
             'UF_LANDING_CODE:string>landing_code',
+            'UF_START_IMAGE:Image>start_image',
         ];
 
         $nav = [
