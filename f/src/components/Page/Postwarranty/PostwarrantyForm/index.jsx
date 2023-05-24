@@ -142,12 +142,13 @@ const Warranty = (props) => {
                 [name]: e.data.name.short_with_opf,
             });
         } else if (type === 'install_address') {
+            console.log(e);
             const name = feedbackFormInputs.find(input => input.SID === 'install_address')?.ANSWERS[0]?.HTML_NAME;
             document.querySelector(`#${name}_input`).classList.remove('empty-input');
 
             setValues({
                 ...values,
-                [name]: e.data?.region_with_type + e.data?.area_with_type + e.data?.settlement_with_type,
+                [name]: e.value,
             });
         }
     };
@@ -238,7 +239,7 @@ const Warranty = (props) => {
     return feedbackFormInputs.length ? (
         <div className="feedback-form-container --warranty">
             <h3>
-                {lang === 'ru' ? 'Оставить заявку на постгарантийный сервис' : 'Оставить заявку на постгарантийный сервис'}
+                {lang === 'ru' ? 'Оставить заявку на постгарантийный сервис' : 'Post-warranty service'}
             </h3>
             <form data-form-id={feedbackForm.ID} onSubmit={handleSubmit}
                 className="flex feedback-form" id="feedback-form" action="/" method="post">

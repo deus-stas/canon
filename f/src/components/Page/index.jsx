@@ -80,7 +80,7 @@ const Page = () => {
         <Route exact path={`${langPrefix}/products/:path1/:path2/:path3`} component={CatalogItemPage} />
         <Route exact path={`${langPrefix}/products/:path1/:path2/:path3/:path4`} component={CatalogItemPage} />
         <Route exact path={`${langPrefix}/search/`} component={SearchPage} />
-        <Route exact path={`${langPrefix}/service-support/feedback/`} component={FeedbackPage} />
+        <Route exact path={`${langPrefix}/service-support/warranty/`} component={FeedbackPage} />
         <Route exact path={`${langPrefix}/service-support/post-warranty/`} component={Postwarranty} />
         <Route exact path={`${langPrefix}/landings`} component={Landing} />
         <Route exact path={`${langPrefix}/landings/:path1`} component={LandingItem} />

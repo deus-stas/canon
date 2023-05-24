@@ -114,6 +114,91 @@
   height: 638px;
 }
 
+.image-points {
+  position: relative;
+}
+
+.image-points__p {
+  display: block;
+  position: absolute;
+  width: 5vw;
+  max-width: 50px;
+  aspect-ratio: 1/1;
+  background-image: url(https://canonmedical.widen.net/content/hlj0nlijc9/svg/btn_red-01.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  mix-blend-mode: multiply;
+
+  &:hover {
+    background-image: url(https://canonmedical.widen.net/content/nhieahju7s/svg/btn_red-03.svg?u=ce5ah6&use=gekiw);
+    mix-blend-mode: multiply;
+  }
+
+  &:nth-child(1) {
+    top: 21%;
+    left: 23%;
+  }
+
+  &:nth-child(2) {
+    top: 33%;
+    left: 26%;
+  }
+
+  &:nth-child(3) {
+    top: 42%;
+    left: 38%;
+  }
+
+  &:nth-child(4) {
+    top: 74%;
+    left: 30%;
+  }
+
+  &:nth-child(5) {
+    top: 28%;
+    left: 61%;
+  }
+
+  &:nth-child(6) {
+    top: 36%;
+    left: 74%;
+  }
+
+  &:nth-child(7) {
+    top: 44%;
+    left: 49%;
+  }
+
+  &:nth-child(8) {
+    top: 82%;
+    left: 67%;
+  }
+}
+
+.points-popup {
+  padding: 0 !important;
+  width: 500px !important;
+  max-width: 95% !important;
+  border-radius: 10px !important;
+
+  &__title {
+    padding: 15px;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 16px;
+    color: rgb(204, 0, 0);
+    font-weight: normal;
+  }
+
+  &__descr {
+    padding: 15px;
+    font-size: 18px;
+    color: rgb(50, 50, 50);
+    font-weight: 300;
+    margin: 0 0 17px;
+  }
+}
+
 @media screen and (max-width: 767.9px) {
   .embed-responsive {
     padding: 0 12px;
@@ -679,7 +764,7 @@ html.with-fancybox body.hide-scrollbar {
   bottom: 0;
   right: 0;
   z-index: -1;
-  background: var(--fancybox-bg);
+  background: rgba(24, 24, 27, 0.5);
   opacity: var(--fancybox-opacity, 1);
   will-change: opacity;
 }

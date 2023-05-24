@@ -37,137 +37,181 @@ const LandingItem = (props) => {
 
     console.log(data);
 
-    if (data) {
+    if (data.image) {
 
-        updatePageMeta(data.seo);
+        // updatePageMeta(data.seo);
 
         return (
+
             <div id="primary-content">
 
                 <Banner code={landingsItemsCode} />
-
-                <div id="content-area">
-                    <div className="b-container section-60-bottom section-40-top border-bottom">
-                        <div className="row">
-                            <div className="col-md-12">
-                                <h1></h1>
-                                <h2 dangerouslySetInnerHTML={{ __html: data.theme }}></h2>
-                                <h1 dangerouslySetInnerHTML={{ __html: data.full_name }}></h1>
-                            </div>
-                            <div className="col-sm-7">
-                                <p className="margin-bottom-30"
-                                    dangerouslySetInnerHTML={{ __html: data.description }}
-                                >
-                                </p>
-                            </div>
-                            <div className="col-sm-5 border-left">
-                                <div className="side-navigation">
-                                    <p className="side-navigation-header" dangerouslySetInnerHTML={{ __html: data.name_block_days }}></p>
-                                    <ul className="nav">
-                                        {
-                                            data.days.map((day) => {
-                                                return (
-                                                    <li key={day.id}>
-                                                        <a href={`${langPrefix}/events/${data.code}/${day.code}`}>
-                                                            <h2>
-                                                                <strong dangerouslySetInnerHTML={{ __html: day.date }}></strong>
-                                                            </h2>
-                                                            <strong dangerouslySetInnerHTML={{ __html: day.name }}></strong><br />
-                                                            <span dangerouslySetInnerHTML={{ __html: day.theme_day }}></span>
-                                                        </a>
-                                                    </li>
-                                                )
-                                            })
-                                        }
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="b-container">
-                    <div className="section-20">
-                        <div className="ProductDetailContent ContentArea">
-                            <div className="row">
-                                <div className="col-sm-12">
-                                </div>
-                                <div className="col-sm-12">
-                                    <h1 dangerouslySetInnerHTML={{ __html: data.name }}>
-                                    </h1>
-                                </div>
-                                <div className="col-sm-12">
-
-                                    <div className="mm-player-custom html5 ratio ratio-16x9 player-loaded" dangerouslySetInnerHTML={{ __html: data.iframe_video }}>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 {
-                    data.days.map((day, i) => {
-                        const previewText = day.previewText.replace('\&nbsp;', ' ');
-
-                        return (
-                            <div className="b-container" key={day.id}>
-                                <div className="section-20">
-                                    <div className="ProductDetailContent ContentArea">
-                                        <div className={`row ${i % 2 !== 0 ? '--reverse' : ' '}`}>
-                                            <div className="col-12-org col-sm-6">
-                                                <h1 dangerouslySetInnerHTML={{ __html: day.name }}></h1>
-                                                <p dangerouslySetInnerHTML={{ __html: previewText }}></p>
-
-                                                <a href={`${langPrefix}/events/${data.code}/${day.code}`} dangerouslySetInnerHTML={{ __html: day.name_url }}>
-                                                </a>
+                    data.landing_code !== 'radiologiya' ?
+                        <>
+                            <div id="content-area">
+                                <div className="b-container section-60-bottom section-40-top border-bottom">
+                                    <div className="row">
+                                        <div className="col-md-12">
+                                            <h1></h1>
+                                            <h2 dangerouslySetInnerHTML={{ __html: data.theme }}></h2>
+                                            <h1 dangerouslySetInnerHTML={{ __html: data.full_name }}></h1>
+                                        </div>
+                                        <div className="col-sm-7">
+                                            <p className="margin-bottom-30"
+                                                dangerouslySetInnerHTML={{ __html: data.description }}
+                                            >
+                                            </p>
+                                        </div>
+                                        <div className="col-sm-5 border-left">
+                                            <div className="side-navigation">
+                                                <p className="side-navigation-header" dangerouslySetInnerHTML={{ __html: data.name_block_days }}></p>
+                                                <ul className="nav">
+                                                    {
+                                                        data.days.map((day) => {
+                                                            return (
+                                                                <li key={day.id}>
+                                                                    <a href={`${langPrefix}/events/${data.code}/${day.code}`}>
+                                                                        <h2>
+                                                                            <strong dangerouslySetInnerHTML={{ __html: day.date }}></strong>
+                                                                        </h2>
+                                                                        <strong dangerouslySetInnerHTML={{ __html: day.name }}></strong><br />
+                                                                        <span dangerouslySetInnerHTML={{ __html: day.theme_day }}></span>
+                                                                    </a>
+                                                                </li>
+                                                            )
+                                                        })
+                                                    }
+                                                </ul>
                                             </div>
-                                            <div className="col-12-org col-sm-6">
-
-                                                <div className="d-none d-md-block">
-                                                    <span>
-                                                        <img src={day.previewImage.src} className="img-fluid" />
-
-                                                        <small></small>
-
-                                                    </span>
-                                                </div>
-                                                <div>
-                                                    <span>
-                                                        <img src={day.previewImage.src} className="img-fluid d-block d-sm-none" />
-
-                                                        <small className="d-block d-sm-none"></small>
-                                                    </span>
-                                                </div>
-                                            </div>
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        )
-                    })
-                }
 
-                <div className="b-container">
-                    <div className="section-20">
-                        <div className="ProductDetailContent ContentArea">
-                            <div className="row">
-                                <div className="col-sm-12">
+                            <div className="b-container">
+                                <div className="section-20">
+                                    <div className="ProductDetailContent ContentArea">
+                                        <div className="row">
+                                            <div className="col-sm-12">
+                                            </div>
+                                            <div className="col-sm-12">
+                                                <h1 dangerouslySetInnerHTML={{ __html: data.name }}>
+                                                </h1>
+                                            </div>
+                                            <div className="col-sm-12">
+
+                                                <div className="mm-player-custom html5 ratio ratio-16x9 player-loaded" dangerouslySetInnerHTML={{ __html: data.iframe_video }}>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="col-sm-12">
-                                    <p dangerouslySetInnerHTML={{ __html: data.full_description }}>
+                            </div>
 
-                                    </p>
+                            {
+                                data.days.map((day, i) => {
+                                    const previewText = day.previewText.replace('\&nbsp;', ' ');
+
+                                    return (
+                                        <div className="b-container" key={day.id}>
+                                            <div className="section-20">
+                                                <div className="ProductDetailContent ContentArea">
+                                                    <div className={`row ${i % 2 !== 0 ? '--reverse' : ' '}`}>
+                                                        <div className="col-12-org col-sm-6">
+                                                            <h1 dangerouslySetInnerHTML={{ __html: day.name }}></h1>
+                                                            <p dangerouslySetInnerHTML={{ __html: previewText }}></p>
+
+                                                            <a href={`${langPrefix}/events/${data.code}/${day.code}`} dangerouslySetInnerHTML={{ __html: day.name_url }}>
+                                                            </a>
+                                                        </div>
+                                                        <div className="col-12-org col-sm-6">
+
+                                                            <div className="d-none d-md-block">
+                                                                <span>
+                                                                    {day.previewImage ? <img src={day.previewImage.src} className="img-fluid" /> : null}
+
+
+                                                                    <small></small>
+
+                                                                </span>
+                                                            </div>
+                                                            <div>
+                                                                <span>
+                                                                    {day.previewImage ? <img src={day.previewImage.src} className="img-fluid d-block d-sm-none" /> : null}
+                                                                    <small className="d-block d-sm-none"></small>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                })
+                            }
+
+                            <div className="b-container">
+                                <div className="section-20">
+                                    <div className="ProductDetailContent ContentArea">
+                                        <div className="row">
+                                            <div className="col-sm-12">
+                                            </div>
+                                            <div className="col-sm-12">
+                                                <p dangerouslySetInnerHTML={{ __html: data.full_description }}>
+
+                                                </p>
+                                            </div>
+                                            <div className="col-sm-12">
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="col-sm-12">
+                            </div>
+                        </>
+                        :
+                        <div id="radio">
+                            <div id="content-area">
+                                <div className="b-container section-30-bottom section-40-top border-bottom">
+                                    <h1 dangerouslySetInnerHTML={{ __html: data.full_name }}></h1>
+                                    <h2 dangerouslySetInnerHTML={{ __html: data.date_place }}></h2>
+                                </div>
+                            </div>
+                            <div className="b-container">
+                                <div className="section-20">
+                                    <div className="ProductDetailContent ContentArea">
+                                        <div dangerouslySetInnerHTML={{ __html: data.desc_block1 }}></div>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <div className="b-container">
+                                <div className="section-20">
+                                    <div className="ProductDetailContent ContentArea">
+                                        <div dangerouslySetInnerHTML={{ __html: data.desc_block2 }}></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="b-container">
+                                <div className="section-20">
+                                    <div className="ProductDetailContent ContentArea">
+                                        <div dangerouslySetInnerHTML={{ __html: data.desc_block3 }}></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="b-container">
+                                <div className="section-20">
+                                    <div className="ProductDetailContent ContentArea">
+                                        <div dangerouslySetInnerHTML={{ __html: data.desc_block4 }}></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
+                }
 
             </div >
         )

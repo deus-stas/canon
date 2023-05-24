@@ -11,7 +11,7 @@ import FeedbackForm from '../Contacts/FeedbackForm'
 import './style.scss'
 import NotFoundPage from '@components/Page/NotFoundPage'
 
-const pageCode = 'service-support/feedback'
+const pageCode = 'service-support/warranty'
 
 const FeedbackPage = () => {
   usePageMeta({ pageCode })
