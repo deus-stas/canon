@@ -127,10 +127,16 @@ switch ($requestData['action']) {
             $params = $filter = [];
 
             if (!is_numeric($requestData['code'])) {
-                $requestData['code'] = Project\Landings::getSectionIdByCode($requestData['code']);
+                $filter = [
+                    'SECTION_ID' => Project\Landings::getSectionIdByCode(strtoupper(LANGUAGE_CODE)),
+                ];
+                $querySec = CIBlockSection::GetList(array('ID' => 'ASC'), array('IBLOCK_CODE' => 'landings', 'ACTIVE' => 'Y', 'SECTION_ID' => $filter['SECTION_ID']), false, array('ID', 'CODE'));
+                while($section = $querySec->GetNext()){
+                    if($section["CODE"] == $requestData['code']){
+                        $filter['SECTION_ID'] = $section["ID"];
+                    }
+                }
             }
-
-            $filter['SECTION_ID'] = (int)$requestData['code'];
 
             $params['navigation'] = [
                 'limit' => $requestData['limit'] ?: 0,
