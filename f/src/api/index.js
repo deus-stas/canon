@@ -261,6 +261,28 @@ export function fetchFeedbackForm(lang = 'ru') {
 }
 
 /**
+ * Получаем форму постгарантии
+ *
+ * @returns {Promise<Response>}
+ */
+export function fetchWarranty(lang = 'ru') {
+  return fetch(`/local/api/?action=forms.getPostWarranty&lang=${lang}`)
+    .then(handleApiError)
+    .then(getJsonFromResponse)
+}
+
+/**
+ * Получаем селект оборудования для формы постгарантии
+ *
+ * @returns {Promise<Response>}
+ */
+export function fetchEquipment(lang = 'ru') {
+  return fetch(`/local/api/?action=forms.getEquipment&lang=${lang}`)
+    .then(handleApiError)
+    .then(getJsonFromResponse)
+}
+
+/**
  * Получаем результаты поиска
  *
  * @returns {Promise<Response>}
@@ -280,6 +302,33 @@ export function saveFeedbackForm(data, lang = 'ru') {
   return fetch(`/local/api/?action=forms.saveForm&lang=${lang}`, {
     method: 'POST',
     body: JSON.stringify(data)
+  })
+    .then(handleApiError)
+    .then(getJsonFromResponse)
+}
+
+/**
+ * Сохраняем форму обратной связи
+ *
+ * @returns {Promise<Response>}
+ */
+export function saveWarranty(data, lang = 'ru') {
+  const formData = new FormData()
+  formData.append('form_id', data.form_id)
+  formData.append('action', 'forms.saveFormPostWarranty')
+
+  // Добавляем значения в FormData
+  Object.entries(data.values).forEach(([key, value]) => {
+    if (key === 'form_file_499' || key === 'form_file_626') {
+      formData.append(key, value, value.name)
+    } else {
+      formData.append(`values[${key}]`, value)
+    }
+  })
+
+  return fetch(`/local/api/?action=forms.saveFormPostWarranty&lang=${lang}`, {
+    method: 'POST',
+    body: formData
   })
     .then(handleApiError)
     .then(getJsonFromResponse)

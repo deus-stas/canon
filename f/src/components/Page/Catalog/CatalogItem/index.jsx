@@ -4,6 +4,7 @@ import { inFinalState, inInitialState } from '@/store/helpers'
 import { useTemplateContext } from '@/contexts/TemplateContext'
 import { getCurrentRegion } from '@/components/Header/Regions'
 import { fetchCatalogItem } from '@store'
+import { Fancybox } from "@fancyapps/ui";
 
 import './style.scss'
 import NotFoundPage from '@components/Page/NotFoundPage'
@@ -36,6 +37,19 @@ const CatalogItemPage = props => {
       dispatch(fetchCatalogItem(catalogItemCode, region, lang))
     }
     document.documentElement.scrollTop = 0
+    Fancybox.bind("[data-fancybox]", {
+      on: {
+        "done": (fancybox, slide) => {
+          if (slide.triggerEl.classList.contains('image-points__p')) {
+            let title = slide.triggerEl.dataset.title,
+              descr = slide.triggerEl.dataset.descr;
+              
+            document.querySelector('.points-popup__title').innerHTML = title;
+            document.querySelector('.points-popup__descr').innerHTML = descr;
+          }
+        },
+      }
+    });
   }, [dispatch, catalogItemsStoreChunk])
 
   if (!inFinalState(catalogItemsStoreChunk)) {
