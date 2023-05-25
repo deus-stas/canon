@@ -6,7 +6,6 @@ use Bitrix\Main\Config\Option;
 use Bitrix\Main\Context;
 use Bitrix\Main\Loader;
 use Bitrix\Main\Mail\Event;
-
 Loader::includeModule('als.helper');
 Loader::includeModule('als.typograf');
 
@@ -47,16 +46,19 @@ class Mail
      * @api
      * @static
      */
-    public static function send(array $fields = []): bool
+    public static function send(array $fields = [], $files = []): bool
     {
         if (empty($fields['EMAIL_FROM'])) {
             $fields['EMAIL_FROM'] = static::getEmailFrom();
         }
-
-        $result = Event::send([
+        if (empty($fields['EMAIL_TO'])) {
+            $fields['EMAIL_TO'] = static::getEmailFrom();
+        }
+        $result = Event::Send([
             'EVENT_NAME' => 'ALS_GLOBAL_NOTIFICATION',
             'LID'        => 's1',
             'C_FIELDS'   => $fields,
+            "FILE" => $files
         ]);
 
         return $result->isSuccess();
@@ -133,7 +135,7 @@ class Mail
             return $result;
         }
 
-        $fullPath = $_SERVER['DOCUMENT_ROOT'] . '/local/mail/templates/' . $path . '.php';
+        $fullPath = $_SERVER['DOCUMENT_ROOT'] . 'local/mail/templates/' . $path . '.php';
 
         if (!file_exists($fullPath)) {
             return $result;

@@ -147,7 +147,6 @@ switch ($requestData['action']) {
         break;
     case 'landing.getDay':
         if (!empty($requestData['code'])) {
-
             $advFilter = [
                 'SECTION_ID' => Project\Landings::getSectionIdByCode(strtoupper(LANGUAGE_CODE)),
             ];
@@ -299,6 +298,18 @@ switch ($requestData['action']) {
 
     case 'forms.getFeedback':
         $result = Project\Forms::getFeedback();
+        break;
+
+    case 'forms.getPostWarranty':
+        $result = Project\Forms::getPostWarranty();
+        break;
+
+    case 'forms.getEquipment':
+        $result = Project\Equipment::getEquipmentForForm();
+        break;
+
+    case 'forms.saveFormPostWarranty':
+        $result = Project\Forms::saveFormPostWarranty($requestData);
         break;
 
     // specialties
