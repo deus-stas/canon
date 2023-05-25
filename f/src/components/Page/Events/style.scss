@@ -304,6 +304,12 @@
   .b-container {
     max-width: 1320px;
   }
+
+  #radio .b1Stand p {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row !important;
+  }
 }
 
 .b-container {
@@ -4904,6 +4910,13 @@ h1,
   td:first-child {
     font-weight: 700;
   }
+}
+
+#radio .b1Stand p {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 5px;
 }
 
 #radio {

@@ -48,7 +48,7 @@ const LandingBanner = (props) => {
 
     let index, name, date, image, bannerDescription;
 
-    if (props.id && data.landing_code !== 'radiologiya') {
+    if (props.id) {
         data.days.map((day, i) => {
             if (day.id === props.id) {
                 index = i;
@@ -69,27 +69,22 @@ const LandingBanner = (props) => {
                             <span property="s:largeImage">
                                 <img className="img-fluid" alt="" src={props.id ? image : data.image.src} />
                             </span>
-                            {
-                                data.landing_code !== 'radiologiya' ?
-                                    <div className="banner-caption">
-                                        <div className="row">
-                                            <div className="col-lg-7 col-md-7 col-sm-7">
+                            <div className="banner-caption">
+                                <div className="row">
+                                    <div className="col-lg-7 col-md-7 col-sm-7">
 
-                                                <h1>
-                                                    <div className="banner-caption-text hidden-xs">
-                                                        <span dangerouslySetInnerHTML={{ __html: props.id ? bannerDescription : data.banner_description }}></span>
-                                                    </div>
-                                                    <span className="visible-xs" style={{ fontSize: '70%' }} >
-                                                        <span dangerouslySetInnerHTML={{ __html: props.id ? bannerDescription : data.banner_description }}></span>
-                                                    </span>
-                                                    <br />
-                                                </h1>
+                                        <h1>
+                                            <div className="banner-caption-text hidden-xs">
+                                                <span dangerouslySetInnerHTML={{ __html: props.id ? bannerDescription : data.banner_description }}></span>
                                             </div>
-                                        </div>
-                                    </div> : null
-                            }
-
-
+                                            <span className="visible-xs" style={{ fontSize: '70%' }} >
+                                                <span dangerouslySetInnerHTML={{ __html: props.id ? bannerDescription : data.banner_description }}></span>
+                                            </span>
+                                            <br />
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

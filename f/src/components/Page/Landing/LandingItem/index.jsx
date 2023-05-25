@@ -174,7 +174,15 @@ const LandingItem = (props) => {
                         :
                         <div id="radio">
                             <div id="content-area">
-                                <div className="b-container section-30-bottom section-40-top border-bottom">
+                                <div className="b-container">
+                                    <div className="row">
+                                        <div className="col-md-12">
+                                            <h1></h1>
+                                            <h2 dangerouslySetInnerHTML={{ __html: data.theme }}></h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="b-container section-30-bottom section-5-top border-bottom">
                                     <h1 dangerouslySetInnerHTML={{ __html: data.full_name }}></h1>
                                     <div dangerouslySetInnerHTML={{ __html: data.date_place }}></div>
                                 </div>
@@ -197,7 +205,7 @@ const LandingItem = (props) => {
 
                             <div className="b-container">
                                 <div className="section-20">
-                                    <div className="ProductDetailContent ContentArea">
+                                    <div className="ProductDetailContent b1Stand ContentArea">
                                         <div dangerouslySetInnerHTML={{ __html: data.desc_block3 }}></div>
                                     </div>
                                 </div>
