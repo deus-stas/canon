@@ -35,7 +35,7 @@ const LandingItem = (props) => {
     }
     const { data } = landingsItemsStoreChunk;
 
-    console.log(data);
+    console.log("data igradylyan", data);
 
     if (data.image) {
 
@@ -45,7 +45,7 @@ const LandingItem = (props) => {
 
             <div id="primary-content">
 
-                <Banner code={landingsItemsCode} />
+                <Banner code={landingsItemsCode} id={data}/>
                 {
                     data.landing_code !== 'radiologiya' ?
                         <>
