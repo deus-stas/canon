@@ -100,9 +100,8 @@ const LandingDay = (props) => {
                                 }
 
                                 {
-                                    data.sources.TEXT ? <span dangerouslySetInnerHTML={{__html: data.sources.TEXT}}></span> : null
+                                    data.sources ? data.sources.TEXT ? <span dangerouslySetInnerHTML={{__html: data.sources.TEXT}}></span> : null : null
                                 }
-
                             </div>
                         </div>
                     </div>
