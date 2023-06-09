@@ -74,13 +74,14 @@ const LandingBanner = (props) => {
                             <div className="banner-caption">
                                 <div className="row">
                                     <div className="col-lg-7 col-md-7 col-sm-7">
+                                    
 
                                         <h1>
                                             <div className="banner-caption-text hidden-xs">
-                                                <span dangerouslySetInnerHTML={{ __html: props.id.code ? data.banner_description : data.banner_description }}></span>
+                                                <span dangerouslySetInnerHTML={{ __html: props.id.days ? data.banner_description : props.id.banner_description.TEXT  }}></span>
                                             </div>
                                             <span className="visible-xs" style={{ fontSize: '70%' }} >
-                                                <span dangerouslySetInnerHTML={{ __html: props.id.code ? data.banner_description : data.banner_description }}></span>
+                                                <span dangerouslySetInnerHTML={{ __html: props.id.code ? data.banner_description : props.id.banner_description.TEXT  }}></span>
                                             </span>
                                             <br />
                                         </h1>

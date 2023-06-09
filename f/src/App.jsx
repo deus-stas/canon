@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { PagesContext, usePagesContextValue } from './contexts/PagesContext'
 import { TemplateContext, useTemplateContextValue } from './contexts/TemplateContext'
@@ -13,8 +13,6 @@ const App = () => {
   const lang = getCurrentLang()
   const templateContextValue = useTemplateContextValue(lang)
 
-  
-
   if (!pagesContextValue || !templateContextValue) {
     return null
   }
@@ -23,8 +21,6 @@ const App = () => {
     <PagesContext.Provider value={pagesContextValue}>
       <TemplateContext.Provider value={templateContextValue}>
         <Router>
-          {/* {showModal && <Disclaimer setShowModal={setShowModal} />} */}
-          {/* {showModal && <Disclaimer handleAgree={handleAgree} handleDisagree={handleDisagree} />} */}
           <Page />
         </Router>
       </TemplateContext.Provider>

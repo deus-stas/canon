@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchWarranty } from '@store'
@@ -6,15 +7,15 @@ import { inFinalState, inInitialState } from '@store/helpers'
 import { useTemplateContext } from '@contexts/TemplateContext'
 import { saveWarranty } from '@/api'
 import { openFeedbackFormPopup } from '../../Contacts/FeedbackForm/FeedbackFormPopup/'
-import { PartySuggestions, AddressSuggestions } from 'react-dadata';
+import { PartySuggestions, AddressSuggestions } from 'react-dadata'
 
 // import 'react-dadata/dist/react-dadata.css';
 import './style.scss'
 import classNames from 'classnames'
 
-const DADATA_TOKEN = '1c25fa00567b62062c02ffe1bf78823d47918a80';
+const DADATA_TOKEN = '1c25fa00567b62062c02ffe1bf78823d47918a80'
 
-const Warranty = (props) => {
+const Warranty = props => {
     const lang = useTemplateContext().lang
     const templateSettings = useTemplateContext().templateSettings
     const dispatch = useDispatch()
@@ -22,8 +23,7 @@ const Warranty = (props) => {
     const equipmentStoreChunk = useSelector(store => store['equipment'])
     const [values, setValues] = useState({})
     const [showRegion, setShowRegion] = useState(false)
-    const [idsValues, setIdsValues] = useState([]);
-
+    const [idsValues, setIdsValues] = useState([])
 
     useEffect(() => {
         if (!warrantyStoreChunk || inInitialState(warrantyStoreChunk)) {
@@ -40,10 +40,10 @@ const Warranty = (props) => {
     if (!inFinalState(warrantyStoreChunk) || !inFinalState(equipmentStoreChunk)) {
         return null
     }
-    console.log(warrantyStoreChunk.data);
-    console.log(equipmentStoreChunk.data);
+    // console.log(warrantyStoreChunk.data)
+    // console.log(equipmentStoreChunk.data)
     const { data: feedbackForm } = warrantyStoreChunk
-    const feedbackFormInputs = Object.values(feedbackForm.QUESTIONS).sort((a, b) => a.SORT - b.SORT);
+    const feedbackFormInputs = Object.values(feedbackForm.QUESTIONS).sort((a, b) => a.SORT - b.SORT)
 
     if (!showRegion) {
         const index = feedbackFormInputs.findIndex(item => item.SID === 'region')
@@ -77,81 +77,80 @@ const Warranty = (props) => {
 
     const handleChange = (e, type) => {
         if (e.target) {
-            e.target.classList.remove('empty-input');
+            e.target.classList.remove('empty-input')
             if (e.target.name.includes('[]')) {
                 // Обработка значений чекбоксов
-                const targetName = e.target.name.replace(/\[]/g, '');
-                const valuesArr = values[targetName] || [];
-
+                const targetName = e.target.name.replace(/\[]/g, '')
+                const valuesArr = values[targetName] || []
                 // Обновляем значение values
                 if (valuesArr.length && valuesArr.includes(e.target.value)) {
-                    setValues((prevState) => {
+                    setValues(prevState => {
                         const newValues = {
                             ...prevState,
-                            [targetName]: prevState[targetName].filter((el) => el !== e.target.value),
-                        };
-                        if (e.target.name !== 'form_checkbox_agree[]' && e.target.name !== 'form_checkbox_agree_mail[]') { setIdsValues(newValues[targetName] || []); }
-                        return newValues;
-                    });
+                            [targetName]: prevState[targetName].filter(el => el !== e.target.value)
+                        }
+                        if (e.target.name !== 'form_checkbox_agree[]' && e.target.name !== 'form_checkbox_agree_mail[]') { setIdsValues(newValues[targetName] || []) }
+                        return newValues
+                    })
                 } else {
-                    setValues((prevState) => {
+                    setValues(prevState => {
                         const newValues = {
                             ...prevState,
-                            [targetName]: prevState[targetName]?.length ? [...prevState[targetName], e.target.value] : [e.target.value],
-                        };
-                        if (e.target.name !== 'form_checkbox_agree[]' && e.target.name !== 'form_checkbox_agree_mail[]') { setIdsValues(newValues[targetName] || []); }
-                        return newValues;
-                    });
+                            [targetName]: prevState[targetName]?.length ? [...prevState[targetName], e.target.value] : [e.target.value]
+                        }
+                        if (e.target.name !== 'form_checkbox_agree[]' && e.target.name !== 'form_checkbox_agree_mail[]') { setIdsValues(newValues[targetName] || [e.target.value]) }    
+                        return newValues
+                    })
                 }
             } else if (e.target.files) {
                 // файл
                 setValues({
                     ...values,
-                    [e.target.name]: e.target.files[0],
-                });
+                    [e.target.name]: e.target.files[0]
+                })
             } else {
                 // Прочие поля
                 setValues({
                     ...values,
-                    [e.target.name]: e.target.value,
-                });
+                    [e.target.name]: e.target.value
+                })
             }
 
-
         } else if (type === 'company') {
-            const addressName = feedbackFormInputs.find(input => input.SID === 'address')?.ANSWERS[0]?.HTML_NAME;
-            const cityName = feedbackFormInputs.find(input => input.SID === 'city')?.ANSWERS[0]?.HTML_NAME;
-            const innName = feedbackFormInputs.find(input => input.SID === 'inn')?.ANSWERS[0]?.HTML_NAME;
-            const name = feedbackFormInputs.find(input => input.SID === 'company')?.ANSWERS[0]?.HTML_NAME;
-            document.querySelector(`#${name}_input`).classList.remove('empty-input');
+            const addressName = feedbackFormInputs.find(input => input.SID === 'address')?.ANSWERS[0]?.HTML_NAME
+            const cityName = feedbackFormInputs.find(input => input.SID === 'city')?.ANSWERS[0]?.HTML_NAME
+            const innName = feedbackFormInputs.find(input => input.SID === 'inn')?.ANSWERS[0]?.HTML_NAME
+            const name = feedbackFormInputs.find(input => input.SID === 'company')?.ANSWERS[0]?.HTML_NAME
+            document.querySelector(`#${name}_input`).classList.remove('empty-input')
             setValues({
                 ...values,
                 [addressName]: e.data.address.unrestricted_value,
                 [cityName]: e.data.address.data.city,
                 [innName]: e.data.inn,
-                [name]: e.data.name.short_with_opf,
-            });
+                [name]: e.data.name.short_with_opf
+            })
         } else if (type === 'end_user') {
-            const innEndUser = feedbackFormInputs.find(input => input.SID === 'inn_end_user')?.ANSWERS[0]?.HTML_NAME;
-            const name = feedbackFormInputs.find(input => input.SID === 'end_user')?.ANSWERS[0]?.HTML_NAME;
-            document.querySelector(`#${name}_input`).classList.remove('empty-input');
+            const innEndUser = feedbackFormInputs.find(input => input.SID === 'inn_end_user')?.ANSWERS[0]?.HTML_NAME
+            const name = feedbackFormInputs.find(input => input.SID === 'end_user')?.ANSWERS[0]?.HTML_NAME
+            document.querySelector(`#${name}_input`).classList.remove('empty-input')
 
             setValues({
                 ...values,
                 [innEndUser]: e.data.inn,
-                [name]: e.data.name.short_with_opf,
-            });
+                [name]: e.data.name.short_with_opf
+            })
         } else if (type === 'install_address') {
-            console.log(e);
-            const name = feedbackFormInputs.find(input => input.SID === 'install_address')?.ANSWERS[0]?.HTML_NAME;
-            document.querySelector(`#${name}_input`).classList.remove('empty-input');
+            // console.log(e)
+            console.log("test", e)
+            const name = feedbackFormInputs.find(input => input.SID === 'install_address')?.ANSWERS[0]?.HTML_NAME
+            document.querySelector(`#${name}_input`).classList.remove('empty-input')
 
             setValues({
                 ...values,
-                [name]: e.value,
-            });
+                [name]: e.value
+            })
         }
-    };
+    }
 
     const getEmptyInputs = e => {
         const requiredInputs = Array.from(e.target.querySelectorAll('.required'))
@@ -164,7 +163,7 @@ const Warranty = (props) => {
     }
 
     const validateForm = e => {
-        console.log(values);
+        // console.log(values)
         const emptyInputs = getEmptyInputs(e)
         if (emptyInputs.length) {
             emptyInputs.map(el => {
@@ -192,11 +191,10 @@ const Warranty = (props) => {
                 values
             }
 
-
             saveWarranty(data, lang).then(response => {
                 if (response.status === 'ok') {
                     openFeedbackFormPopup()
-                    console.log(data);
+                    console.log(data)
 
                     const inputs = Array.from(e.target.querySelectorAll('input, textarea'))
                     inputs.map(el => {
@@ -280,11 +278,11 @@ const Warranty = (props) => {
                                 }
 
                             case 'SUB_QUESTIONS': {
-                                const subQuestions = input.fields.filter(item => item.ANSWERS[0].PARENT_ID.split(',').some(id => idsValues.includes(id)));
+                                const subQuestions = input.fields.filter(item => item.ANSWERS[0].PARENT_ID.split(',').some(id => idsValues.includes(id)))
                                 return Object.values(subQuestions).map((item, idx) => {
-                                    const inputItemSID = item.SID;
+                                    const inputItemSID = item.SID
                                     const inputRequired = item.REQUIRED === 'Y' ? 'required' : ''
-                                    const key = `${index}-${inputItemSID}-${idx}`;
+                                    const key = `${index}-${inputItemSID}-${idx}`
                                     switch (inputItemSID) {
                                         case 'files': {
                                             return (
@@ -314,13 +312,12 @@ const Warranty = (props) => {
                                                         onChange={handleChange}
                                                         className={inputRequired} />
 
-
                                                     <label htmlFor={`${item.ANSWERS[0].HTML_NAME}_input`}>{item.TITLE}</label>
                                                 </div>
-                                            );
+                                            )
                                         }
                                     }
-                                });
+                                })
                             }
 
                             case 'email':
@@ -389,7 +386,7 @@ const Warranty = (props) => {
                                 if (showRegion) {
                                     return (
                                         <div key={index} className="flex-column input-container">
-                                            <PartySuggestions required={inputRequired} key={index} name={input.ANSWERS[0].HTML_NAME} token={DADATA_TOKEN} inputProps={{ 'placeholder': input.ANSWERS[0].MESSAGE, 'id': input.ANSWERS[0].HTML_NAME + '_input', name: input.ANSWERS[0].HTML_NAME, className: 'required', type: 'text' }} onChange={(e) => handleChange(e, 'company')} />
+                                            <PartySuggestions required={inputRequired} key={index} name={input.ANSWERS[0].HTML_NAME} token={DADATA_TOKEN} inputProps={{ 'placeholder': input.ANSWERS[0].MESSAGE, 'id': input.ANSWERS[0].HTML_NAME + '_input', name: input.ANSWERS[0].HTML_NAME, className: 'required', type: 'text' }} onChange={e => handleChange(e, 'company')} />
                                             <label htmlFor={`${input.ANSWERS[0].HTML_NAME}_input`} className={`${inputRequired}_label`}>{input.TITLE}</label>
                                         </div>
                                     )
@@ -415,7 +412,7 @@ const Warranty = (props) => {
                                 if (showRegion) {
                                     return (
                                         <div key={index} className="flex-column input-container">
-                                            <PartySuggestions key={index} name={input.ANSWERS[0].HTML_NAME} token={DADATA_TOKEN} inputProps={{ 'placeholder': input.ANSWERS[0].MESSAGE, 'id': input.ANSWERS[0].HTML_NAME + '_input', name: input.ANSWERS[0].HTML_NAME, className: 'required', type: 'text' }} onChange={(e) => handleChange(e, 'end_user')} />
+                                            <PartySuggestions key={index} name={input.ANSWERS[0].HTML_NAME} token={DADATA_TOKEN} inputProps={{ 'placeholder': input.ANSWERS[0].MESSAGE, 'id': input.ANSWERS[0].HTML_NAME + '_input', name: input.ANSWERS[0].HTML_NAME, className: 'required', type: 'text' }} onChange={e => handleChange(e, 'end_user')} />
                                             <label htmlFor={`${input.ANSWERS[0].HTML_NAME}_input`} className={`${inputRequired}_label`}>{input.TITLE}</label>
                                         </div>
                                     )
@@ -458,7 +455,7 @@ const Warranty = (props) => {
                                 if (showRegion) {
                                     return (
                                         <div key={index} className="flex-column input-container">
-                                            <AddressSuggestions key={index} name={input.ANSWERS[0].HTML_NAME} token={DADATA_TOKEN} inputProps={{ 'placeholder': input.ANSWERS[0].MESSAGE, 'id': input.ANSWERS[0].HTML_NAME + '_input', name: input.ANSWERS[0].HTML_NAME, className: 'required', type: 'text' }} onChange={(e) => handleChange(e, 'install_address')} />
+                                            <AddressSuggestions autoComplete={input.AUTOCOMPLETE} key={index} name={input.ANSWERS[0].HTML_NAME} token={DADATA_TOKEN} inputProps={{ 'placeholder': input.ANSWERS[0].MESSAGE, 'id': input.ANSWERS[0].HTML_NAME + '_input', name: input.ANSWERS[0].HTML_NAME, className: 'required', type: 'text', onInput: handleChange}} setInputValue onChange={e => handleChange(e, 'install_address')} />
                                             <label htmlFor={`${input.ANSWERS[0].HTML_NAME}_input`} className={`${inputRequired}_label`}>{input.TITLE}</label>
                                         </div>
                                     )
@@ -519,7 +516,7 @@ const Warranty = (props) => {
                                                 Object.values(equipmentStoreChunk.data).map((item, index) => (
                                                     item.category ?
                                                         <React.Fragment key={index}>
-                                                            <option value={item.name}>{item.category}, {item.name}</option>
+                                                            <option value={item.category + ', ' + item.name}>{item.category}, {item.name}</option>
                                                         </React.Fragment> : null
                                                 ))
                                             }
@@ -571,7 +568,6 @@ const TextField = props => (
                 placeholder={inputAnswer.MESSAGE}
                 onChange={props.handleChange}
                 className={props.required} />
-
 
             <label htmlFor={`${inputAnswer.HTML_NAME}_input`}>{props.title}</label>
         </React.Fragment>
@@ -642,9 +638,7 @@ const TextareaField = props => (
     ))
 )
 
-const CheckboxesField = props => {
-
-    return (
+const CheckboxesField = props => (
         <>
             <p className="label">{props.title}</p>
             <div className="flex-column feedback-checkboxes">
@@ -669,7 +663,7 @@ const CheckboxesField = props => {
                                     value={inputAnswer.ID}
                                     onChange={props.handleChange}
                                     className={props.required}
-                                    defaultChecked={props.defaultValue == inputAnswer.ID ? true : false}
+                                    defaultChecked={props.defaultValue == inputAnswer.ID}
                                 />
                                 <i className="custom-checkbox">
                                     <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -684,7 +678,6 @@ const CheckboxesField = props => {
             </div>
         </>
     )
-}
 
 const AgreementField = props => Object.values(props.answers).map((inputAnswer, answerIndex) => (
     <label key={answerIndex} className="flex agreement-label" htmlFor={`${props.sid}_${answerIndex}_input`}>
