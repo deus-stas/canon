@@ -26,10 +26,17 @@
    Options +FollowSymLinks
    RewriteEngine On
 #
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ^(.*[^/])$ $1/ [L,R=301]
+
  RewriteCond %{REQUEST_URI} ^/about-us$
- RewriteRule ^.*$ http://rpcanon.de-us.ru/about-us/company/? [R=301,L]
+ RewriteRule ^.*$ /about-us/company/? [R=301,L]
  RewriteCond %{REQUEST_URI} ^/en/about-us$
- RewriteRule ^.*$ http://rpcanon.de-us.ru/en/about-us/company/? [R=301,L]
+ RewriteRule ^.*$ /en/about-us/company/? [R=301,L]
+   RewriteCond %{REQUEST_URI} ^/events/$
+   RewriteRule ^.*$ /events/ochnye/? [R=301,L]
 
 # #  RewriteCond %{SERVER_PORT} !^443$
 # #  RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
