@@ -4,6 +4,7 @@ import { inFinalState, inInitialState } from '@/store/helpers'
 import { useTemplateContext } from '@/contexts/TemplateContext'
 import { getCurrentRegion } from '@/components/Header/Regions'
 import { fetchCatalogItem } from '@store'
+import { Fancybox } from "@fancyapps/ui";
 
 import './style.scss'
 import NotFoundPage from '@components/Page/NotFoundPage'
@@ -15,7 +16,7 @@ import { updatePageMeta } from '../../../../hooks/usePageMeta'
 const catalogClassName = 'catalog-detail'
 
 const CatalogItemPage = props => {
-  const lang = useTemplateContext().lang
+  const lang = useTemplateContext().lang;
   let catalogItemCode = props.match.params.path1
   if (props.match.params.path2) {
     catalogItemCode += '/' + props.match.params.path2
@@ -36,6 +37,19 @@ const CatalogItemPage = props => {
       dispatch(fetchCatalogItem(catalogItemCode, region, lang))
     }
     document.documentElement.scrollTop = 0
+    Fancybox.bind("[data-fancybox]", {
+      on: {
+        "done": (fancybox, slide) => {
+          if (slide.triggerEl.classList.contains('image-points__p')) {
+            let title = slide.triggerEl.dataset.title,
+              descr = slide.triggerEl.dataset.descr;
+              
+            document.querySelector('.points-popup__title').innerHTML = title;
+            document.querySelector('.points-popup__descr').innerHTML = descr;
+          }
+        },
+      }
+    });
   }, [dispatch, catalogItemsStoreChunk])
 
   if (!inFinalState(catalogItemsStoreChunk)) {
@@ -54,8 +68,11 @@ const CatalogItemPage = props => {
 
     console.log(catalogItem);
 
+    const flagTabs = catalogItem.disable_tabs;
+    const twoBanner = catalogItem.two_banner;
+
     return (
-      <div className={`flex-column ${catalogClassName}`}>
+      <div className={`flex-column ${catalogClassName} ${twoBanner ? '--no-pb' : ' '}`}>
         <div className="container">
           <h1 dangerouslySetInnerHTML={{ __html: catalogItem.name }} />
 
@@ -83,13 +100,24 @@ const CatalogItemPage = props => {
             </div> :
             ''}
 
+          {twoBanner ?
+            <div className="container catalog-detail__extra --top">
+              {catalogItem.detailText && <div className="wrapper" dangerouslySetInnerHTML={{ __html: catalogItem.detailText }} />}
+            </div>
+            : null
+          }
+
 
         </div>
-        {catalogItem.medialibrary && <ClinicalGallery items={catalogItem.medialibrary} />}
+        {catalogItem.medialibrary && <ClinicalGallery flagTabs={flagTabs} items={catalogItem.medialibrary} />}
 
-        <div className="container catalog-detail__extra">
-          {catalogItem.detailText && <div className="wrapper" dangerouslySetInnerHTML={{ __html: catalogItem.detailText }} />}
-        </div>
+        {!twoBanner ?
+          <div className="container catalog-detail__extra">
+            {catalogItem.detailText && <div className="wrapper" dangerouslySetInnerHTML={{ __html: catalogItem.detailText }} />}
+          </div>
+          : null
+        }
+
 
       </div>
     )

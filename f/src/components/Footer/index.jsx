@@ -49,6 +49,12 @@ const Footer = () => {
             </p>
           </div>
         </div>
+        <div className="footer__disclaimer wrapper">
+          {lang === 'ru' ? 'Обращаем внимание: по причине различия регуляторных требований к медицинским изделиям в разных странах, продукты, функции и принадлежности, представленные на этой веб-странице ООО «АрПи Канон Медикал Системз», доступны не во всех странах и регионах. Для получения подробных и актуальных сведений о доступности продуктов, функций и принадлежностей, обратитесь к представителю ООО «АрПи Канон Медикал Системз» в вашем регионе.'
+            :
+            'Disclaimer: due to medical device regulatory reasons, not all products, functions and accessories displayed on this RP Canon Medical Systems, LLC webpage are available in all countries and regions. For information about future availability of the products, functions and accessories please contact your local RP Canon Medical Systems, LLC representative for further details.'
+          }
+        </div>
       </footer>
     </>
   )

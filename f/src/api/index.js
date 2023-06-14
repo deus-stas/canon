@@ -109,6 +109,40 @@ export function fetchSections(region = 'RU', lang = 'ru') {
 }
 
 /**
+ * Получаем разделы лэндингов
+ *
+ * @returns {Promise<Response>}
+ */
+export function fetchLandings(region = 'RU', lang = 'ru') {
+  const url = `/local/api/?action=landing.getSections&region=${region}&lang=${lang}`
+  return fetch(url, { mode: 'no-cors' })
+    .then(handleApiError)
+    .then(getJsonFromResponse)
+}
+
+/**
+ * Получаем лэндинги
+ *
+ * @returns {Promise<Response>}
+ */
+export function fetchLandingsItems(code, region = 'RU', lang = 'ru') {
+  return fetch(`/local/api/?action=landing.getItem&code=${code}&region=${region}&lang=${lang}`)
+    .then(handleApiError)
+    .then(getJsonFromResponse)
+}
+
+/**
+ * Получаем дни
+ *
+ * @returns {Promise<Response>}
+ */
+export function fetchLandingsDays(code, region = 'RU', lang = 'ru') {
+  return fetch(`/local/api/?action=landing.getDay&code=${code}&region=${region}&lang=${lang}`)
+    .then(handleApiError)
+    .then(getJsonFromResponse)
+}
+
+/**
  * Получаем specialties
  *
  * @returns {Promise<Response>}
@@ -227,6 +261,28 @@ export function fetchFeedbackForm(lang = 'ru') {
 }
 
 /**
+ * Получаем форму постгарантии
+ *
+ * @returns {Promise<Response>}
+ */
+export function fetchWarranty(lang = 'ru') {
+  return fetch(`/local/api/?action=forms.getPostWarranty&lang=${lang}`)
+    .then(handleApiError)
+    .then(getJsonFromResponse)
+}
+
+/**
+ * Получаем селект оборудования для формы постгарантии
+ *
+ * @returns {Promise<Response>}
+ */
+export function fetchEquipment(lang = 'ru') {
+  return fetch(`/local/api/?action=forms.getEquipment&lang=${lang}`)
+    .then(handleApiError)
+    .then(getJsonFromResponse)
+}
+
+/**
  * Получаем результаты поиска
  *
  * @returns {Promise<Response>}
@@ -246,6 +302,33 @@ export function saveFeedbackForm(data, lang = 'ru') {
   return fetch(`/local/api/?action=forms.saveForm&lang=${lang}`, {
     method: 'POST',
     body: JSON.stringify(data)
+  })
+    .then(handleApiError)
+    .then(getJsonFromResponse)
+}
+
+/**
+ * Сохраняем форму обратной связи
+ *
+ * @returns {Promise<Response>}
+ */
+export function saveWarranty(data, lang = 'ru') {
+  const formData = new FormData()
+  formData.append('form_id', data.form_id)
+  formData.append('action', 'forms.saveFormPostWarranty')
+
+  // Добавляем значения в FormData
+  Object.entries(data.values).forEach(([key, value]) => {
+    if (key === 'form_file_499' || key === 'form_file_626') {
+      formData.append(key, value, value.name)
+    } else {
+      formData.append(`values[${key}]`, value)
+    }
+  })
+
+  return fetch(`/local/api/?action=forms.saveFormPostWarranty&lang=${lang}`, {
+    method: 'POST',
+    body: formData
   })
     .then(handleApiError)
     .then(getJsonFromResponse)
