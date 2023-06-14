@@ -120,6 +120,7 @@ switch ($requestData['action']) {
         $params['region'] = REGION_ISO;
         $result = Project\Landings::getSections($params);
         break;
+
     case 'landing.getItem':
         if (!empty($requestData['code'])) {
             $result = Project\Landings::getItem($requestData['code']);
@@ -156,7 +157,7 @@ switch ($requestData['action']) {
                 if (count($pathArr) === $k + 1) {
                     continue;
                 }
-                $advFilter['SECTION_ID'] = Project\Landings::getSectionIdByCode($sectionCode, $advFilter['SECTION_ID']);
+//                $advFilter['SECTION_ID'] = Project\Landings::getSectionIdByCode($sectionCode, $advFilter['SECTION_ID']);
             }
             $result = Project\Landings::getDay([
                 'CODE' => $pathArr[1],
