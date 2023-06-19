@@ -300,6 +300,9 @@ switch ($requestData['action']) {
 	$result = Project\Forms::getPostWarranty();
 	break;
 
+	case 'forms.getEquipment':
+		$result = Project\Equipment::getEquipmentForForm();
+		break;
     // specialties
     case 'specialties.getItem':
         if (!empty($requestData['code'])) {
