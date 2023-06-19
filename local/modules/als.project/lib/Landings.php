@@ -131,6 +131,13 @@ class Landings {
             'PICTURE:Image>image',
             'DESCRIPTION:text>description',
             'UF_BANNER_DESCRIPTION:text>banner_description',
+            'UF_DATE_PLACE:text>date_place',
+            'UF_DESCRIBE_BLOCK_ONE:text>desc_block1',
+            'UF_DESCRIBE_BLOCK_TWO:text>desc_block2',
+            'UF_DESCRIBE_BLOCK_THREE:text>desc_block3',
+            'UF_DESCRIBE_BLOCK_FOUR:text>desc_block4',
+            'UF_LANDING_CODE:string>landing_code',
+            'UF_START_IMAGE:Image>start_image',
         ];
 
         $nav = [

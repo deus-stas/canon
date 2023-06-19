@@ -36,13 +36,7 @@ module.exports = {
     'eqeqeq': ['error', 'always'],
     'eol-last': ['error'],
     'func-call-spacing': ['error'],
-    'indent': [
-      'error',
-      2,
-      {
-        'SwitchCase': 1
-      }
-    ],
+    'indent': ['off'],
     'key-spacing': [
       'error',
       {

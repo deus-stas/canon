@@ -128,10 +128,16 @@ switch ($requestData['action']) {
             $params = $filter = [];
 
             if (!is_numeric($requestData['code'])) {
-                $requestData['code'] = Project\Landings::getSectionIdByCode($requestData['code']);
+                $filter = [
+                    'SECTION_ID' => Project\Landings::getSectionIdByCode(strtoupper(LANGUAGE_CODE)),
+                ];
+                $querySec = CIBlockSection::GetList(array('ID' => 'ASC'), array('IBLOCK_CODE' => 'landings', 'ACTIVE' => 'Y', 'SECTION_ID' => $filter['SECTION_ID']), false, array('ID', 'CODE'));
+                while($section = $querySec->GetNext()){
+                    if($section["CODE"] == $requestData['code']){
+                        $filter['SECTION_ID'] = $section["ID"];
+                    }
+                }
             }
-
-            $filter['SECTION_ID'] = (int)$requestData['code'];
 
             $params['navigation'] = [
                 'limit' => $requestData['limit'] ?: 0,
@@ -140,8 +146,7 @@ switch ($requestData['action']) {
             $result['days'] = Project\Landings::getList($filter, $params)['items'];
         }
         break;
-
-	case 'landing.getDay':
+    case 'landing.getDay':
         if (!empty($requestData['code'])) {
             $advFilter = [
                 'SECTION_ID' => Project\Landings::getSectionIdByCode(strtoupper(LANGUAGE_CODE)),
@@ -296,17 +301,18 @@ switch ($requestData['action']) {
         $result = Project\Forms::getFeedback();
         break;
 
-	case 'forms.getPostWarranty':
-	$result = Project\Forms::getPostWarranty();
-	break;
+    case 'forms.getPostWarranty':
+        $result = Project\Forms::getPostWarranty();
+        break;
 
-	case 'forms.saveFormPostWarranty':
-		$result = Project\Forms::saveFormPostWarranty($requestData);
-		break;
+    case 'forms.getEquipment':
+        $result = Project\Equipment::getEquipmentForForm();
+        break;
 
-	case 'forms.getEquipment':
-		$result = Project\Equipment::getEquipmentForForm();
-		break;
+    case 'forms.saveFormPostWarranty':
+        $result = Project\Forms::saveFormPostWarranty($requestData);
+        break;
+
     // specialties
     case 'specialties.getItem':
         if (!empty($requestData['code'])) {

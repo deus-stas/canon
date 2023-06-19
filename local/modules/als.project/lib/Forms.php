@@ -62,7 +62,6 @@ class Forms
     public static function saveFormPostWarranty(array $params): array
     {
         if (Loader::IncludeModule("form")) {
-	        file_put_contents('/www/wwwroot/rpcanon.de-us.ru/sandbox/test.txt',json_encode($params['values'],JSON_UNESCAPED_UNICODE));
             if ($resultId = CFormResult::Add($params['form_id'], $params['values'])) {
                 $result  = [];
                 $answers = [];

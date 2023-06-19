@@ -3,7 +3,11 @@
 .ClinicalGallery {
   .items-wrap {
     .row {
-      padding: 6rem 0;
+      padding: 6rem 0 0;
+
+      &:last-child {
+        padding: 6rem 0;
+      }
 
       .col-name {
         width: 41.66666667%;
