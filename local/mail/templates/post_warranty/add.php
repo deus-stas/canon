@@ -52,7 +52,7 @@ require $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
             $text = $resultValue['USER_TEXT'];
 
             // Исключение для полей Старана и Регион
-            if(($resultValue['VARNAME'] == 'country' || $resultValue['VARNAME'] == 'region') && !$text){
+            if(($resultValue['VARNAME'] == 'country' || $resultValue['VARNAME'] == 'region' || $resultValue['VARNAME'] == 'related') && !$text){
                 $text = $resultValue['ANSWER_TEXT'];
             }
 
