@@ -296,6 +296,10 @@ switch ($requestData['action']) {
         $result = Project\Forms::getFeedback();
         break;
 
+	case 'forms.getPostWarranty':
+	$result = Project\Forms::getPostWarranty();
+	break;
+
     // specialties
     case 'specialties.getItem':
         if (!empty($requestData['code'])) {
