@@ -18,20 +18,20 @@ use ALS\Property\EditorBlock\TypeConvert;
 require_once $_SERVER['DOCUMENT_ROOT'] . '/local/tools/SxGeo/SxGeo.php';
 
 class RegionIP {
-	
+
 	public const HLBLOCK_REGIONS = 'Regiony';
 
 	public static function getRegion(){
 		$SxGeo = new \SxGeo($_SERVER['DOCUMENT_ROOT'] . '/local/tools/SxGeo/SxGeo.dat');
 		return $SxGeo->getCountry($_SERVER['REMOTE_ADDR']) ?: 'RU';
 	}
-	
+
 	public static function getRegions(): array {
-		
+
 		$current = self::getRegion();
-		
+
 		$fieldName = LANGUAGE_CODE === 'en' ? 'UF_DESCRIPTION' : 'UF_NAME';
-		
+
 		$params = [
             'select' => [
                 'ID:int>id',
@@ -40,9 +40,9 @@ class RegionIP {
             ]
         ];
         $ret = array_map(function ($el) use ($current) {
-			
+
 			$el['CURRENT'] = $el['code'] == $current;
-			
+
 			return $el;
         }, Hel::getList(self::HLBLOCK_REGIONS, $params));
 
@@ -62,7 +62,7 @@ class RegionIP {
 
 	 return $ret;
 	}
-	
+
 	public static function getRegionIdByISO(string $iso = 'RU'): int {
 		$regions = self::getRegions();
 		foreach($regions as $region){
@@ -70,6 +70,9 @@ class RegionIP {
 				$regionId = $region['id'];
 			}
 		}
+        if($regionId === null){
+            $regionId = 1;
+        }
 		return $regionId;
 	}
 }
