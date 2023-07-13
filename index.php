@@ -1,6 +1,13 @@
 <?php
 require $_SERVER['DOCUMENT_ROOT'] . '/local/tools/include-bitrix.php';
-
+use ALS\Project;
+global $APPLICATION;
+$checkRegion = Project\RegionIP::getRegion();
+$dir = $APPLICATION->GetCurDir();
+if ($checkRegion !== 'RU' && !str_starts_with($dir, '/en')) {
+    $newUrl = '/en' . $dir;
+    localRedirect($newUrl);
+}
 $filedir = '/f/dist';
 
 // Пасринг index.html
