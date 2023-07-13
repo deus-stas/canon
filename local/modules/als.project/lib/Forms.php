@@ -26,7 +26,6 @@ class Forms
 
                 $data           = [];
                 $data['VALUES'] = CFormResult::GetDataByID($resultId, [], $result, $answers);
-
                 $baseUrl      = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/';
                 $data['PATH'] = $baseUrl . 'bitrix/admin/form_result_edit.php?lang=ru&WEB_FORM_ID=' . $params['form_id'] . '&RESULT_ID=' . $resultId;
 
@@ -63,14 +62,12 @@ class Forms
     public static function saveFormPostWarranty(array $params): array
     {
         if (Loader::IncludeModule("form")) {
-
             if ($resultId = CFormResult::Add($params['form_id'], $params['values'])) {
                 $result  = [];
                 $answers = [];
 
                 $data           = [];
                 $data['VALUES'] = CFormResult::GetDataByID($resultId, [], $result, $answers);
-
                 $baseUrl      = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/';
                 $data['PATH'] = $baseUrl . 'bitrix/admin/form_result_edit.php?lang=ru&WEB_FORM_ID=' . $params['form_id'] . '&RESULT_ID=' . $resultId;
 

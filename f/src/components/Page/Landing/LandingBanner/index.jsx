@@ -9,6 +9,8 @@ import { fetchLandingsItems } from '@store'
 
 
 const LandingBanner = (props) => {
+    const {code, id} = props
+    console.log("props", id.code, code)
     const [navbarOffset, setNavbarOffset] = useState(0)
 
     const lang = useTemplateContext().lang;
@@ -67,18 +69,19 @@ const LandingBanner = (props) => {
                     <div className="row">
                         <div className="col-sm-12">
                             <span property="s:largeImage">
-                                <img className="img-fluid" alt="" src={props.id ? image : data.image.src} />
+                                <img className="img-fluid" alt="" src={props.id.code ? data.image.src : data.image.src} />
                             </span>
                             <div className="banner-caption">
                                 <div className="row">
                                     <div className="col-lg-7 col-md-7 col-sm-7">
+                                    
 
                                         <h1>
                                             <div className="banner-caption-text hidden-xs">
-                                                <span dangerouslySetInnerHTML={{ __html: props.id ? bannerDescription : data.banner_description }}></span>
+                                                <span dangerouslySetInnerHTML={{ __html: props.id.days ? data.banner_description : props.id.banner_description.TEXT  }}></span>
                                             </div>
                                             <span className="visible-xs" style={{ fontSize: '70%' }} >
-                                                <span dangerouslySetInnerHTML={{ __html: props.id ? bannerDescription : data.banner_description }}></span>
+                                                <span dangerouslySetInnerHTML={{ __html: props.id.code ? data.banner_description : props.id.banner_description.TEXT  }}></span>
                                             </span>
                                             <br />
                                         </h1>
@@ -105,7 +108,7 @@ const LandingBanner = (props) => {
 
                                 <div className="product-navbar" typeof="Region" resource="SecondaryNavML">
                                     <ul className="d-md-flex">
-                                        <li className={`nav-item text-center ${index !== undefined ? ' ' : 'act'}`}>
+                                        <li className={`nav-item text-center ${id.code !== data.code ? ' ' : 'act'}`}>
                                             <a href={`${langPrefix}/events/${data.code}`}>
                                                 {data.min_image ? <img src={data.min_image.src} className="img-fluid center-block" alt="/" /> : null}
                                                 <span dangerouslySetInnerHTML={{ __html: data.name }}></span>
@@ -114,7 +117,7 @@ const LandingBanner = (props) => {
                                         {
                                             data.days.map((day, i) => {
                                                 return (
-                                                    <li className={`nav-item text-center ${index === i ? 'act' : ' '}`} key={day.id}>
+                                                    <li className={`nav-item text-center ${id.code === day.code ? 'act' : ' '}`} key={day.id}>
                                                         <a href={`${langPrefix}/events/${data.code}/${day.code}`}>
                                                             {day.icon ? <img src={day.icon.src} className="img-fluid center-block" alt="/" /> : null}
                                                             <span dangerouslySetInnerHTML={{ __html: day.name }}></span>

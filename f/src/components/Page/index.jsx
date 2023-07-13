@@ -1,5 +1,5 @@
-import React from 'react'
-import { Route, Switch, withRouter } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Route, Switch, withRouter, useLocation } from 'react-router-dom'
 import ContactsPage from './Contacts'
 import Footer from '../Footer'
 import Header from '../Header'
@@ -24,10 +24,33 @@ import Postwarranty from './Postwarranty'
 import Landing from './Landing'
 import LandingItem from './Landing/LandingItem'
 import LandingDay from './Landing/LandingDay'
+import Disclaimer from '../Header/Disclaimer'
 
 const Page = () => {
-  const lang       = useTemplateContext().lang;
-  const langPrefix = (lang === 'ru') ? '' : '/' + lang;
+  const location = useLocation()
+  const lang       = useTemplateContext().lang
+  const langPrefix = (lang === 'ru') ? '' : '/' + lang
+
+  const [showModal, setShowModal] = useState(false)
+  const [disclaimerAgreed, setDisclaimerAgreed] = useState(sessionStorage.getItem('disclaimerAgreed') === 'true')
+
+  // useEffect(() => {
+  //   const agreed = sessionStorage.getItem('disclaimerAgreed')
+  //   if (agreed !== 'true') {
+  //     setShowModal(true)
+  //   }
+  // }, [])
+
+  // const handleAgree = () => {
+  //   sessionStorage.setItem('disclaimerAgreed', 'true')
+  //   setShowModal(false)
+  // }
+
+  // const handleDisagree = () => {
+  //   sessionStorage.setItem('disclaimerAgreed', 'false')
+  //   setShowModal(false)
+  //   window.location.replace('https://blocked.rpcanon.de-us.ru/')
+  // }
 
   closeTopMenu()
 
@@ -36,7 +59,7 @@ const Page = () => {
     '/education': '/education/webinars/',
     '/service-support': '/service-support/service/',
     '/specialties': '/specialties/collaborative-imaging/',
-    '/events': '/events/ochnye/',
+    '/events': '/events/ochnye/'
   }
   let path = location.pathname.replace(/^\/|\/$/g, '')
   if (langPrefix.length > 1) {
@@ -50,6 +73,7 @@ const Page = () => {
 
   return (
     <>
+    {/* {showModal && <Disclaimer handleAgree={handleAgree} handleDisagree={handleDisagree} />} */}
       <Header />
       <Switch>
         <Route exact path={`${langPrefix}/`} component={HomePage} />

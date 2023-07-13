@@ -34,14 +34,14 @@ const LandingDay = (props) => {
     }
     const { data } = landingsDaysStoreChunk;
 
-    console.log(data);
+    console.log('data in day:', data);
 
     if (data) {
         updatePageMeta(data.seo);
         return (
 
             <div id="primary-content">
-                <Banner code={landingsItemsCode} id={data.id} />
+                <Banner code={landingsItemsCode} id={data} />
 
                 <div id="content-area">
                     <div className="b-container">
@@ -100,9 +100,8 @@ const LandingDay = (props) => {
                                 }
 
                                 {
-                                    data.sources.TEXT ? <span dangerouslySetInnerHTML={{__html: data.sources.TEXT}}></span> : null
+                                    data.sources ? data.sources.TEXT ? <span dangerouslySetInnerHTML={{__html: data.sources.TEXT}}></span> : null : null
                                 }
-
                             </div>
                         </div>
                     </div>
