@@ -255,6 +255,7 @@ export function fetchEvents(region = 'RU', lang = 'ru', old = false) {
  * @returns {Promise<Response>}
  */
 export function fetchFeedbackForm(lang = 'ru') {
+  console.log(fetch(`/local/api/?action=forms.getFeedback&lang=${lang}`))
   return fetch(`/local/api/?action=forms.getFeedback&lang=${lang}`)
     .then(handleApiError)
     .then(getJsonFromResponse)
@@ -266,6 +267,8 @@ export function fetchFeedbackForm(lang = 'ru') {
  * @returns {Promise<Response>}
  */
 export function fetchWarranty(lang = 'ru') {
+  console.log('api')
+  console.log(fetch(`/local/api/?action=forms.getPostWarranty&lang=${lang}`))
   return fetch(`/local/api/?action=forms.getPostWarranty&lang=${lang}`)
     .then(handleApiError)
     .then(getJsonFromResponse)
@@ -312,24 +315,37 @@ export function saveFeedbackForm(data, lang = 'ru') {
  *
  * @returns {Promise<Response>}
  */
+
+// export function saveWarranty(data, lang = 'ru') {
+//   return fetch(`/local/api/?action=forms.saveFormPostWarranty&lang=${lang}`, {
+//     method: 'POST',
+//     body: JSON.stringify(data)
+//   })
+//     .then(handleApiError)
+//     .then(getJsonFromResponse)
+// }
+
 export function saveWarranty(data, lang = 'ru') {
   const formData = new FormData()
   formData.append('form_id', data.form_id)
   formData.append('action', 'forms.saveFormPostWarranty')
-
   // Добавляем значения в FormData
   Object.entries(data.values).forEach(([key, value]) => {
     if (key === 'form_file_499' || key === 'form_file_626') {
       formData.append(key, value, value.name)
+    } else if (key === 'form_checkbox_related') {
+      const checkboxValues = Array.isArray(value) ? value : [value]
+      checkboxValues.forEach(val => {
+        formData.append(`values[${key}][]`, val)
+      })
     } else {
       formData.append(`values[${key}]`, value)
     }
   })
-
   return fetch(`/local/api/?action=forms.saveFormPostWarranty&lang=${lang}`, {
-    method: 'POST',
-    body: formData
-  })
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+        method: 'POST',
+        body: formData
+      })
+        .then(handleApiError)
+        .then(getJsonFromResponse)
 }

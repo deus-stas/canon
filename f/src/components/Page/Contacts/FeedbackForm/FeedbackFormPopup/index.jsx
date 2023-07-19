@@ -5,6 +5,7 @@ import './style.scss'
 import { useTemplateContext } from '@contexts/TemplateContext'
 
 const closeFeedbackFormPopup = () => {
+  window.location.reload(false);
   document.body.style.paddingRight = '0'
   document.body.classList.remove('feedback-form-popup-is-open')
   document.documentElement.scrollTop = 0
