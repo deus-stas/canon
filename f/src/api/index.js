@@ -61,8 +61,8 @@ export function fetchRegions(lang = 'ru') {
 export function fetchPage(pageCode = 'home', lang = 'ru') {
   const url = `/local/api/?action=pages.getItem&code=${pageCode}&lang=${lang}`
   return fetch(url)
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }
 
 /**
@@ -81,8 +81,8 @@ export function fetchPages() {
  */
 export function fetchCatalog(region = 'RU', lang = 'ru') {
   return fetch(`/local/api/?action=catalog.getList&region=${region}&lang=${lang}`)
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }
 
 /**
@@ -92,8 +92,8 @@ export function fetchCatalog(region = 'RU', lang = 'ru') {
  */
 export function fetchCatalogItem(code, region = 'RU', lang = 'ru') {
   return fetch(`/local/api/?action=catalog.getItem&code=${code}&region=${region}&lang=${lang}`)
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }
 
 /**
@@ -104,8 +104,8 @@ export function fetchCatalogItem(code, region = 'RU', lang = 'ru') {
 export function fetchSections(region = 'RU', lang = 'ru') {
   const url = `/local/api/?action=catalog.getSections&region=${region}&lang=${lang}`
   return fetch(url, { mode: 'no-cors' })
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }
 
 /**
@@ -116,8 +116,8 @@ export function fetchSections(region = 'RU', lang = 'ru') {
 export function fetchLandings(region = 'RU', lang = 'ru') {
   const url = `/local/api/?action=landing.getSections&region=${region}&lang=${lang}`
   return fetch(url, { mode: 'no-cors' })
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }
 
 /**
@@ -127,8 +127,8 @@ export function fetchLandings(region = 'RU', lang = 'ru') {
  */
 export function fetchLandingsItems(code, region = 'RU', lang = 'ru') {
   return fetch(`/local/api/?action=landing.getItem&code=${code}&region=${region}&lang=${lang}`)
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }
 
 /**
@@ -138,8 +138,8 @@ export function fetchLandingsItems(code, region = 'RU', lang = 'ru') {
  */
 export function fetchLandingsDays(code, region = 'RU', lang = 'ru') {
   return fetch(`/local/api/?action=landing.getDay&code=${code}&region=${region}&lang=${lang}`)
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }
 
 /**
@@ -149,8 +149,8 @@ export function fetchLandingsDays(code, region = 'RU', lang = 'ru') {
  */
 export function fetchSpecialtiesItem(code, region = 'RU', lang = 'ru') {
   return fetch(`/local/api/?action=specialties.getItem&code=${code}&region=${region}&lang=${lang}`)
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }
 
 /**
@@ -171,8 +171,8 @@ export function fetchBanners(lang = 'ru') {
  */
 export function fetchFavorites(lang = 'ru') {
   return fetch(`/local/api/?action=advanced.getMainpageBlocks&lang=${lang}`)
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }
 
 /**
@@ -182,8 +182,8 @@ export function fetchFavorites(lang = 'ru') {
  */
 export function fetchSocialLinks(lang = 'ru') {
   return fetch(`/local/api/?action=socials.getList&lang=${lang}`)
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }
 
 /**
@@ -193,8 +193,8 @@ export function fetchSocialLinks(lang = 'ru') {
  */
 export function fetchShareLinks(lang = 'ru') {
   return fetch(`/local/api/?action=socials.getShareList&lang=${lang}`)
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }
 
 /**
@@ -205,8 +205,8 @@ export function fetchShareLinks(lang = 'ru') {
 export function fetchNewsItems(region = 'RU', lang = 'ru') {
   const url = `/local/api/?action=news.getList&region=${region}&lang=${lang}`
   return fetch(url, { mode: 'no-cors' })
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }
 
 /**
@@ -217,8 +217,8 @@ export function fetchNewsItems(region = 'RU', lang = 'ru') {
 export function fetchNewsItem(code, lang = 'ru') {
   const url = `/local/api/?action=news.getItem&code=${code}&lang=${lang}`
   return fetch(url, { mode: 'no-cors' })
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }
 
 /**
@@ -229,8 +229,8 @@ export function fetchNewsItem(code, lang = 'ru') {
 export function fetchPublications(region = 'RU', lang = 'ru') {
   const url = `/local/api/?action=publications.getList&region=${region}&lang=${lang}`
   return fetch(url, { mode: 'no-cors' })
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }
 
 /**
@@ -245,8 +245,8 @@ export function fetchEvents(region = 'RU', lang = 'ru', old = false) {
   }
   const url = `/local/api/?action=events.getList&region=${region}&lang=${lang}${oldTail}`
   return fetch(url, { mode: 'no-cors' })
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }
 
 /**
@@ -257,8 +257,15 @@ export function fetchEvents(region = 'RU', lang = 'ru', old = false) {
 export function fetchFeedbackForm(lang = 'ru') {
   console.log(fetch(`/local/api/?action=forms.getFeedback&lang=${lang}`))
   return fetch(`/local/api/?action=forms.getFeedback&lang=${lang}`)
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
+}
+
+export function fetchWarrantyForm(lang = 'ru') {
+  console.log('result:', fetch(`/local/api/?action=forms.getWarranty&lang=${lang}`))
+  return fetch(`/local/api/?action=forms.getWarranty&lang=${lang}`)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }
 
 /**
@@ -270,8 +277,8 @@ export function fetchWarranty(lang = 'ru') {
   console.log('api')
   console.log(fetch(`/local/api/?action=forms.getPostWarranty&lang=${lang}`))
   return fetch(`/local/api/?action=forms.getPostWarranty&lang=${lang}`)
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }
 
 /**
@@ -281,8 +288,8 @@ export function fetchWarranty(lang = 'ru') {
  */
 export function fetchEquipment(lang = 'ru') {
   return fetch(`/local/api/?action=forms.getEquipment&lang=${lang}`)
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }
 
 /**
@@ -292,8 +299,8 @@ export function fetchEquipment(lang = 'ru') {
  */
 export function fetchSearch(query, lang = 'ru') {
   return fetch(`/local/api/?action=search.getList&q=${query}&lang=${lang}`)
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }
 
 /**
@@ -306,8 +313,17 @@ export function saveFeedbackForm(data, lang = 'ru') {
     method: 'POST',
     body: JSON.stringify(data)
   })
-    .then(handleApiError)
-    .then(getJsonFromResponse)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
+}
+
+export function saveFormWarranty(data, lang = 'ru') {
+  return fetch(`/local/api/?action=forms.saveFormWarranty&lang=${lang}`, {
+    method: 'POST',
+    body: JSON.stringify(data)
+  })
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }
 
 /**
@@ -343,9 +359,9 @@ export function saveWarranty(data, lang = 'ru') {
     }
   })
   return fetch(`/local/api/?action=forms.saveFormPostWarranty&lang=${lang}`, {
-        method: 'POST',
-        body: formData
-      })
-        .then(handleApiError)
-        .then(getJsonFromResponse)
+    method: 'POST',
+    body: formData
+  })
+      .then(handleApiError)
+      .then(getJsonFromResponse)
 }

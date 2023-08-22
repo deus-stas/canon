@@ -43,9 +43,12 @@ const Warranty = props => {
     console.log(warrantyStoreChunk.data)
     console.log(equipmentStoreChunk.data)
     const { data: feedbackForm } = warrantyStoreChunk
-    console.log("chunnk", warrantyStoreChunk)
+    // console.log("chunnk", warrantyStoreChunk)
     if (feedbackForm.QUESTIONS) {
         const feedbackFormInputs = Object.values(feedbackForm.QUESTIONS).sort((a, b) => a.SORT - b.SORT)
+    
+
+
     
 
 
@@ -66,6 +69,7 @@ const Warranty = props => {
             // для РФ показываем выбор региона
             const value = event.target.value
             
+            
             if (!value) return
             const item = feedbackFormInputs.find(item => item.SID === 'country')
             if (!item) return
@@ -79,7 +83,13 @@ const Warranty = props => {
             messageContainer.parentNode.classList.add('not-empty')
             messageContainer.innerText = message
         }
-
+        const customChange = (e) => {
+             // Прочие поля если реакт дадата не выбран
+             setValues({
+                ...values,
+                [e.target.name]: e.target.value
+            }) 
+        }
         const handleChange = (e, type) => {
             if (e.target) {
                 e.target.classList.remove('empty-input')
@@ -118,10 +128,10 @@ const Warranty = props => {
                     setValues({
                         ...values,
                         [e.target.name]: e.target.value
-                    })
+                    }) 
                 }
 
-            } else if (type === 'company') {
+            } else if (type === 'company') { 
                 const addressName = feedbackFormInputs.find(input => input.SID === 'address')?.ANSWERS[0]?.HTML_NAME
                 const cityName = feedbackFormInputs.find(input => input.SID === 'city')?.ANSWERS[0]?.HTML_NAME
                 const innName = feedbackFormInputs.find(input => input.SID === 'inn')?.ANSWERS[0]?.HTML_NAME
@@ -145,8 +155,6 @@ const Warranty = props => {
                     [name]: e.data.name.short_with_opf
                 })
             } else if (type === 'install_address') {
-                // console.log(e)
-                console.log("test", e)
                 const name = feedbackFormInputs.find(input => input.SID === 'install_address')?.ANSWERS[0]?.HTML_NAME
                 document.querySelector(`#${name}_input`).classList.remove('empty-input')
 
@@ -199,9 +207,9 @@ const Warranty = props => {
                 saveWarranty(data, lang).then(response => {
                     if (response.status === 'ok') {
                         openFeedbackFormPopup()
-                        console.log(data)
 
                         const inputs = Array.from(e.target.querySelectorAll('input'))
+                        // const inputs = Array.from(e.target.querySelectorAll('input'))
                         inputs.map(el => {
                             if (el.type === 'checkbox')
                                 el.checked = false
@@ -209,6 +217,13 @@ const Warranty = props => {
                                 console.log("name", el.name, el.value)
                                 el.value = ''
                         })
+
+                        // const textareas = Array.from(e.target.querySelectorAll('textarea'))
+                        // textareas.map(el => {
+                        //         console.log("name", el.name, el.value)
+                        //         console.log("name", el.name, el.value)
+                        //         el.value = ''
+                        // })
 
                         const textareas = Array.from(e.target.querySelectorAll('textarea'))
                         textareas.map(el => {
@@ -218,6 +233,7 @@ const Warranty = props => {
 
                         const selects = Array.from(e.target.querySelectorAll('select'))
                         selects.map(el => {
+                            console.log("name", el.name, el.value)
                             console.log("name", el.name, el.value)
                             el.value = ''
                         })
@@ -258,7 +274,6 @@ const Warranty = props => {
                         feedbackFormInputs.map((input, index) => {
                             const inputRequired = input.REQUIRED === 'Y' ? 'required' : ''
                             const inputSID = input.SID
-
                             switch (inputSID) {
                                 case 'agree':
                                 case 'agree_mail':
@@ -408,7 +423,7 @@ const Warranty = props => {
                                     if (showRegion) {
                                         return (
                                             <div key={index} className="flex-column input-container">
-                                                <PartySuggestions required={inputRequired} key={index} name={input.ANSWERS[0].HTML_NAME} token={DADATA_TOKEN} inputProps={{ 'placeholder': input.ANSWERS[0].MESSAGE, 'id': input.ANSWERS[0].HTML_NAME + '_input', name: input.ANSWERS[0].HTML_NAME, className: 'required', type: 'text' }} onChange={e => handleChange(e, 'company')} />
+                                                <PartySuggestions required={inputRequired} key={index} name={input.ANSWERS[0].HTML_NAME} token={DADATA_TOKEN} inputProps={{ 'placeholder': input.ANSWERS[0].MESSAGE, 'id': input.ANSWERS[0].HTML_NAME + '_input', name: input.ANSWERS[0].HTML_NAME, className: 'required', type: 'text', onBlur: customChange, onInput: handleChange }}  onChange={e => handleChange(e, 'company')} />
                                                 <label htmlFor={`${input.ANSWERS[0].HTML_NAME}_input`} className={`${inputRequired}_label`}>{input.TITLE}</label>
                                             </div>
                                         )
@@ -624,7 +639,9 @@ const SelectField = props => (
 
 const EmailField = props => (
     console.log("prps", props),
+    console.log("prps", props),
     Object.values(props.answers).map((inputAnswer, answerIndex) => (
+        console.log("test", inputAnswer),
         console.log("test", inputAnswer),
         <React.Fragment key={answerIndex}>
             <input name={inputAnswer.HTML_NAME}
@@ -635,7 +652,9 @@ const EmailField = props => (
                 onChange={props.handleChange}
                 className={props.required} />
             <label htmlFor={`${inputAnswer.HTML_NAME}_input`}>{inputAnswer.TITLE }</label>
+            <label htmlFor={`${inputAnswer.HTML_NAME}_input`}>{inputAnswer.TITLE }</label>
         </React.Fragment>
+        
         
     ))
 )

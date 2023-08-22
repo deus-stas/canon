@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchWarrantyForm } from '@store'
+import { fetchFeedbackForm } from '@store'
 import { inFinalState, inInitialState } from '@store/helpers'
 import { useTemplateContext } from '@contexts/TemplateContext'
-import { saveFormWarranty } from '@/api'
+import { saveFeedbackForm } from '@/api'
 import { openFeedbackFormPopup } from './FeedbackFormPopup'
 
 import './style.scss'
 import classNames from 'classnames'
 
-const FeedbackForm = (props) => {
+const ContactForm = (props) => {
   const lang = useTemplateContext().lang
   const templateSettings = useTemplateContext().templateSettings
   const dispatch = useDispatch()
@@ -19,13 +19,13 @@ const FeedbackForm = (props) => {
 
   useEffect(() => {
     if (!feedbackFormStoreChunk || inInitialState(feedbackFormStoreChunk)) {
-      dispatch(fetchWarrantyForm(lang))
+      dispatch(fetchFeedbackForm(lang))
     }
   }, [dispatch, feedbackFormStoreChunk])
 
   useEffect(() => {
     if (!props.related) {
-      setValues({ form_checkbox_related: lang === 'ru' ? ['752'] : ['870'] })
+      setValues({ form_checkbox_related: ['17'] })
     }
   }, [])
 
@@ -120,11 +120,11 @@ const FeedbackForm = (props) => {
     const submitForm = () => {
       const data = {
         'form_id': e.target.dataset.formId,
-        action: 'forms.saveFormWarranty',
+        action: 'forms.saveForm',
         values
       }
 
-      saveFormWarranty(data, lang).then(response => {
+      saveFeedbackForm(data, lang).then(response => {
         if (response.status === 'ok') {
           openFeedbackFormPopup()
 
@@ -173,9 +173,6 @@ const FeedbackForm = (props) => {
       </h3>
       <form data-form-id={feedbackForm.ID} onSubmit={handleSubmit}
         className="flex feedback-form" id="feedback-form" action="/" method="post">
-          {
-            console.log('ip', feedbackFormInputs)
-          }
         {
           feedbackFormInputs.map((input, index) => {
             const inputRequired = input.REQUIRED === 'Y' ? 'required' : ''
@@ -219,7 +216,7 @@ const FeedbackForm = (props) => {
                           sid={inputSID}
                           required={inputRequired}
                           answers={input.ANSWERS}
-                          defaultValue={752}
+                          defaultValue={17}
                           values={values['form_checkbox_related']}
                         />
                       </div>
@@ -460,4 +457,4 @@ const AgreementField = props => Object.values(props.answers).map((inputAnswer, a
   </label>
 ))
 
-export default FeedbackForm
+export default ContactForm
