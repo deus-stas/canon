@@ -97,7 +97,6 @@ const FeedbackForm = (props) => {
 
   const validateForm = e => {
     console.log(values);
-    console.log(values);
     const emptyInputs = getEmptyInputs(e)
     if (emptyInputs.length) {
       emptyInputs.map(el => {
@@ -193,7 +192,6 @@ const FeedbackForm = (props) => {
                       sid={inputSID}
                       required={inputRequired}
                       answers={input.ANSWERS} />
-                      answers={input.ANSWERS} />
                   </div>
                 )
 
@@ -279,7 +277,6 @@ const FeedbackForm = (props) => {
 
               case 'region':
                 return (
-                return (
                   <div key={index} className="flex-column input-container">
                     <SelectField
                       handleChange={handleChange}
@@ -308,8 +305,6 @@ const FeedbackForm = (props) => {
         <div className="flex-column feedback-form-row">
           <p className="message-container">
             <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 1L1 10" stroke="#CC0000" strokeWidth="2" />
-              <path d="M1 1L10 10" stroke="#CC0000" strokeWidth="2" />
               <path d="M10 1L1 10" stroke="#CC0000" strokeWidth="2" />
               <path d="M1 1L10 10" stroke="#CC0000" strokeWidth="2" />
             </svg>
@@ -355,7 +350,6 @@ const SelectField = props => (
       }
     </select>
     <label htmlFor={'form_dropdown_country'}>{props.title}</label>
-    {props.message && <p className="country-tip" dangerouslySetInnerHTML={{ __html: props.message }} />}
     {props.message && <p className="country-tip" dangerouslySetInnerHTML={{ __html: props.message }} />}
   </>
 )
@@ -421,49 +415,7 @@ const CheckboxesField = props => {
                   {
                     'is-sub-checkbox': inputAnswer.PARENT_ID,
                     'is-hidden': inputAnswer.PARENT_ID &&
-const CheckboxesField = props => {
-
-  return (
-    <>
-      <p className="label">{props.title}</p>
-      <div className="flex-column feedback-checkboxes">
-        {
-          Object.values(props.answers).map((inputAnswer, answerIndex) => (
-            <React.Fragment key={answerIndex}>
-              <label
-                className={classNames([
-                  'flex',
-                  'feedback-checkbox',
-                  {
-                    'is-sub-checkbox': inputAnswer.PARENT_ID,
-                    'is-hidden': inputAnswer.PARENT_ID &&
                       (props.values &&
-                        props.values.indexOf(inputAnswer.PARENT_ID) === -1 || !props.values)
-                  }
-                ])}
-                htmlFor={`${props.sid}_${answerIndex}_input`}>
-                <input id={`${props.sid}_${answerIndex}_input`}
-                  type="checkbox"
-                  name={inputAnswer.HTML_NAME}
-                  value={inputAnswer.ID}
-                  onChange={props.handleChange}
-                  className={props.required}
-                  defaultChecked={props.defaultValue == inputAnswer.ID ? true : false}
-                />
-                <i className="custom-checkbox">
-                  <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 5L3 7L7.5 1" stroke="white" strokeWidth="1.5" />
-                  </svg>
-                </i>
-                <span>{inputAnswer.MESSAGE}</span>
-              </label>
-            </React.Fragment>
-          ))
-        }
-      </div>
-    </>
-  )
-}
                         props.values.indexOf(inputAnswer.PARENT_ID) === -1 || !props.values)
                   }
                 ])}
@@ -502,10 +454,8 @@ const AgreementField = props => Object.values(props.answers).map((inputAnswer, a
     <i className="custom-checkbox">
       <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M1 5L3 7L7.5 1" stroke="white" strokeWidth="1.5" />
-        <path d="M1 5L3 7L7.5 1" stroke="white" strokeWidth="1.5" />
       </svg>
     </i>
-    <div className="agreement-message" dangerouslySetInnerHTML={{ __html: props.title }} />
     <div className="agreement-message" dangerouslySetInnerHTML={{ __html: props.title }} />
   </label>
 ))

@@ -209,7 +209,7 @@ const Warranty = props => {
                         openFeedbackFormPopup()
 
                         const inputs = Array.from(e.target.querySelectorAll('input'))
-                        const inputs = Array.from(e.target.querySelectorAll('input'))
+                        // const inputs = Array.from(e.target.querySelectorAll('input'))
                         inputs.map(el => {
                             if (el.type === 'checkbox')
                                 el.checked = false
@@ -218,12 +218,12 @@ const Warranty = props => {
                                 el.value = ''
                         })
 
-                        const textareas = Array.from(e.target.querySelectorAll('textarea'))
-                        textareas.map(el => {
-                                console.log("name", el.name, el.value)
-                                console.log("name", el.name, el.value)
-                                el.value = ''
-                        })
+                        // const textareas = Array.from(e.target.querySelectorAll('textarea'))
+                        // textareas.map(el => {
+                        //         console.log("name", el.name, el.value)
+                        //         console.log("name", el.name, el.value)
+                        //         el.value = ''
+                        // })
 
                         const textareas = Array.from(e.target.querySelectorAll('textarea'))
                         textareas.map(el => {
@@ -593,7 +593,6 @@ const Warranty = props => {
         ) : null
     } else {
         return (
-            <div>test</div>
             <div>test</div>
         )
     }
