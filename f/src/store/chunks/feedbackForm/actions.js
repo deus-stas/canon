@@ -1,3 +1,4 @@
+import { fetchWarrantyForm as fetchWarrantyFormFromServer, saveFormWarranty as saveWarrantyFormOnServer } from '@/api'
 import { fetchFeedbackForm as fetchFeedbackFormFromServer, saveFeedbackForm as saveFeedbackFormOnServer } from '@/api'
 import { STATES } from '../consts'
 import { STORE_CHUNK_STATES_ACTION_TYPES, storeChunkName } from './consts'
@@ -21,6 +22,19 @@ const setErrorState = ({ message }) => ({
     message
   }
 })
+
+export const fetchWarrantyForm = lang => (dispatch, getState) => {
+  const {
+    [storeChunkName]: { state }
+  } = getState()
+
+  if (state !== STATES.LOADING) {
+    dispatch(setLoadingState())
+    fetchWarrantyFormFromServer(lang)
+      .then((...args) => dispatch(setLoadedState.apply(null, [...args])))
+      .catch((...args) => dispatch(setErrorState.apply(null, ...args)))
+  }
+}
 
 export const fetchFeedbackForm = lang => (dispatch, getState) => {
   const {

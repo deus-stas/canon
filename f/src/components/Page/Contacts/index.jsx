@@ -7,6 +7,8 @@ import { usePageMeta } from '@hooks'
 import classNames from 'classnames'
 import { pageClassName } from '../constants'
 import FeedbackForm from './FeedbackForm'
+import ContactForm from './ContactForm'
+
 
 import './style.scss'
 import NotFoundPage from '@components/Page/NotFoundPage'
@@ -47,7 +49,9 @@ const Contacts = () => {
             />
           </p>
 
-          <FeedbackForm title={'Обратная связь'} related={true} />
+          {/* <FeedbackForm title={'Обратная связь'} related={true} /> */}
+          <ContactForm title={'Обратная связь'} related={true} />
+
         </div>
       </div>
     </div>

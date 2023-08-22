@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchWarrantyForm } from '@store'
+import { fetchFeedbackForm } from '@store'
 import { inFinalState, inInitialState } from '@store/helpers'
 import { useTemplateContext } from '@contexts/TemplateContext'
-import { saveFormWarranty } from '@/api'
+import { saveFeedbackForm } from '@/api'
 import { openFeedbackFormPopup } from './FeedbackFormPopup'
 
 import './style.scss'
@@ -19,13 +19,13 @@ const FeedbackForm = (props) => {
 
   useEffect(() => {
     if (!feedbackFormStoreChunk || inInitialState(feedbackFormStoreChunk)) {
-      dispatch(fetchWarrantyForm(lang))
+      dispatch(fetchFeedbackForm(lang))
     }
   }, [dispatch, feedbackFormStoreChunk])
 
   useEffect(() => {
     if (!props.related) {
-      setValues({ form_checkbox_related: lang === 'ru' ? ['752'] : ['870'] })
+      setValues({ form_checkbox_related: ['17'] })
     }
   }, [])
 
@@ -97,7 +97,6 @@ const FeedbackForm = (props) => {
 
   const validateForm = e => {
     console.log(values);
-    console.log(values);
     const emptyInputs = getEmptyInputs(e)
     if (emptyInputs.length) {
       emptyInputs.map(el => {
@@ -121,11 +120,11 @@ const FeedbackForm = (props) => {
     const submitForm = () => {
       const data = {
         'form_id': e.target.dataset.formId,
-        action: 'forms.saveFormWarranty',
+        action: 'forms.saveForm',
         values
       }
 
-      saveFormWarranty(data, lang).then(response => {
+      saveFeedbackForm(data, lang).then(response => {
         if (response.status === 'ok') {
           openFeedbackFormPopup()
 
@@ -174,9 +173,6 @@ const FeedbackForm = (props) => {
       </h3>
       <form data-form-id={feedbackForm.ID} onSubmit={handleSubmit}
         className="flex feedback-form" id="feedback-form" action="/" method="post">
-          {
-            console.log('ip', feedbackFormInputs)
-          }
         {
           feedbackFormInputs.map((input, index) => {
             const inputRequired = input.REQUIRED === 'Y' ? 'required' : ''
@@ -192,7 +188,6 @@ const FeedbackForm = (props) => {
                       title={input.TITLE}
                       sid={inputSID}
                       required={inputRequired}
-                      answers={input.ANSWERS} />
                       answers={input.ANSWERS} />
                   </div>
                 )
@@ -221,7 +216,7 @@ const FeedbackForm = (props) => {
                           sid={inputSID}
                           required={inputRequired}
                           answers={input.ANSWERS}
-                          defaultValue={752}
+                          defaultValue={17}
                           values={values['form_checkbox_related']}
                         />
                       </div>
@@ -279,7 +274,6 @@ const FeedbackForm = (props) => {
 
               case 'region':
                 return (
-                return (
                   <div key={index} className="flex-column input-container">
                     <SelectField
                       handleChange={handleChange}
@@ -308,8 +302,6 @@ const FeedbackForm = (props) => {
         <div className="flex-column feedback-form-row">
           <p className="message-container">
             <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 1L1 10" stroke="#CC0000" strokeWidth="2" />
-              <path d="M1 1L10 10" stroke="#CC0000" strokeWidth="2" />
               <path d="M10 1L1 10" stroke="#CC0000" strokeWidth="2" />
               <path d="M1 1L10 10" stroke="#CC0000" strokeWidth="2" />
             </svg>
@@ -355,7 +347,6 @@ const SelectField = props => (
       }
     </select>
     <label htmlFor={'form_dropdown_country'}>{props.title}</label>
-    {props.message && <p className="country-tip" dangerouslySetInnerHTML={{ __html: props.message }} />}
     {props.message && <p className="country-tip" dangerouslySetInnerHTML={{ __html: props.message }} />}
   </>
 )
@@ -421,49 +412,7 @@ const CheckboxesField = props => {
                   {
                     'is-sub-checkbox': inputAnswer.PARENT_ID,
                     'is-hidden': inputAnswer.PARENT_ID &&
-const CheckboxesField = props => {
-
-  return (
-    <>
-      <p className="label">{props.title}</p>
-      <div className="flex-column feedback-checkboxes">
-        {
-          Object.values(props.answers).map((inputAnswer, answerIndex) => (
-            <React.Fragment key={answerIndex}>
-              <label
-                className={classNames([
-                  'flex',
-                  'feedback-checkbox',
-                  {
-                    'is-sub-checkbox': inputAnswer.PARENT_ID,
-                    'is-hidden': inputAnswer.PARENT_ID &&
                       (props.values &&
-                        props.values.indexOf(inputAnswer.PARENT_ID) === -1 || !props.values)
-                  }
-                ])}
-                htmlFor={`${props.sid}_${answerIndex}_input`}>
-                <input id={`${props.sid}_${answerIndex}_input`}
-                  type="checkbox"
-                  name={inputAnswer.HTML_NAME}
-                  value={inputAnswer.ID}
-                  onChange={props.handleChange}
-                  className={props.required}
-                  defaultChecked={props.defaultValue == inputAnswer.ID ? true : false}
-                />
-                <i className="custom-checkbox">
-                  <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 5L3 7L7.5 1" stroke="white" strokeWidth="1.5" />
-                  </svg>
-                </i>
-                <span>{inputAnswer.MESSAGE}</span>
-              </label>
-            </React.Fragment>
-          ))
-        }
-      </div>
-    </>
-  )
-}
                         props.values.indexOf(inputAnswer.PARENT_ID) === -1 || !props.values)
                   }
                 ])}
@@ -502,10 +451,8 @@ const AgreementField = props => Object.values(props.answers).map((inputAnswer, a
     <i className="custom-checkbox">
       <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M1 5L3 7L7.5 1" stroke="white" strokeWidth="1.5" />
-        <path d="M1 5L3 7L7.5 1" stroke="white" strokeWidth="1.5" />
       </svg>
     </i>
-    <div className="agreement-message" dangerouslySetInnerHTML={{ __html: props.title }} />
     <div className="agreement-message" dangerouslySetInnerHTML={{ __html: props.title }} />
   </label>
 ))
