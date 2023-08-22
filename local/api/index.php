@@ -301,6 +301,10 @@ switch ($requestData['action']) {
         $result = Project\Forms::getFeedback();
         break;
 
+    case 'forms.getWarranty':
+        $result = Project\Forms::getWarranty();
+        break;
+
     case 'forms.getPostWarranty':
         $result = Project\Forms::getPostWarranty();
         break;

@@ -185,6 +185,7 @@ class Catalog
             'FILTER'        => [
                 'SECTION_ID' => $parentSection,
                 'ACTIVE'     => 'Y',
+                'UF_DONT_PRODUCT' => false,
             ],
             'SELECT'        => [
                 'NAME>name',
@@ -256,7 +257,7 @@ class Catalog
         }
 
         $filter['=PROPERTY_REGIONS'] = REGION_ISO;
-
+        $filter['UF_DONT_PRODUCT'] = false;
         $nav = [];
 
         $limit = (int)$params['navigation']['limit'];
