@@ -59,6 +59,55 @@ class Forms
     /**
      * @throws LoaderException
      */
+    public static function saveFormWarranty(array $params): array
+    {
+
+        if (Loader::IncludeModule("form")) {
+            if ($resultId = CFormResult::Add($params['form_id'], $params['values'])) {
+                $result  = [];
+                $answers = [];
+
+                $data           = [];
+                $data['VALUES'] = CFormResult::GetDataByID($resultId, [], $result, $answers);
+                $baseUrl      = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/';
+                $data['PATH'] = $baseUrl . 'bitrix/admin/form_result_edit.php?lang=ru&WEB_FORM_ID=' . $params['form_id'] . '&RESULT_ID=' . $resultId;
+
+                $template = Mail::getInteractiveTemplate(
+                    'warranty/add',
+                    $data
+                );
+                $res_files = [];
+                if($data['VALUES']['files']){
+                    foreach ($data['VALUES']['files'] as $file){
+                        $res_files[] = $file['USER_FILE_ID'];
+                    }
+                }
+                Mail::send([
+                    'TEXT'    => $template,
+                    'EMAIL_TO' => \COption::GetOptionString( "askaron.settings", "UF_EMAIL_TO_WARRANTY"),
+                    'SUBJECT' => 'Canon MS. Гарантийный сервис. Новый отклик',
+                ],$res_files);
+                Mail::forceSending();
+
+
+                return [
+                    'status' => 'ok',
+                ];
+            }
+
+            return [
+                'status' => 'error',
+            ];
+        }
+
+        return [
+            'status'  => 'error',
+            'message' => 'Module "form" not included',
+        ];
+    }
+    /**
+     * @throws LoaderException
+     */
     public static function saveFormPostWarranty(array $params): array
     {
         if (Loader::IncludeModule("form")) {
@@ -111,6 +160,14 @@ class Forms
     public static function getFeedback(): array
     {
         return self::getForm(LANGUAGE_CODE === 'en' ? 'feedback_en' : 'feedback');
+    }
+
+    /**
+     * @throws LoaderException
+     */
+    public static function getWarranty(): array
+    {
+        return self::getForm(LANGUAGE_CODE === 'en' ? 'warranty_en' : 'warranty');
     }
 
     /**
