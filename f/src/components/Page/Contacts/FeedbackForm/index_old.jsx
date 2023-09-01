@@ -169,7 +169,7 @@ const FeedbackForm = (props) => {
   return feedbackFormInputs.length ? (
     <div className="feedback-form-container">
       <h3>
-        {lang === 'ru' ? props.title : 'Feedback'}
+        {lang === 'ru' ? props.title : 'Warranty service'}
       </h3>
       <form data-form-id={feedbackForm.ID} onSubmit={handleSubmit}
         className="flex feedback-form" id="feedback-form" action="/" method="post">
