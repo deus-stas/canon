@@ -29,10 +29,12 @@ const ClinicalGallery = props => {
         <div className="wrapper">
           <div className="items">
             {!flagTabs ?
-              items[curTab] && items[curTab].items && items[curTab].items.map((item, index) => (
-                (item.photos && <ClinicalGalleryItem key={index} item={item} />))) :
-              items.map((item, index) => (
-                (item.photos && <ClinicalGalleryItem key={index} item={item} />)))
+                items[curTab] && items[curTab].items && items[curTab].items.map((item, index) => (
+                    (item.photos && <ClinicalGalleryItem key={index} item={item}/>))) :
+                items.map(items1 => items1.items.map((item, index) => (
+                        (item.photos && <ClinicalGalleryItem key={index} item={item}/>))
+                    )
+                )
             }
           </div>
         </div>
