@@ -208,7 +208,7 @@ const CatalogItemPage = props => {
 
           {!twoBanner ?
               <div className="container catalog-detail__extra">
-                {catalogItem.detailText &&
+                {!!detailText &&
                     <div className="wrapper" dangerouslySetInnerHTML={{__html: detailText}}/>}
               </div>
               : null
