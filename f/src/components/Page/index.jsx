@@ -34,23 +34,23 @@ const Page = () => {
   const [showModal, setShowModal] = useState(false)
   const [disclaimerAgreed, setDisclaimerAgreed] = useState(sessionStorage.getItem('disclaimerAgreed') === 'true')
 
-  // useEffect(() => {
-  //   const agreed = sessionStorage.getItem('disclaimerAgreed')
-  //   if (agreed !== 'true') {
-  //     setShowModal(true)
-  //   }
-  // }, [])
+  useEffect(() => {
+    const agreed = sessionStorage.getItem('disclaimerAgreed')
+    if (agreed !== 'true') {
+      setShowModal(true)
+    }
+  }, [])
 
-  // const handleAgree = () => {
-  //   sessionStorage.setItem('disclaimerAgreed', 'true')
-  //   setShowModal(false)
-  // }
+  const handleAgree = () => {
+    sessionStorage.setItem('disclaimerAgreed', 'true')
+    setShowModal(false)
+  }
 
-  // const handleDisagree = () => {
-  //   sessionStorage.setItem('disclaimerAgreed', 'false')
-  //   setShowModal(false)
-  //   window.location.replace('https://blocked.rpcanon.de-us.ru/')
-  // }
+  const handleDisagree = () => {
+    sessionStorage.setItem('disclaimerAgreed', 'false')
+    setShowModal(false)
+    window.location.replace('https://blocked.rpcanon.de-us.ru/')
+  }
 
   closeTopMenu()
 
@@ -73,11 +73,12 @@ const Page = () => {
 
   return (
     <>
-    {/* {showModal && <Disclaimer handleAgree={handleAgree} handleDisagree={handleDisagree} />} */}
+    {showModal && <Disclaimer handleAgree={handleAgree} handleDisagree={handleDisagree} />}
       <Header />
       <Switch>
         <Route exact path={`${langPrefix}/`} component={HomePage} />
         <Route exact path={`${langPrefix}/about-us/company/`} component={DefaultPage} />
+        <Route exact path={`${langPrefix}/about-us/partnery/`} component={DefaultPage} />
         <Route exact path={`${langPrefix}/about-us/management-message/`} component={DefaultPage} />
         <Route exact path={`${langPrefix}/about-us/vacancy/`} component={VacanciesPage} />
         <Route exact path={`${langPrefix}/about-us/benefits/`} component={CareersPage} />

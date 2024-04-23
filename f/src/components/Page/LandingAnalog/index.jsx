@@ -25,9 +25,9 @@ const Landing = () => {
         return null
     }
 
-    const { data } = sectionsStoreChunk
+    const { data } = sectionsStoreChunk;
 
-    console.log(data)
+    console.log(data);
 
     return data ? (
         <div id="primary-content">
@@ -43,20 +43,17 @@ const Landing = () => {
                         </div>
                         <div className="row">
                             {
-                                data.items.map(item => (
+                                data.items.map((item) => {
+                                    return (
                                         <div className="col-sm-6 position-relative" key={item.id}>
                                             <div className="well well-link" key={item.id}>
-                                                <Link className='extended-modal-image' to={`/landings/${item.code}`}>
+                                                <Link className='extended-modal-image' to={`/landings-analog/${item.code}`}>
                                                     <span property="s:largeImage">
-                                                        <img src={item.start_image.src}
-                                                             className="img-fluid center-block"
-                                                             alt=""
-                                                             style={{ maxHeight: '176.719px' }} />
+                                                        <img src={item.start_image.src} className="img-fluid center-block" alt="" style={{ maxHeight: '176.719px' }} />
                                                     </span>
                                                     <h4>
                                                         <div style={{ color: 'rgb(0, 0, 0)' }}>
-                                                            <p dangerouslySetInnerHTML={{ __html: item.start_text }}>
-                                                            </p>
+                                                            <p dangerouslySetInnerHTML={{ __html: item.start_text }}></p>
                                                             <p className="btn btn-default center-block">
                                                                 <i className="zmdi zmdi-plus-circle-o"></i>
                                                                 More Information
@@ -66,12 +63,14 @@ const Landing = () => {
                                                 </Link>
                                             </div>
                                         </div>
-                                    ))
+                                    )
+                                })
                             }
                         </div>
                     </div>
                 </div>
             </div>
+
 
         </div >
     ) : <NotFoundPage />

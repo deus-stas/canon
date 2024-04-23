@@ -68,8 +68,6 @@ const Breadcrumbs = () => {
                 } else if (itm.parentSectionName) {
                   if (itm.depth > 4 && index == 2) {
                     menuItem = { name: pathNames[2] }
-                  } else if(itm.depth > 4 && index == 1) {
-                    menuItem = { name: pathNames[1] }
                   } else {
                     menuItem = { name: itm.parentSectionName }
                   }
@@ -117,15 +115,7 @@ const Breadcrumbs = () => {
                 <svg width="5" height="7" viewBox="0 0 5 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 1L3.5 3.5L1 6" stroke="#808080" />
                 </svg>
-                {
-                  menuItem?.name === '200G' || menuItem?.name === '100G' || menuItem?.name === 'a450' || menuItem?.name === 'a550' || menuItem?.name === 'Aplio a'  ?
-                  (
-                    <Link to={routTo + '/imaging'} dangerouslySetInnerHTML={{ __html: menuItem?.name }} />
-                  ) :
-                  (
-                    <Link to={routTo} dangerouslySetInnerHTML={{ __html: menuItem?.name }} />
-                  )
-                }
+                <Link to={routTo} dangerouslySetInnerHTML={{ __html: menuItem?.name }} />
               </li>
             ) :
             (
