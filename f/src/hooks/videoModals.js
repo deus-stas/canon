@@ -34,7 +34,7 @@ window.closeVideoModal = () => {
 export default pageCode => {
   useEffect(() => {
     if (pageCode) {
-      setTimeout(() => init(), 1000)
+      setTimeout(() => init(), 7000)
     }
   }, [pageCode])
 }

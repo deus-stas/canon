@@ -45,7 +45,8 @@
       .col-img {
         width: 50%;
 
-        iframe {
+        iframe,
+        video {
           width: 100%;
           height: auto;
           min-height: 30rem;
@@ -54,6 +55,8 @@
 
       .col-thumbs {
         width: 8.33333333%;
+        display: flex;
+        flex-direction: column;
 
         & > div {
           cursor: pointer;
@@ -61,8 +64,15 @@
           border: 0.01rem solid transparent;
 
           img {
+            &:hover {
+              opacity: 1;
+            }
+          }
+
+          video {
             opacity: 0.9;
             display: block;
+            width: 4.4rem;
 
             &:hover {
               opacity: 1;
