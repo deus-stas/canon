@@ -91,6 +91,10 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
+          test: /\.txt$/,
+          use: ['html-loader']
+        },
+        {
           test: /\.s[ac]ss$/i,
           use: [
             MiniCssExtractPlugin.loader,

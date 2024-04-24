@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom'
 import ClinicalGallery from './ClinicalGallery'
 import videoModals from '../../../../hooks/videoModals'
 import { updatePageMeta } from '../../../../hooks/usePageMeta'
+import goodToKnow from './StaticHtml/GoodToKnow.txt'
 
 const catalogClassName = 'catalog-detail'
 
@@ -128,6 +129,10 @@ const CatalogItemPage = props => {
 
     updatePageMeta(catalogItem.seo)
 
+    const isGoodToKnow = location.pathname.includes('good-to-know')
+    const detailText = !!isGoodToKnow ? goodToKnow : catalogItem?.detailText
+
+
     const flagTabs = catalogItem.disable_tabs;
     const twoBanner = catalogItem.two_banner;
 
@@ -203,8 +208,8 @@ const CatalogItemPage = props => {
 
           {!twoBanner ?
               <div className="container catalog-detail__extra">
-                {catalogItem.detailText &&
-                    <div className="wrapper" dangerouslySetInnerHTML={{__html: catalogItem.detailText}}/>}
+                {!!detailText &&
+                    <div className="wrapper" dangerouslySetInnerHTML={{__html: detailText}}/>}
               </div>
               : null
           }

@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<style>
+    a {
+        text-decoration: none !important;
+    }
+
+    .catalog-detail a {
+        text-decoration: none !important;
+        color: #337ab7 !important;
+    }
+
+    .catalog-detail a:hover {
+        color: #0a58ca !important;
+    }
+
+    .zoomed {
+        display: flex !important;
+        justify-content: space-around;
+        margin: 30px 30px;
+    }
+
+    .fsTextDiv {
+        padding: 20px;
+    }
+
+    .well {
+        padding: 0 !important;
+        height: 490px !important;
+    }
+
+    .fsText {
+        color: black
+    }
+
+    strong {
+        color: black;
+    }
+</style>
+
+<div class="container">
+    <div class="section-20">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+                <div class="col-sm-12">
+                    <h2 style="color: rgb(204, 0, 0)">
+                        What's New!
+                    </h2>
+                    <div style="display: flex;
+    gap: 0.2em;">
+                        <p>
+                            Check out our latest topic on <a
+                                href="https://rpcanon.de-us.ru/en/products/magnitno-rezonansnaya-tomografiya/good-to-know/#IMC">
+                            <p>Iterative Motion Correction (IMC)</p></a> and <a
+                                href="https://rpcanon.de-us.ru/en/products/magnitno-rezonansnaya-tomografiya/good-to-know/#MetalArtifactReduction">
+                            <p>Metal Artifact Reduction</p></a>
+
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section-20">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+                <div class="col-12-org col-sm-6">
+                    <h2>
+                        “Good to Know” Canon MRI
+                    </h2>
+                    <p>
+                        Canon’s Good to Know provides simple explanation to complex topic by our expert scientist team.
+                        Useful information is presented through handy and printable PDF, short videos and reference
+                        links.
+                        <br/>
+                        <br/> If you have any questions or suggestions, please reach out to us on <a
+                            href="mailto:20CMSC-goodtoknow@medical.canon">CMSC-goodtoknow@medical.canon</a> and our
+                        experts
+                        will come back to you. </p>
+
+                </div>
+                <div class="col-12-org col-sm-6">
+
+                    <div class="d-none d-md-block">
+            <span>
+                                        <img
+                                                src="https://canonmedical.widen.net/content/dkp8pxw53v/original/MR_G2K_Lead-image00.jpg?u=cglmil&amp;"
+                                                class="img-fluid"/>
+
+                                    <small></small>
+
+                                </span>
+                    </div>
+                    <div>
+            <span>
+                                    <img
+                                            src="https://canonmedical.widen.net/content/dkp8pxw53v/original/MR_G2K_Lead-image00.jpg?u=cglmil&amp;"
+                                            class="img-fluid d-block d-sm-none"/>
+
+                                <small class="d-block d-sm-none"></small>
+                            </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="featured-section featured-section-noBG fsEH">
+    <div class="container">
+        <div class="row" prefix="s: http://www.sdl.com/web/schemas/core" typeof="s:tiles">
+            <div class="col-sm-12">
+
+                <h3 property="title">Top 3 Articles</h3>
+            </div>
+        </div>
+        <div class="section60">
+            <div class="ProductDetailContent ContentArea">
+                <div class="row fwi_pre">
+                    <div class="fwi col-sm-4 div3_1 position-relative">
+
+                        <div class="well well-link" style="">
+                            <a class="extended-modal-image" target=_self
+                               href="https://rpcanon.de-us.ru/en/products/magnitno-rezonansnaya-tomografiya/good-to-know/#PIQE">
+                <span property="largeImage">
+                                        <img
+                                                src="https://canonmedical.widen.net/content/fciycf3kak/original/G2K_Feature-articles_Tileimage_PIQE.jpg?u=cglmil&amp;"
+                                                class="img-fluid center-block" alt=""/>
+                                    </span>
+                                <div class="fsTextDiv">
+                                    <h3>
+                                        <strong>PIQE</strong></h3>
+                                    <p class="fsText">
+                                        Valentin H. Prevost, PhD
+                                        <br/>
+                                        <br/> Learn about Canon’s deep learning reconstruction tool </p>
+                                </div>
+                                <p class="btn center-block zoomed" property="linkText">
+                                    <span class="fwiButton">Learn more</span>
+                                </p>
+                                <p class="linklist">
+                                </p>
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="fwi col-sm-4 div3_2 position-relative">
+
+                        <div class="well well-link" style="">
+                            <a class="extended-modal-image" target=_self
+                               href="https://rpcanon.de-us.ru/en/products/magnitno-rezonansnaya-tomografiya/good-to-know/#ShapeCoil">
+                <span property="largeImage">
+                                        <img
+                                                src="https://canonmedical.widen.net/content/3bc5jkr4bu/original/G2K_Feature-articles_Tileimage_Shape-Coil.jpg?u=cglmil&amp;"
+                                                class="img-fluid center-block" alt=""/>
+                                    </span>
+                                <div class="fsTextDiv">
+                                    <h3>
+                                        <strong>Shape Coil</strong></h3>
+                                    <p class="fsText">
+                                        Erin J. Kelly, PhD
+                                        <br/>
+                                        <br/> Learn about the new coil technology
+                                        <br/><br/>
+                                    </p>
+                                </div>
+                                <p class="btn center-block zoomed" property="linkText">
+                                    <span class="fwiButton">Learn more</span>
+                                </p>
+                                <p class="linklist">
+                                </p>
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="fwi col-sm-4 div3_3 position-relative">
+
+                        <div class="well well-link" style="">
+                            <a class="extended-modal-image" target=_self
+                               href=" https://rpcanon.de-us.ru/en/products/magnitno-rezonansnaya-tomografiya/good-to-know/#NonContrast">
+                <span property="largeImage">
+                                        <img
+                                                src="https://canonmedical.widen.net/content/0eajrabzhe/original/G2K_Feature-articles_Tileimage_Non-contrast.jpg?u=cglmil&amp;"
+                                                class="img-fluid center-block" alt=""/>
+                                    </span>
+                                <div class="fsTextDiv">
+                                    <h3>
+                                        <strong>Non-contrast MRA</strong></h3>
+                                    <p class="fsText">
+                                        Erin J. Kelly, PhD
+                                        <br/>
+                                        <br/> Learn about the safest option for MRA </p>
+                                </div>
+                                <p class="btn center-block zoomed" property="linkText">
+                                    <span class="fwiButton">Learn more</span>
+                                </p>
+                                <p class="linklist">
+                                </p>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container section-20">
+    <div class="ProductDetailContent ContentArea">
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Topics</h3>
+            </div>
+
+            <div class="col-12 col-sm-6">
+                <div style="font-size: 14pt;"><a href="#PIQE">Precise IQ Engine (PIQE)</a>
+                    <br/>
+                    <a href="#advanced">Advanced intelligent Clear-IQ Engine (AiCE)</a>
+                    <br/>
+                    <a href="#ShapeCoil">Shape Coil</a>
+                    <br/>
+                    <a href="#compressed">Compressed SPEEDER</a>
+                    <br/>
+                    <a href="#parallel">Parallel Imaging SPEEDER and Exsper</a>
+                    <br/>
+                    <a href="#NonContrast">Non-Contrast MR Angiography</a>
+                    <br/>
+                    <a href="#ultrashort">Ultra short TE multi-echo (UTE multi-echo)</a>
+                    <br/>
+                    <a href="#fmri">Functional MRI (fMRI)</a>
+                    <br/>
+                    <a href="#MagneticResonanceElastography">Magnetic Resonance Elastography</a></div>
+            </div>
+            <div class="col-12 col-sm-6">
+                <div style="font-size: 14pt;"><a href="#Fast3DImaging">New Applications for Fast 3D Imaging</a>
+                    <br/>
+                    <a href="#IMC">Iterative Motion Correction (IMC)</a>
+                    <br/>
+                    <a href="#MetalArtifactReduction">Metal Artifact Reduction</a>
+                    <br/>
+                    <a href="#molli">MOLLI for Myocardial T1 mapping</a>
+                    <br/>
+                    <a href="#Multi-b">Multi-b Diffusion</a>
+                    <br/>
+                    <a href="#Arterial">Arterial Spin Labeling</a>
+                    <br/>
+                    <a href="#computed">Computed Diffusion (cDWI)</a>
+                    <br/>
+                    <a href="#fat">Fat vs. Water, The Dixon Technique</a>
+                    <br/>
+                    <a href="#fat02">Fat Fraction Quantification</a></div>
+            </div>
+
+            <div class="col-12 col-sm-6">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="container">
+    <div class="section-20">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+                <div class="col-6 col-sm-10">
+                    <h1>
+                        <a name="RDCDWI" id="RDCDWI">⁠</a>Reverse Encoding Distortion
+                        <br/>
+                        Correction (RDC DWI)
+                    </h1>
+                    <div>
+                        Angela Marin
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-2">
+                            <span>
+                                    <img
+                                            src="https://canonmedical.widen.net/content/r7e6rt2mto/original/G2K_RDCDWI_image01.png?u=cglmil&amp;"
+                                            class="img-fluid"/>
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-20">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+                <div class="col-sm-12">
+                    <div>
+                        <span style="font-size: 16pt;">WHAT?</span>
+                        <br/>
+                        Reverse Encoding Distortion Correction (RDC) is a technique to reduce geometric distortion
+                        in Diffusion Weighted Imaging (DWI).
+                        <br/>
+                        <br/>
+                        <span style="font-size: 16pt;">WHY?</span>
+                        <br/>
+                        The Echo Planar Imaging (EPI) technique, often used in DWI, is susceptible to
+                        distortions, especially in the phase encoding direction.
+                        <br/>
+                        <br/>
+                        <span style="font-size: 16pt;">WHEN?</span>
+                        <br/>
+                        To reduce distortions in DWI while maintaining a short scan time.
+
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                            <span>
+                                    <img
+                                            src="https://canonmedical.widen.net/content/21nfori5ln/original/RDC-DWI-Image.jpg?u=cglmil&amp;"
+                                            class="img-fluid center-block"/>
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="section-10" prefix="l: http://schema.org s: http://www.sdl.com/web/schemas/core"
+                 typeof="l:LinkListTms s:SocialLinks">
+
+                <a class="pageinquiry btn btn-primary btn-lg btn-block" role="button" target="_blank"
+                   href="https://canonmedical.widen.net/content/l819gk226q/original/MOIMR0136EA_G2K-RDC-DWI.pdf?u=cglmil&amp;">
+                        <span class="pageinquiry">
+                            <i class="pageinquiry zmdi zmdi-info-outline"></i>
+                            Download the full PDF for additional information (printable)
+                        </span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-60">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div>
+                        <div class="panel-group" id="sampleAccordion">
+                            <div class="panel panel-default">
+                                <a data-bs-toggle="collapse" data-parent="#sampleAccordion"
+                                   href="#sampleAccordionCollapse30" class="collapsed" aria-expanded="false">
+                                    <div class="panel-heading" style="background-color: #cc0000;">
+                                        <h3 class="panel-title"
+                                            style="text-align: center; color: rgb(255, 255, 255);">
+                                            <i class="zmdi zmdi-plus-circle-o"></i>
+                                            <span style="font-size: 120%;">Additional Links and Resources</span>
+                                        </h3>
+                                    </div>
+                                </a>
+                                <div id="sampleAccordionCollapse30" class="panel-collapse collapse"
+                                     aria-expanded="false">
+                                    <div class="panel-body">
+                                        <strong>External links (may require logins)</strong><br/>
+                                        <a href="https://mriquestions.com/echo-planar-imaging.html">Simple
+                                            explanations
+                                            on Echo-planar Imaging (EPI) by mriquestions.com</a><br/>
+                                        <a href="https://onlinelibrary.wiley.com/doi/10.1002/jmri.20032">Correction
+                                            of
+                                            spatial distortion in EPI due to inhomogeneous static magnetic fields
+                                            using
+                                            the reversed gradient method - Wiley Online Library</a><br/>
+                                        <a href="https://cds.ismrm.org/protected/Motion22/abstracts/Haji-Valizadeh.pdf">Distortion
+                                            correction for diffusion‐weighted MRI tractography and fMRI in the
+                                            temporal
+                                            lobes - PMC (nih.gov)</a><br/>
+                                        <br/>
+                                        <strong>Resources</strong><br/>
+                                        Stehling, Michael K., Robert Turner, and Peter Mansfield. "Echo-planar
+                                        imaging: magnetic resonance imaging in a fraction of a
+                                        second."&nbsp;Science&nbsp;254.5028 (1991): 43-50.<br/>
+                                        WESTBROOK, Catherine; TALBOT, John. MRI in Practice. John Wiley &amp; Sons,
+                                        2018.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="container">
+    <div class="section-20">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+                <div class="col-6 col-sm-10">
+                    <h1>
+                        <a name="IMC" id="IMC">⁠</a>Iterative Motion Correction (IMC)
+                    </h1>
+                    <div>
+                        Wissam AlGhuraibawi, PhD
+                    </div>
+
+
+                </div>
+
+                <div class="col-6 col-sm-2">
+
+                            <span>
+                                    <img src="https://canonmedical.widen.net/content/ed2ltnpusx/original/G2K_IMC_image01.png?u=cglmil&amp;"
+                                         class="img-fluid">
+
+                                <small></small>
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-20">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+                <div class="col-sm-12">
+                    <div>
+                        <span style="font-size: 16pt;">WHAT?</span>
+                        <br>
+                        IMC is a Deep Learning-based motion correction method to improve the quality of images affected
+                        by patient motion.
+                        <br>
+                        <br>
+                        <span style="font-size: 16pt;">WHY?</span>
+                        <br>
+                        Patient motion creates artifacts that can cause images to lose their diagnostic value and may
+                        necessitate a repeated scan.
+                        <br>
+                        <br>
+                        <span style="font-size: 16pt;">WHEN?</span>
+                        <br>
+                        IMC can reduce imaging artifacts from sporadic, rigid, and nonrigid patient motion in fast
+                        spin-echo (FSE) sequences. IMC supports multiple imaging weightings such as T2, T1 IR, STIR
+                        &amp; FLAIR, and in any plane for brain and cervical spine examinations.
+
+                    </div>
+                </div>
+                <div class="col-sm-12">
+
+                            <span>
+                                    <img src="https://canonmedical.widen.net/content/xtkuyzu5gv/original/G2K_IMC_image02.jpg?u=cglmil&amp;"
+                                         class="img-fluid center-block">
+
+                                <small></small>
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="section-10" prefix="l: http://schema.org s: http://www.sdl.com/web/schemas/core"
+                 typeof="l:LinkListTms s:SocialLinks">
+
+                <a class="pageinquiry btn btn-primary btn-lg btn-block" role="button" target="_blank"
+                   href="https://canonmedical.widen.net/content/8wkq3ewavb/original/MOIMR0134EA_G2K-IMC_final.pdf?u=cglmil&amp;">
+
+
+                        <span class="pageinquiry">
+                            <i class="pageinquiry zmdi zmdi-info-outline"></i>
+                            Download the full PDF for additional information (printable)
+                        </span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="section-60">
+            <div class="ProductDetailContent ContentArea">
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <div>
+                            <div class="panel-group" id="sampleAccordion">
+                                <div class="panel panel-default">
+                                    <a data-bs-toggle="collapse" data-parent="#sampleAccordion"
+                                       href="#sampleAccordionCollapse29" class="collapsed" aria-expanded="false">
+                                        <div class="panel-heading" style="background-color: #cc0000;">
+                                            <h3 class="panel-title"
+                                                style="text-align: center; color: rgb(255, 255, 255);">
+                                                <i class="zmdi zmdi-plus-circle-o"></i>
+                                                <span style="font-size: 120%;">Additional Links and Resources</span>
+                                            </h3>
+                                        </div>
+                                    </a>
+                                    <div id="sampleAccordionCollapse29" class="panel-collapse collapse"
+                                         aria-expanded="false">
+                                        <div class="panel-body">
+
+
+                                            <strong>Internal links:</strong><br>
+                                            <a href="https://canonmedical.widen.net/view/pdf/wj9adflv3m/VISIONS-Magazine-MRI-Global-Edition_No03_2.pdf?t.download=true&amp;u=vdrpe0&amp;use=buu8s">White
+                                                paper on IMC solution (by Srikant Kamesh Iyer, PhD)
+                                            </a><br>
+
+                                            <br>
+                                            <strong>External links (may require logins)</strong><br>
+                                            <a href="https://submissions.mirasmart.com/ISMRM2023/Handlers/ViewTeaser.ashx?esbpgm=2088_1998">Conference
+                                                abstract on IMC evaluation (ISMRM 2023)</a><br>
+                                            <a href="https://cds.ismrm.org/protected/Motion22/abstracts/Haji-Valizadeh.pdf">Workshop
+                                                abstract on shuffle encoding technique (ISMRM Workshop 2022)</a><br>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section-20">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+                <div class="col-6 col-sm-10">
+                    <h1>
+                        <a name="MetalArtifactReduction" id="MetalArtifactReduction">⁠</a>Metal Artifact Reduction
+                    </h1>
+                    <div>
+                        Erin J. Kelly, PhD
+                    </div>
+
+
+                </div>
+
+                <div class="col-6 col-sm-2">
+
+                            <span>
+                                    <img src="https://canonmedical.widen.net/content/zremqy3enh/original/G2K_Erin-Kelly_image.png?u=cglmil&amp;"
+                                         class="img-fluid">
+
+                                <small></small>
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-20">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+                <div class="col-sm-12">
+                    <div>
+                        <span style="font-size: 16pt;">WHAT?</span>
+                        <br>
+                        Metal artifact reduction strategies and sequences are designed to reduce susceptibility
+                        artifacts caused by the presence of metal in an MR imaging volume.
+                        <br>
+                        <br>
+                        <span style="font-size: 16pt;">WHY?</span>
+                        <br>
+                        In MRI, most metallic implants cause artifacts which can interfere with the anatomy of interest
+                        in the image by causing distortion or signal loss, due primarily to strong magnetic
+                        susceptibility.
+                        <br>
+                        <br>
+                        <span style="font-size: 16pt;">WHEN?</span>
+                        <br>
+                        In patients with metallic implants, artifact reduction techniques are especially useful for
+                        reducing the interference of related artifacts thus facilitating a more confident diagnosis.
+
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="optanon-category-C0004" src="https://www.youtube.com/embed/4NrD9NzUYLU?rel=0"
+                                frameborder="0" style="width: 100%; height: 100%;"></iframe>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="section-10" prefix="l: http://schema.org s: http://www.sdl.com/web/schemas/core"
+                 typeof="l:LinkListTms s:SocialLinks">
+
+                <a class="pageinquiry btn btn-primary btn-lg btn-block" role="button" target="_blank"
+                   href="https://canonmedical.widen.net/content/3strwypnu2/original/MOIMR0127EA_G2K_Meta_Artifact_Reduction.pdf?u=cglmil&amp;">
+
+
+                        <span class="pageinquiry">
+                            <i class="pageinquiry zmdi zmdi-info-outline"></i>
+                            Download the full PDF for additional information (printable)
+                        </span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="section-60">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <div>
+                        <div class="panel-group" id="sampleAccordion">
+                            <div class="panel panel-default">
+                                <a data-bs-toggle="collapse" data-parent="#sampleAccordion"
+                                   href="#sampleAccordionCollapse22" class="collapsed" aria-expanded="false">
+                                    <div class="panel-heading" style="background-color: #cc0000;">
+                                        <h3 class="panel-title" style="text-align: center; color: rgb(255, 255, 255);">
+                                            <i class="zmdi zmdi-plus-circle-o"></i>
+                                            <span style="font-size: 120%;">Additional Links and Resources</span>
+                                        </h3>
+                                    </div>
+                                </a>
+                                <div id="sampleAccordionCollapse22" class="panel-collapse collapse"
+                                     aria-expanded="false">
+                                    <div class="panel-body">
+
+
+                                        <!--<strong>Internal links:</strong><br>
+                                        <a href="https://canonmedical.widen.net/content/imuobawzv3/original/MCSMR0011EA_low.pdf?u=vmbupa&">White paper on renal artery stenosis diagnosis (by Cesar H. Nomura, PhD)</a><br>
+                                        <a href="https://us.medical.canon/download/mr-wp-titan-15t-fresh-blood-imaging">White paper on fresh blood imaging for peripheral angiography (by Timothy Albert, MD)</a><br>
+                                        <a href="https://mriquestions.com/uploads/3/4/5/7/34572113/mr-wp-titan-15t-time-spatial.pdf">White paper on Time-Spatial Labeling Inversion Pulse (by Timothy Albert, MD)</a><br>
+                                        <br>-->
+                                        <strong>External links (may require logins)</strong><br>
+                                        <a href="https://pubmed.ncbi.nlm.nih.gov/21862795/">Review article on metal
+                                            induced artifacts in MRI (AJR 2011)</a><br>
+                                        <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2837371/">Educational
+                                            article on slice encoding sequence for metal artifact reduction (MRM
+                                            2009)</a><br>
+                                        <a href="https://pubs.rsna.org/doi/full/10.1148/rg.2021200092">Conference
+                                            abstract on image quality improvement in patients with metallic implants
+                                            (RSNA 2021)</a><br>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section-20">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+                <div class="col-6 col-sm-10">
+                    <h1>
+                        <a name="molli" id="molli">⁠</a>MOLLI for Myocardial T1 mapping
+                    </h1>
+                    <div>
+                        Chia-Ying Liu, PhD
+                    </div>
+
+
+                </div>
+
+                <div class="col-6 col-sm-2">
+
+                            <span>
+                                    <img src="https://canonmedical.widen.net/content/bmzb0ek7dj/original/G2K_Chia_image001.png?u=cglmil&amp;"
+                                         class="img-fluid">
+
+                                <small></small>
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-20">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+                <div class="col-sm-12">
+                    <div>
+                        <span style="font-size: 16pt;">WHAT?</span>
+                        <br>
+                        A specialized pulse sequence modified from original Look Locker technique for myocardial T1
+                        mapping.
+                        <br>
+                        <br>
+                        <span style="font-size: 16pt;">WHY?</span>
+                        <br>
+                        T1 measurement could be time consuming due to multiple data acquisition successively after
+                        magnetization inversion. MOLLI techniques enable a fast assessment of myocardial T1 in one
+                        breath hold.
+                        <br>
+                        <br>
+                        <span style="font-size: 16pt;">WHEN?</span>
+                        <br>
+                        Myocardial T1 mapping provides a non-invasive quantitative tool for tissue characterization in
+                        myocardial disease.
+
+                    </div>
+                </div>
+                <div class="col-sm-12">
+
+                            <span>
+                                    <img src="https://canonmedical.widen.net/content/r7yj81aysm/original/G2K_T1Molli_image001.jpg?u=cglmil&amp;"
+                                         class="img-fluid center-block">
+
+                                <small></small>
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="section-10" prefix="l: http://schema.org s: http://www.sdl.com/web/schemas/core"
+                 typeof="l:LinkListTms s:SocialLinks">
+
+                <a class="pageinquiry btn btn-primary btn-lg btn-block" role="button" target="_blank"
+                   href="https://canonmedical.widen.net/content/ptx6unrarx/original/MOIMR0133EAA_G2K-MOLLI-for-Myocardial-T1-mapping_final.pdf?u=cglmil&amp;">
+
+
+                        <span class="pageinquiry">
+                            <i class="pageinquiry zmdi zmdi-info-outline"></i>
+                            Download the full PDF for additional information (printable)
+                        </span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="section-60">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <div>
+                        <div class="panel-group" id="sampleAccordion">
+                            <div class="panel panel-default">
+                                <a data-bs-toggle="collapse" data-parent="#sampleAccordion"
+                                   href="#sampleAccordionCollapse28" class="collapsed" aria-expanded="false">
+                                    <div class="panel-heading" style="background-color: #cc0000;">
+                                        <h3 class="panel-title" style="text-align: center; color: rgb(255, 255, 255);">
+                                            <i class="zmdi zmdi-plus-circle-o"></i>
+                                            <span style="font-size: 120%;">Additional Links and Resources</span>
+                                        </h3>
+                                    </div>
+                                </a>
+                                <div id="sampleAccordionCollapse28" class="panel-collapse collapse"
+                                     aria-expanded="false">
+                                    <div class="panel-body">
+
+
+                                        <!--<strong>Internal links:</strong><br>
+                                        <a href="https://pubmed.ncbi.nlm.nih.gov/32437737/?utm_source=linkedin&utm_medium=social&utm_campaign=MRGood2Know&utm_content=090721&sf146589676=1#advanced">Peer-reviewed paper on aging biomarkers, including rs-fMRI (Mech Ageing Dev. 2020)
+                                        </a><br>-->
+
+                                        <br>
+                                        <strong>External links (may require logins)</strong><br>
+                                        <a href="https://jcmr-online.biomedcentral.com/articles/10.1186/s12968-017-0389-8">Paper
+                                            on clinical recommendations for CMR mapping of T1, T2, T2* and extracellular
+                                            volume</a><br>
+                                        <a href="https://onlinelibrary.wiley.com/doi/10.1002/mrm.20110">Paper on
+                                            Modified Look-Locker inversion recovery (MOLLI) for high-resolution T1
+                                            mapping of the heart</a><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section-20">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+                <div class="col-6 col-sm-10">
+                    <h1>
+                        <a name="fmri" id="fmri">⁠</a>Functional MRI (fMRI)
+                    </h1>
+                    <div>
+                        Alicia Palomar, MSc &amp; MRes
+                    </div>
+
+
+                </div>
+
+                <div class="col-6 col-sm-2">
+
+                            <span>
+                                    <img src="https://canonmedical.widen.net/content/4pge1f4s7l/original/MR_G2K_doctor_18.png?u=cglmil&amp;"
+                                         class="img-fluid">
+
+                                <small></small>
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-20">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+                <div class="col-sm-12">
+                    <div>
+                        <span style="font-size: 16pt;">WHAT?</span>
+                        <br>
+                        Fast scans of the whole brain every few seconds along a rest-task paradigm or during resting
+                        state.
+                        <br>
+                        <br>
+                        <span style="font-size: 16pt;">WHY?</span>
+                        <br>
+                        To assess neural activity based on the detection of blood oxygen level dependent (BOLD) changes.
+                        <br>
+                        <br>
+                        <span style="font-size: 16pt;">WHEN?</span>
+                        <br>
+                        For multiple purposes such as functional area mapping, evaluation of brain state (related to
+                        stroke, trauma or neurodegenerative disorders) and pre-surgical planning.
+
+                    </div>
+                </div>
+                <div class="col-sm-12">
+
+                            <span>
+                                    <img src="https://canonmedical.widen.net/content/68afrpbtbn/original/G2K_Functional-MRI-_image001.jpg?u=cglmil&amp;"
+                                         class="img-fluid center-block">
+
+                                <small></small>
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="section-10" prefix="l: http://schema.org s: http://www.sdl.com/web/schemas/core"
+                 typeof="l:LinkListTms s:SocialLinks">
+
+                <a class="pageinquiry btn btn-primary btn-lg btn-block" role="button" target="_blank"
+                   href="https://canonmedical.widen.net/content/2jm78zgtat/original/MOIMR0132EAA_G2K-fMRI_final-0914.pdf?u=cglmil&amp;">
+
+
+                        <span class="pageinquiry">
+                            <i class="pageinquiry zmdi zmdi-info-outline"></i>
+                            Download the full PDF for additional information (printable)
+                        </span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="section-60">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <div>
+                        <div class="panel-group" id="sampleAccordion">
+                            <div class="panel panel-default">
+                                <a data-bs-toggle="collapse" data-parent="#sampleAccordion"
+                                   href="#sampleAccordionCollapse27" class="collapsed" aria-expanded="false">
+                                    <div class="panel-heading" style="background-color: #cc0000;">
+                                        <h3 class="panel-title" style="text-align: center; color: rgb(255, 255, 255);">
+                                            <i class="zmdi zmdi-plus-circle-o"></i>
+                                            <span style="font-size: 120%;">Additional Links and Resources</span>
+                                        </h3>
+                                    </div>
+                                </a>
+                                <div id="sampleAccordionCollapse27" class="panel-collapse collapse"
+                                     aria-expanded="false">
+                                    <div class="panel-body">
+
+
+                                        <strong>Internal links:</strong><br>
+                                        <a href="https://pubmed.ncbi.nlm.nih.gov/32437737/?utm_source=linkedin&amp;utm_medium=social&amp;utm_campaign=MRGood2Know&amp;utm_content=090721&amp;sf146589676=1#advanced">Peer-reviewed
+                                            paper on aging biomarkers, including rs-fMRI (Mech Ageing Dev. 2020)
+                                        </a><br>
+
+                                        <br>
+                                        <strong>External links (may require logins)</strong><br>
+                                        <a href="https://mriquestions.com/how-does-fmri-work.html">Simple explanations
+                                            on fMRI by mriquestions.com </a><br>
+                                        <a href="https://qibawiki.rsna.org/index.php/Profiles">Wikipedia webpage of QIBA
+                                            profiles, including fMRI for sensorimotor mapping</a><br>
+                                        <a href="https://www.humanconnectome.org/study/hcp-young-adult/project-protocol/task-fmri">Task-fMRI
+                                            part of the Human connectome project</a><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section-20">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+                <div class="col-6 col-sm-10">
+                    <h1>
+                        <a name="NonContrast" id="NonContrast">⁠</a>Non-Contrast MR Angiography
+                    </h1>
+                    <div>
+                        Erin J. Kelly, PhD
+                    </div>
+
+
+                </div>
+
+                <div class="col-6 col-sm-2">
+
+                            <span>
+                                    <img src="https://canonmedical.widen.net/content/zremqy3enh/original/G2K_Erin-Kelly_image.png?u=cglmil&amp;"
+                                         class="img-fluid">
+
+                                <small></small>
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-20">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+                <div class="col-sm-12">
+                    <div>
+                        <span style="font-size: 16pt;">WHAT?</span>
+                        <br>
+                        A family of MR angiography techniques that utilize fresh spins to depict the contrast in blood
+                        vessels as an alternative to an injection of an exogenous contrast agent. In particular, Fresh
+                        Blood Imaging (FBI), Flow Spoiled FBI (FS-FBI) and Time-Spatial Labeling Inversion Pulse
+                        (Time-SLIP), are discussed.
+                        <br>
+                        <br>
+                        <span style="font-size: 16pt;">WHY?</span>
+                        <br>
+                        Non-contrast angiography (NC-MRA) provides the safest option for MR Angiography. It can
+                        exquisitely depict arteries and veins throughout the body in 3 dimensions, while eliminating the
+                        need for gadolinium-based contrast agents.
+                        <br>
+                        <br>
+                        <span style="font-size: 16pt;">WHEN?</span>
+                        <br>
+                        Any time visualization of the arteries or veins is needed for clinical diagnosis and follow-up
+                        related to narrowing or blockage of blood vessels, NC-MRA can be used for evaluation. NC-MRA is
+                        especially important for those patients who have a contraindication to exogenous contrast
+                        agents.
+
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="optanon-category-C0004" src="https://www.youtube.com/embed/XXNRInBVr_c?rel=0"
+                                frameborder="0" style="width: 100%; height: 100%;"></iframe>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="section-10" prefix="l: http://schema.org s: http://www.sdl.com/web/schemas/core"
+                 typeof="l:LinkListTms s:SocialLinks">
+
+                <a class="pageinquiry btn btn-primary btn-lg btn-block" role="button" target="_blank"
+                   href="https://canonmedical.widen.net/content/iwyngb8qsb/original/MOIMR0126EA_G2K-Non-Contrast-Imaging_final_230406.pdf?u=cglmil&amp;">
+
+
+                        <span class="pageinquiry">
+                            <i class="pageinquiry zmdi zmdi-info-outline"></i>
+                            Download the full PDF for additional information (printable)
+                        </span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="section-60">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <div>
+                        <div class="panel-group" id="sampleAccordion">
+                            <div class="panel panel-default">
+                                <a data-bs-toggle="collapse" data-parent="#sampleAccordion"
+                                   href="#sampleAccordionCollapse21" class="collapsed" aria-expanded="false">
+                                    <div class="panel-heading" style="background-color: #cc0000;">
+                                        <h3 class="panel-title" style="text-align: center; color: rgb(255, 255, 255);">
+                                            <i class="zmdi zmdi-plus-circle-o"></i>
+                                            <span style="font-size: 120%;">Additional Links and Resources</span>
+                                        </h3>
+                                    </div>
+                                </a>
+                                <div id="sampleAccordionCollapse21" class="panel-collapse collapse"
+                                     aria-expanded="false">
+                                    <div class="panel-body">
+
+
+                                        <strong>Internal links:</strong><br>
+                                        <a href="https://canonmedical.widen.net/content/imuobawzv3/original/MCSMR0011EA_low.pdf?u=vmbupa&amp;">White
+                                            paper on renal artery stenosis diagnosis (by Cesar H. Nomura, PhD)</a><br>
+                                        <a href="https://us.medical.canon/download/mr-wp-titan-15t-fresh-blood-imaging">White
+                                            paper on fresh blood imaging for peripheral angiography (by Timothy Albert,
+                                            MD)</a><br>
+                                        <a href="https://mriquestions.com/uploads/3/4/5/7/34572113/mr-wp-titan-15t-time-spatial.pdf">White
+                                            paper on Time-Spatial Labeling Inversion Pulse (by Timothy Albert,
+                                            MD)</a><br>
+                                        <br>
+                                        <strong>External links (may require logins)</strong><br>
+                                        <a href="http://www.ncbi.nlm.nih.gov/pubmed/31883037:/pubmed.ncbi.nlm.nih.gov/19388119/">Peer-reviewed
+                                            paper on renal 3D MR angiography (MAGMA 2020)</a><br>
+                                        <a href="https://pubmed.ncbi.nlm.nih.gov/22173999/">Review article on
+                                            Non-contrast enhanced MR angiography (JMRI 2012)</a><br>
+                                        <a href="https://pubmed.ncbi.nlm.nih.gov/19388119/">Peer-reviewed paper on
+                                            portography with time-spatial labeling inversion pulses (JMRI 2009)</a><br>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section-20">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+                <div class="col-6 col-sm-10">
+                    <h1>
+                        <a name="Multi-b" id="Multi-b">⁠</a>Multi-b Diffusion
+                    </h1>
+                    <div>
+                        Alicia Palomar, MSc &amp; MRes
+                    </div>
+
+
+                </div>
+
+                <div class="col-6 col-sm-2">
+
+                            <span>
+                                    <img src="https://canonmedical.widen.net/content/4pge1f4s7l/original/MR_G2K_doctor_18.png?u=cglmil&amp;"
+                                         class="img-fluid">
+
+                                <small></small>
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-20">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+                <div class="col-sm-12">
+                    <div>
+                        <span style="font-size: 16pt;">WHAT?</span>
+                        <br>
+                        Acquisition of diffusion-weighted images (DWI) using multiple b-values.
+                        <br>
+                        <br>
+                        <span style="font-size: 16pt;">WHY?</span>
+                        <br>
+                        To improve sensitivity of DWI and obtain further information regarding tissue behavior (apart
+                        from pure diffusion).
+                        <br>
+                        <br>
+                        <span style="font-size: 16pt;">WHEN?</span>
+                        <br>
+                        For several clinical applications and all body regions, but mostly used for oncological
+                        purposes.
+
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="optanon-category-C0004" src="https://www.youtube.com/embed/_X8q1bY4zes?rel=0"
+                                frameborder="0" style="width: 100%; height: 100%;"></iframe>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="section-10" prefix="l: http://schema.org s: http://www.sdl.com/web/schemas/core"
+                 typeof="l:LinkListTms s:SocialLinks">
+
+                <a class="pageinquiry btn btn-primary btn-lg btn-block" role="button" target="_blank"
+                   href="https://canonmedical.widen.net/content/eprbu1rh9a/original/MOIMR0123EA_G2K_Multi-b_Diffusion.pdf?u=cglmil&amp;">
+
+
+                        <span class="pageinquiry">
+                            <i class="pageinquiry zmdi zmdi-info-outline"></i>
+                            Download the full PDF for additional information (printable)
+                        </span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="section-60">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <div>
+                        <div class="panel-group" id="sampleAccordion">
+                            <div class="panel panel-default">
+                                <a data-bs-toggle="collapse" data-parent="#sampleAccordion"
+                                   href="#sampleAccordionCollapse18" class="collapsed" aria-expanded="false">
+                                    <div class="panel-heading" style="background-color: #cc0000;">
+                                        <h3 class="panel-title" style="text-align: center; color: rgb(255, 255, 255);">
+                                            <i class="zmdi zmdi-plus-circle-o"></i>
+                                            <span style="font-size: 120%;">Additional Links and Resources</span>
+                                        </h3>
+                                    </div>
+                                </a>
+                                <div id="sampleAccordionCollapse18" class="panel-collapse collapse"
+                                     aria-expanded="false">
+                                    <div class="panel-body">
+                                        <strong>Internal links</strong><br>
+                                        <a href="https://canonmedical.widen.net/content/o1ig40mkfs/original/MOIMR0117EA_G2K_Computed-Diffusion_final.pdf?u=vmbupa&amp;">Good
+                                            to know on Computed Diffusion (by Thiele Kobus,PhD and Wolter de Graaf,
+                                            PhD)</a><br>
+                                        <strong>External links (may require logins)</strong><br>
+                                        <a href="https://mriquestions.com/ivim.html">Simple explanations on IVIM imaging
+                                            by mriquestions.com</a><br>
+                                        <a href="https://pubmed.ncbi.nlm.nih.gov/29277647/">Review article on IVIM
+                                            imaging (NeuroImage, 2019)</a><br>
+                                        <a href="https://www.youtube.com/watch?app=desktop&amp;v=SbU1pahbbkc">Educational
+                                            video course on IVIM imaging (ISMRM 2019)</a><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section-20">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+                <div class="col-6 col-sm-10">
+                    <h1>
+                        <a name="PIQE" id="PIQE">⁠</a>Precise IQ Engine (PIQE)
+                    </h1>
+                    <div>
+                        Valentin H. Prevost, PhD
+                    </div>
+
+
+                </div>
+
+                <div class="col-6 col-sm-2">
+
+                            <span>
+                                    <img src="https://canonmedical.widen.net/content/kfrknfl9cl/original/G2K_Valentin.png?u=cglmil&amp;"
+                                         class="img-fluid">
+
+                                <small></small>
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-20">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+                <div class="col-sm-12">
+                    <div>
+                        <span style="font-size: 16pt;">WHAT?</span>
+                        <br>
+                        PIQE is a solution designed to increase the reconstructed matrix size, providing finer
+                        resolution while maintaining or improving SNR.
+                        <br>
+                        <br>
+                        <span style="font-size: 16pt;">WHY?</span>
+                        <br>
+                        PIQE can lead to a higher throughput and/or a better clinical confidence.
+                        <br>
+                        <br>
+                        <span style="font-size: 16pt;">WHEN?</span>
+                        <br>
+                        PIQE can be used on 2D Fast Spin Echo (FSE) sequences, at both 1.5 and 3T, especially when SNR
+                        is low but more sharpness is needed.
+
+                    </div>
+                </div>
+                <div class="col-sm-12">
+
+                            <span>
+                                    <img src="https://canonmedical.widen.net/content/luwx6ulow3/original/G2K_PIQE_image001-3.jpg?u=cglmil&amp;"
+                                         class="img-fluid center-block">
+
+                                <small></small>
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="section-10" prefix="l: http://schema.org s: http://www.sdl.com/web/schemas/core"
+                 typeof="l:LinkListTms s:SocialLinks">
+
+                <a class="pageinquiry btn btn-primary btn-lg btn-block" role="button" target="_blank"
+                   href="https://canonmedical.widen.net/content/iy9zwkdjiv/original/MOIMR0131EAA_G2K-PIQE_final.pdf?u=cglmil&amp;">
+
+
+                        <span class="pageinquiry">
+                            <i class="pageinquiry zmdi zmdi-info-outline"></i>
+                            Download the full PDF for additional information (printable)
+                        </span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="section-60">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+
+                    <div>
+                        <div class="panel-group" id="sampleAccordion">
+                            <div class="panel panel-default">
+                                <a data-bs-toggle="collapse" data-parent="#sampleAccordion"
+                                   href="#sampleAccordionCollapse26" class="collapsed" aria-expanded="false">
+                                    <div class="panel-heading" style="background-color: #cc0000;">
+                                        <h3 class="panel-title" style="text-align: center; color: rgb(255, 255, 255);">
+                                            <i class="zmdi zmdi-plus-circle-o"></i>
+                                            <span style="font-size: 120%;">Additional Links and Resources</span>
+                                        </h3>
+                                    </div>
+                                </a>
+                                <div id="sampleAccordionCollapse26" class="panel-collapse collapse"
+                                     aria-expanded="false">
+                                    <div class="panel-body">
+
+
+                                        <strong>Internal links:</strong><br>
+                                        <a href="https://global.medical.canon/products/magnetic-resonance/good-to-know.html?utm_source=linkedin&amp;utm_medium=social&amp;utm_campaign=MRGood2Know&amp;utm_content=090721&amp;sf146589676=1#advanced">Good
+                                            to Know on AiCE solution (by Hung Do, PhD)</a><br>
+                                        <a href="https://global.medical.canon/publication/mr/MOIMR0115EAB_INTERVIEW">White
+                                            paper on PIQE testimonials (by MD and Daniel Chow, MD)</a><br>
+                                        <br>
+                                        <strong>External links (may require logins)</strong><br>
+                                        <a href="https://pubmed.ncbi.nlm.nih.gov/37673835/">Peer-reviewed paper on PIQE
+                                            applied to DWI in brain patients (Neuroradiology 2023)</a><br>
+                                        <a href="https://submissions.mirasmart.com/ISMRM2023/Itinerary/PresentationDetail.aspx?evdid=2245">Conference
+                                            abstract on PIQE development (ISMRM 2023)</a><br>
+                                        <a href="https://submissions.mirasmart.com/ISMRM2023/Itinerary/PresentationDetail.aspx?evdid=5136">Conference
+                                            abstract on PIQE clinical validation on knee patients (ISMRM 2023)</a><br>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section-20">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+                <div class="col-6 col-sm-10">
+                    <h1>
+                        <a name="ShapeCoil" id="ShapeCoil">⁠</a>Shape Coil
+                    </h1>
+                    <div>
+                        Erin J. Kelly, PhD
+                    </div>
+
+
+                </div>
+
+                <div class="col-6 col-sm-2">
+
+                            <span>
+                                    <img src="https://canonmedical.widen.net/content/zremqy3enh/original/G2K_Erin-Kelly_image.png?u=cglmil&amp;"
+                                         class="img-fluid">
+
+                                <small></small>
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-20">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+                <div class="col-sm-12">
+                    <div>
+                        <span style="font-size: 16pt;">WHAT?</span>
+                        <br>
+                        The Shape Coil is part of a new line of coil technology, offering flexibility in design for
+                        imaging many regions of the body including the torso, pelvis, joints, bones and extremities.
+                        <br>
+                        <br>
+                        <span style="font-size: 16pt;">WHY?</span>
+                        <br>
+                        The Shape Coil is flexible, soft, and light. It can be adapted to conform with each patient’s
+                        body shape and anatomy to improve patient comfort.
+                        <br>
+                        <br>
+                        <span style="font-size: 16pt;">WHEN?</span>
+                        <br>
+                        The Shape Coil can be used when more flexibility in positioning, orientation, acceleration, or
+                        coverage than traditional rigid or Flex coils is needed.
+                    </div>
+                </div>
+                <div class="col-sm-12">
+
+                            <span>
+                                    <img src="https://canonmedical.widen.net/content/fa6jhnlb0u/original/G2K_ShapeCoil_image002-3.jpg?u=cglmil&amp;"
+                                         class="img-fluid center-block">
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="section-10" prefix="l: http://schema.org s: http://www.sdl.com/web/schemas/core"
+                 typeof="l:LinkListTms s:SocialLinks">
+                <a class="pageinquiry btn btn-primary btn-lg btn-block" role="button" target="_blank"
+                   href="https://canonmedical.widen.net/content/avsx3lt8cj/original/MOIMR0130EA_G2K-ShapeCoil.pdf?u=cglmil&amp;">
+                        <span class="pageinquiry">
+                            <i class="pageinquiry zmdi zmdi-info-outline"></i>
+                            Download the full PDF for additional information (printable)
+                        </span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="section-60">
+        <div class="ProductDetailContent ContentArea">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div>
+                        <div class="panel-group" id="sampleAccordion">
+                            <div class="panel panel-default">
+                                <a data-bs-toggle="collapse" data-parent="#sampleAccordion"
+                                   href="#sampleAccordionCollapse25" class="" aria-expanded="true">
+                                    <div class="panel-heading" style="background-color: #cc0000;">
+                                        <h3 class="panel-title" style="text-align: center; color: rgb(255, 255, 255);">
+                                            <i class="zmdi zmdi-plus-circle-o"></i>
+                                            <span style="font-size: 120%;">Additional Links and Resources</span>
+                                        </h3>
+                                    </div>
+                                </a>
+                                <div id="sampleAccordionCollapse25" class="panel-collapse collapse show"
+                                     aria-expanded="false" style="">
+                                    <div class="panel-body">
+                                        <strong>Internal links:</strong><br>
+                                        <a href="https://global.medical.canon/products/magnetic-resonance/shape-coil">Shape
+                                            Coil | MRI | Magnetic Resonance Imaging | Canon Medical Systems</a><br>
+                                        <br>
+                                        <strong>External links (may require logins)</strong><br>
+                                        <a href="https://mriquestions.com/air-coils.html">Magnetism - Questions and
+                                            Answers ​in MRI (mriquestions.com)</a><br>
+                                        <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6175221/">RF coils: A
+                                            practical guide for nonphysicists - PMC (nih.gov)</a><br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
