@@ -5,7 +5,7 @@ import './style.scss'
 
 // eslint-disable-next-line react/prop-types
 const Disclaimer = ({ handleAgree, handleDisagree }) => {
-  const [showModal, setShowModal] = useState(true)
+  const [showModal, setShowModal] = useState(false)
 
   const handleAgreeClick = () => {
     setShowModal(false)
