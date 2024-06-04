@@ -25,6 +25,7 @@ import Landing from './Landing'
 import LandingItem from './Landing/LandingItem'
 import LandingDay from './Landing/LandingDay'
 import Disclaimer from '../Header/Disclaimer'
+import PartneryPage from './Partnery'
 
 const Page = () => {
   const location = useLocation()
@@ -78,11 +79,12 @@ const Page = () => {
       <Switch>
         <Route exact path={`${langPrefix}/`} component={HomePage} />
         <Route exact path={`${langPrefix}/about-us/company/`} component={DefaultPage} />
-        <Route exact path={`${langPrefix}/about-us/partnery/`} component={DefaultPage} />
+        {/*<Route exact path={`${langPrefix}/about-us/partnery/`} component={DefaultPage} />*/}
         <Route exact path={`${langPrefix}/about-us/management-message/`} component={DefaultPage} />
         <Route exact path={`${langPrefix}/about-us/vacancy/`} component={VacanciesPage} />
         <Route exact path={`${langPrefix}/about-us/benefits/`} component={CareersPage} />
         <Route exact path={`${langPrefix}/about-us/life-at-canon/`} component={CareersPage} />
+        <Route exact path={`${langPrefix}/about-us/partnery/`} component={PartneryPage} />
         <Route exact path={`${langPrefix}/contacts/`} component={ContactsPage} />
         <Route exact path={`${langPrefix}/news/`} component={NewsPage} />
         <Route exact path={`${langPrefix}/news/:newsCode/`} component={NewsItemPage} />
