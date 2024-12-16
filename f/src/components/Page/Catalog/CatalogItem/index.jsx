@@ -17,6 +17,25 @@ import goodToKnow from './StaticHtml/GoodToKnow.txt'
 
 const catalogClassName = 'catalog-detail'
 
+const ButtonComponent = ({ className }) => {
+  if (!location.pathname.includes('/en/') &&
+      location.pathname.includes('magnitno-rezonansnaya-tomografiya') &&
+      location.pathname.includes('vantage-orian-encore-upgrade') &&
+      location.pathname.split('/').length <= 5
+    ) {
+    return (
+      <div className={`wrapper ${className}`}>
+        <div className="centered_wrapper custom_wrapper">
+          <a className="request_btn" href="https://rpcanon.de-us.ru/service-support/mrt-modernization/">
+            Заявка на модернизацию МР-томографа
+          </a>
+        </div>
+      </div>
+    );
+  }
+  return null;
+}
+
 const CatalogItemPage = props => {
 
   const [sticky, setSticky] = useState({});
@@ -95,6 +114,7 @@ const CatalogItemPage = props => {
 
   useEffect(() => {
     if (!catalogItemsStoreChunk || inInitialState(catalogItemsStoreChunk)) {
+      console.log("fetching catalog item", catalogItemCode)
       dispatch(fetchCatalogItem(catalogItemCode, region, lang))
     }
     document.documentElement.scrollTop = 0
@@ -140,6 +160,7 @@ const CatalogItemPage = props => {
         <div className={`flex-column ${catalogClassName} ${twoBanner ? '--no-pb' : ' '}`}>
           <div className="container sticky" style={sticky}>
             <h1 dangerouslySetInnerHTML={{__html: catalogItem.name}}/>
+            <ButtonComponent className="outside-text1"/>
             {
               <div className="wrapper" >
                 {catalogItem.menu &&
@@ -184,6 +205,7 @@ const CatalogItemPage = props => {
             }
 
           </div>
+          
           <div className="container">
 
             {catalogItem.previewImage?.src ?
@@ -213,8 +235,9 @@ const CatalogItemPage = props => {
               </div>
               : null
           }
-
-
+          <ButtonComponent className="inside-text1"/>
+          <ButtonComponent className="inside-text2"/>
+          <ButtonComponent className="outside-text2"/>
         </div>
     )
   }

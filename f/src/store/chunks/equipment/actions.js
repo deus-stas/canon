@@ -1,4 +1,4 @@
-import { fetchEquipment as fetchEquipmentFromServer, saveFeedbackForm as saveEquipmentOnServer } from '@/api'
+import { fetchEquipment as fetchEquipmentFromServer, fetchMrtEquipment as fetchMrtEquipmentFromServer, saveFeedbackForm as saveEquipmentOnServer } from '@/api'
 import { STATES } from '../consts'
 import { STORE_CHUNK_STATES_ACTION_TYPES, storeChunkName } from './consts'
 
@@ -30,6 +30,19 @@ export const fetchEquipment = lang => (dispatch, getState) => {
   if (state !== STATES.LOADING) {
     dispatch(setLoadingState())
     fetchEquipmentFromServer(lang)
+      .then((...args) => dispatch(setLoadedState.apply(null, [...args])))
+      .catch((...args) => dispatch(setErrorState.apply(null, ...args)))
+  }
+}
+
+export const fetchMrtEquipment = lang => (dispatch, getState) => {
+  const {
+    [storeChunkName]: { state }
+  } = getState()
+
+  if (state !== STATES.LOADING) {
+    dispatch(setLoadingState())
+    fetchMrtEquipmentFromServer(lang)
       .then((...args) => dispatch(setLoadedState.apply(null, [...args])))
       .catch((...args) => dispatch(setErrorState.apply(null, ...args)))
   }

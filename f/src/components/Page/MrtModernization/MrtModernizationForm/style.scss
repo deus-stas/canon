@@ -1,0 +1,256 @@
+@import 'src/assets/styles/variables';
+
+.feedback-form-container {
+  padding-top: 40px;
+
+  &.--warranty {
+    max-width: 780px;
+    margin: 0 auto;
+
+    .feedback-form {
+      .input-container {
+        width: 100%;
+      }
+    }
+
+    .country-tip {
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+  }
+
+  h3 {
+    font-size: 22px;
+    line-height: 29px;
+    margin-bottom: 24px;
+  }
+
+  .feedback-form {
+    flex-wrap: wrap;
+
+    .feedback-form-row {
+      width: 100%;
+      margin-bottom: 30px;
+
+      &.--hidden {
+        display: none;
+      }
+
+      .feedback-checkboxes {
+        align-items: flex-start;
+      }
+    }
+
+    .input-container {
+      width: calc(50% - 10px);
+      margin-bottom: 30px;
+    }
+
+    label,
+    .label {
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+      order: -1;
+
+      &.feedback-checkbox {
+        font-weight: 400;
+        justify-content: flex-start;
+        align-items: center;
+
+        &.is-sub-checkbox {
+          padding-left: 20px;
+        }
+
+        &.is-hidden {
+          display: none;
+          opacity: 0;
+          transition: opacity 3s ease-in;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        span {
+          transition: color 0.3s;
+          cursor: pointer;
+        }
+
+        &:hover span {
+          color: $red;
+        }
+      }
+
+      &.agreement-label {
+        font-weight: 400;
+      }
+
+      &.required_label {
+        &::after {
+          content: ' *';
+          color: #c00;
+        }
+      }
+    }
+
+    select.required + label::after,
+    textarea.required + label::after,
+    input.required + label::after {
+      content: ' *';
+      color: $red;
+    }
+
+    input[type='text'],
+    input[type='tel'],
+    input[type='email'],
+    input[type='password'],
+    select,
+    textarea {
+      background-color: transparent;
+      border: 1px solid $grey2;
+      color: $font-color;
+      display: block;
+      font-size: 14px;
+      height: 35px;
+      padding: 0 15px;
+      width: 100%;
+      outline: none !important;
+      border-radius: 0;
+
+      &::placeholder {
+        color: $font-color;
+      }
+
+      &:focus {
+        border-color: $black;
+      }
+    }
+
+    textarea {
+      height: 180px;
+      padding-top: 15px;
+      resize: none;
+    }
+
+    input[type='checkbox'] {
+      display: none;
+    }
+
+    select.empty-input,
+    textarea.empty-input,
+    input.empty-input {
+      box-shadow: 0 0 7px rgba(204, 0, 0, 0.4);
+      border-color: $red;
+
+      +.custom-checkbox {
+        box-shadow: 0 0 7px rgba(204, 0, 0, 0.4);
+        border-color: $red;
+      }
+    }
+
+    .custom-checkbox {
+      height: 12px;
+      width: 12px;
+      min-width: 12px;
+      border: 1px solid $grey;
+      display: inline-block;
+      margin-right: 8px;
+      cursor: pointer;
+      position: relative;
+      border-radius: 2px;
+      transition: background-color 0.2s, border-color 0.2s;
+
+      .is-mac & {
+        margin-bottom: 2px;
+      }
+
+      svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.2s;
+      }
+    }
+
+    input:checked + .custom-checkbox {
+      background-color: $red;
+      border-color: $red;
+
+      & svg {
+        opacity: 1;
+      }
+    }
+
+    .message-container {
+      display: none;
+      margin-bottom: 20px;
+
+      svg {
+        display: inline-block;
+        margin-right: 5px;
+      }
+
+      ins {
+        text-decoration: none;
+      }
+
+      &.not-empty {
+        display: block;
+      }
+    }
+
+    .feedback-form-submit {
+      align-self: flex-start;
+    }
+  }
+}
+
+.agreement-container {
+  padding-bottom: 10px;
+
+  .custom-checkbox {
+    margin-top: 6px;
+  }
+
+  .agreement-message {
+    max-width: calc(100% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .feedback-form-container {
+    .feedback-form {
+      .feedback-form-row {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      label,
+      .label {
+        font-size: 14px;
+      }
+
+      &.agreement-label {
+        input {
+          height: 1.2em;
+        }
+      }
+
+      .input-container {
+        width: 100%;
+
+        &:not(:last-child) {
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+}
+
+.country-tip {
+  margin-top: 0.5em;
+  font-size: 16px;
+  color: #7b7b7b;
+}

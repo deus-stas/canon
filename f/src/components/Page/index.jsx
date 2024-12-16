@@ -21,6 +21,7 @@ import VacanciesPage from './Vacancies'
 import CareersPage from './Careers'
 import FeedbackPage from './FeedbackPage'
 import Postwarranty from './Postwarranty'
+import MrtModernization from './MrtModernization'
 import Landing from './Landing'
 import LandingItem from './Landing/LandingItem'
 import LandingDay from './Landing/LandingDay'
@@ -109,6 +110,7 @@ const Page = () => {
         <Route exact path={`${langPrefix}/search/`} component={SearchPage} />
         <Route exact path={`${langPrefix}/service-support/warranty/`} component={FeedbackPage} />
         <Route exact path={`${langPrefix}/service-support/post-warranty/`} component={Postwarranty} />
+        <Route exact path={`${langPrefix}/service-support/mrt-modernization/`} component={MrtModernization} />
         <Route exact path={`${langPrefix}/landings`} component={Landing} />
         <Route exact path={`${langPrefix}/landings/:path1`} component={LandingItem} />
         <Route exact path={`${langPrefix}/landings/:path1/:path2`} component={LandingDay} />
