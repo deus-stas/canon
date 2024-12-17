@@ -53,6 +53,8 @@ class Catalog
             'PROPERTY_LANGUAGE_LINK>language_link',
             'TAGS>tags',
             'UF_REGIONS:array>regions',
+            'UF_NAME_BTN>name_btn',
+            'UF_URL_BTN>url_btn',
             'UF_VIEW:string>disable_tabs',
             'UF_TWO_BANNER:string>two_banner',
         ];
