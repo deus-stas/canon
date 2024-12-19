@@ -23,10 +23,12 @@ const ButtonComponent = ({ className }) => {
       location.pathname.includes('vantage-orian-encore-upgrade') &&
       location.pathname.split('/').length <= 5
     ) {
+      const baseUrl = window.location.origin;
+      const href = `${baseUrl}/service-support/mrt-modernization/`;
     return (
       <div className={`wrapper ${className}`}>
         <div className="centered_wrapper custom_wrapper">
-          <a className="request_btn" href="https://rpcanon.de-us.ru/service-support/mrt-modernization/">
+        <a className="request_btn" href={href}>
             Заявка на модернизацию МР-томографа
           </a>
         </div>
