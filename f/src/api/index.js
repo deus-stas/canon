@@ -292,6 +292,12 @@ export function fetchEquipment(lang = 'ru') {
       .then(getJsonFromResponse)
 }
 
+export function fetchMrtEquipment(lang = 'ru') {
+  return fetch(`/local/api/?action=forms.getModernizationMRTEquipment&lang=${lang}`)
+      .then(handleApiError)
+      .then(getJsonFromResponse)
+}
+
 /**
  * Получаем результаты поиска
  *
@@ -362,6 +368,40 @@ export function saveWarranty(data, lang = 'ru') {
     method: 'POST',
     body: formData
   })
+      .then(handleApiError)
+      .then(getJsonFromResponse)
+}
+
+export function saveMrt(data, lang = 'ru') {
+  const formData = new FormData()
+  formData.append('form_id', data.form_id)
+  formData.append('action', 'forms.saveFormModernizationMRT')
+  // Добавляем значения в FormData
+  Object.entries(data.values).forEach(([key, value]) => {
+    if (key === 'form_file_499' || key === 'form_file_626') {
+      formData.append(key, value, value.name)
+    } else if (key === 'form_checkbox_related') {
+      const checkboxValues = Array.isArray(value) ? value : [value]
+      checkboxValues.forEach(val => {
+        formData.append(`values[${key}][]`, val)
+      })
+    } else {
+      formData.append(`values[${key}]`, value)
+    }
+  })
+  return fetch(`/local/api/?action=forms.saveFormModernizationMRT&lang=${lang}`, {
+    method: 'POST',
+    body: formData
+  })
+      .then(handleApiError)
+      .then(getJsonFromResponse)
+}
+
+
+export function fetchMrtModernization(lang = 'ru') {
+  console.log('api')
+  console.log(fetch(`/local/api/?action=forms.getModernizationMRT&lang=${lang}`))
+  return fetch(`/local/api/?action=forms.getModernizationMRT&lang=${lang}`)
       .then(handleApiError)
       .then(getJsonFromResponse)
 }

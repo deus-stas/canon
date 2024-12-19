@@ -3,4 +3,17 @@
 .default-page {
   padding-top: 40px;
   padding-bottom: 100px;
+
+  .row.py-2 a {
+    border: 1px solid #c00;
+    padding: 4px 8px;
+    border-radius: 8px;
+    color: #c00;
+    font-weight: bold;
+
+    &:hover {
+      color: #fff !important;
+      background-color: #c00 !important;
+    }
+  }
 }
