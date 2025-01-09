@@ -33,12 +33,13 @@ const FeedbackPage = () => {
   }
 
   const { data: pageData } = pageStoreChunk
-
+  const baseUrl = window.location.origin;
+  const href = `${baseUrl}/products/magnitno-rezonansnaya-tomografiya/vantage-orian-encore-upgrade/`;
   return pageData ? (
     <div className={classNames(`${pageClassName} ${pageCode}-${pageClassName}`)}>
       <div className="container contacts-content">
         <div className="wrapper">
-          <a href="https://rpcanon.de-us.ru/products/magnitno-rezonansnaya-tomografiya/vantage-orian-encore-upgrade/" target="_blank" rel="noreferrer">
+          <a href={href} target="_blank" rel="noreferrer">
             <img src={banner} alt="MRT Modernization" />
           </a>
           <MrtModernizationForm />

@@ -5,7 +5,7 @@ import { fetchWarranty } from '@store'
 import { fetchMrtEquipment } from '@store'
 import { inFinalState, inInitialState } from '@store/helpers'
 import { useTemplateContext } from '@contexts/TemplateContext'
-import { saveWarranty } from '@/api'
+import { saveMrt } from '@/api'
 import { openFeedbackFormPopup } from '../../Contacts/FeedbackForm/FeedbackFormPopup/'
 import { PartySuggestions, AddressSuggestions } from 'react-dadata'
 
@@ -40,8 +40,8 @@ const Warranty = props => {
     if (!inFinalState(warrantyStoreChunk) || !inFinalState(equipmentStoreChunk)) {
         return null
     }
-    console.log(warrantyStoreChunk.data)
-    console.log(equipmentStoreChunk.data)
+    // console.log(warrantyStoreChunk.data)
+    // console.log(equipmentStoreChunk.data)
     const { data: feedbackForm } = warrantyStoreChunk
     // console.log("chunnk", warrantyStoreChunk)
     if (feedbackForm.QUESTIONS) {
@@ -124,6 +124,7 @@ const Warranty = props => {
                         [e.target.name]: e.target.files[0]
                     })
                 } else {
+                    console.log("handleChange: ", e, type)
                     // Прочие поля
                     setValues({
                         ...values,
@@ -176,7 +177,7 @@ const Warranty = props => {
         }
 
         const validateForm = e => {
-            // console.log(values)
+            console.log('validate: ', e)
             const emptyInputs = getEmptyInputs(e)
             if (emptyInputs.length) {
                 emptyInputs.map(el => {
@@ -536,7 +537,7 @@ const Warranty = props => {
                                     return (
                                         <>
                                             {/* { input.ANSWERS[0].HTML_NAME } */}
-                                            <div key={index} className="flex-column input-container">
+                                            <div key={index} className="flex-column input-container ">
                                                 <select
                                                     className={inputRequired}
                                                     onChange={handleChange}
@@ -547,7 +548,7 @@ const Warranty = props => {
                                                         Object.values(equipmentStoreChunk.data).map((item, index) => (
                                                             !item.category ?
                                                                 <React.Fragment key={index}>
-                                                                    <option value={''}>{item.name}</option>
+                                                                    <option value={item.name}>{item.name}</option>
                                                                 </React.Fragment> : null
                                                         ))
                                                     }
