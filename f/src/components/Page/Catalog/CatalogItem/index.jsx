@@ -237,8 +237,8 @@ const CatalogItemPage = props => {
               </div>
               : null
           }
-          <ButtonComponent className="inside-text1"/>
-          <ButtonComponent className="inside-text2"/>
+          {/* <ButtonComponent className="inside-text1"/>
+          <ButtonComponent className="inside-text2"/> */}
           <ButtonComponent className="outside-text2"/>
         </div>
     )
