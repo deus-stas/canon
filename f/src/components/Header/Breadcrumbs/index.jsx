@@ -50,7 +50,7 @@ const Breadcrumbs = () => {
           }
           )[0]
 
-
+          console.log('menuItem', menuItem);
 
           if (!menuItem) {
             if (inFinalState(catalogItemsStoreChunk) && pathname) {
@@ -117,15 +117,25 @@ const Breadcrumbs = () => {
                 <svg width="5" height="7" viewBox="0 0 5 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M1 1L3.5 3.5L1 6" stroke="#808080" />
                 </svg>
-                {
-                  menuItem?.name === '200G' || menuItem?.name === '100G' || menuItem?.name === 'a450' || menuItem?.name === 'a550' || menuItem?.name === 'Aplio a'  ?
-                  (
-                    <Link to={routTo + '/imaging'} dangerouslySetInnerHTML={{ __html: menuItem?.name }} />
-                  ) :
-                  (
-                    <Link to={routTo} dangerouslySetInnerHTML={{ __html: menuItem?.name }} />
-                  )
-                }
+                {(() => {
+                  if (
+                    menuItem?.name === '200G' ||
+                    menuItem?.name === '100G' ||
+                    menuItem?.name === 'a450' ||
+                    menuItem?.name === 'a550' ||
+                    menuItem?.name === 'Aplio a'
+                  ) {
+                    return <Link to={routTo + '/imaging'} dangerouslySetInnerHTML={{ __html: menuItem?.name }} />;
+                  } else if (menuItem?.code === 'about-us') {
+                    return <Link to={routTo + '/company/'} dangerouslySetInnerHTML={{ __html: menuItem?.name }} />;
+                  } else if (menuItem?.code === 'service-support') {
+                    return <Link to={routTo + '/service/'} dangerouslySetInnerHTML={{ __html: menuItem?.name }} />;
+                  } else if (menuItem?.code === 'events') {
+                    return <Link to={routTo + '/ochnye/'} dangerouslySetInnerHTML={{ __html: menuItem?.name }} />;
+                  } else {
+                    return <Link to={routTo} dangerouslySetInnerHTML={{ __html: menuItem?.name }} />;
+                  }
+                })()}
               </li>
             ) :
             (
